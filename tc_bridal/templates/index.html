@@ -217,71 +217,87 @@
 
         
 <!-- Main body Section with Background Image     -->
-<div style="padding-top: 180px;">
-    <div style="background-image: url('static/tc_bridal/img/next1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; min-height: 100%; padding: 20px 0;">
-      <section class="container my-4" style="background: transparent; border-radius: 20px; padding: 20px;">
-        <div class="row g-4 shadow-lg rounded-4 overflow-hidden">
-  
-          <!-- Text Column -->
-          <div class="col-12 col-md-4 bg-light d-flex flex-column justify-content-center align-items-center p-4 text-center"
-               id="textColumn"
-               style="opacity: 0; transform: translateY(50px); transition: opacity 2s ease, transform 2s ease;">
-            <h2 class="mb-3" style="color: #d63384; font-family: 'Great Vibes', cursive;">Welcome!</h2>
-            <h3 style="font-family: 'Segoe Print', cursive; font-weight: bold;">To</h3>
-            <h2 style="font-family: 'Segoe Print', cursive; font-weight: bold;">TC BRIDALS</h2>
-  
-            <p class="text-muted" style="font-family: 'Segoe UI', sans-serif;">
-              <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
-              <span>From the gowns that we wear with the help of the best Designers</span><br>
-              <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
-              <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
-            </p>
-          </div>
-  
-          <!-- Image Column -->
-          <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <div id="imageBox" style="opacity: 0; transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
-              <img src="{% static 'tc_bridal/img/next.jpg' %}" alt="Bridal Login" class="img-fluid" style="max-height: 600px;">
-            </div>
-          </div>
-  
-          <!-- Form Column -->
-          <div id="register-form" class="col-12 col-md-4 bg-white p-4 d-flex flex-column justify-content-center">
-            <h4 class="mb-4 text-center fw-bold" style="color: #d63384;">Subcribe with Your Email</h4>
-            <p style="font-weight: bold;">For our latest product Updates and News</p>
-            <form action="{% url 'home' %}" method="post">
-              {% csrf_token %}
-              <div class="mb-3">
-                <label for="email" class="form-label">Full names</label>
-                <input name="full-name" type="text" class="form-control" id="fname" placeholder="Enter your full names" required>
-              </div>
-              
-              <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email" required>
-              </div>
-              <div class="mb-3 form-check">
-                <input name="remember-Me" type="checkbox" class="form-check-input" id="rememberMe" r>
-                <label class="form-check-label" for="rememberMe">Remember me</label>
-              </div>
+<div style="position: relative; padding-top: 180px;">
 
-              <button type="submit" class="btn btn-primary w-100" style="background-color: #d63384; border: none; text-align: center;">
-                Subcribe 
-              </button>
-
-              <h5 style="text-align: center; padding-top: 10px;">if You have already Subcribe, DON'T Subcribe again!!</h5>
-
-              <p class="mt-3 text-center">
-                <a class="text-decoration-none text-muted">"Customer data is highly valued and protected"</a>
-              </p>
-            </form>
-          </div>
-
-  
-        </div>
-      </section>
-    </div>
+  <!-- Blur Overlay for Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('static/tc_bridal/img/next1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(20px); /* Apply the blur effect here */
+    z-index: -1;"> <!-- Negative z-index to place it behind content -->
   </div>
+
+  <!-- Content Section (Text, Form, etc.) -->
+  <div style="position: relative;  width: 100%; min-height: 100%; padding: 20px 0;">
+
+    <section class="container my-4" style="background: transparent; border-radius: 20px; padding: 20px;">
+      <div class="row g-4 shadow-lg rounded-4 overflow-hidden">
+
+        <!-- Text Column -->
+        <div class="col-12 col-md-4 bg-white d-flex flex-column justify-content-center align-items-center p-4 text-center"
+             id="textColumn"
+             style="opacity: 0; transform: translateY(50px); transition: opacity 2s ease, transform 2s ease;">
+          <h2 class="mb-3" style="color: #d63384; font-family: 'Great Vibes', cursive;">Welcome!</h2>
+          <h3 style="font-family: 'Segoe Print', cursive; font-weight: bold;">To</h3>
+          <h2 style="font-family: 'Segoe Print', cursive; font-weight: bold;">TC BRIDALS</h2>
+
+          <p class="text-muted" style="font-family: 'Segoe UI', sans-serif;">
+            <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
+            <span>From the gowns that we wear with the help of the best Designers</span><br>
+            <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
+            <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
+          </p>
+        </div>
+
+        <!-- Image Column -->
+        <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+          <div id="imageBox" style="opacity: 0; transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
+            <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Bridal Login" class="img-fluid" style="max-height: 600px;">
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div id="register-form" class="col-12 col-md-4 bg-light  p-4 d-flex flex-column justify-content-center">
+          <h4 class="mb-4 text-center fw-bold" style="color: #d63384;">Subscribe with Your Email</h4>
+          <p style="font-weight: bold;">For our latest product Updates and News</p>
+          <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="email" class="form-label">Full names</label>
+              <input name="full-name" type="text" class="form-control" id="fname" placeholder="Enter your full names" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input name="remember-Me" type="checkbox" class="form-check-input" id="rememberMe" r>
+              <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" style="background-color: #d63384; border: none; text-align: center;">
+              Subscribe
+            </button>
+
+            <h5 style="text-align: center; padding-top: 10px;">If you have already subscribed, DON'T subscribe again!!</h5>
+
+            <p class="mt-3 text-center">
+              <a class="text-decoration-none text-muted">"Customer data is highly valued and protected"</a>
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
 
 {% endif %}
   
