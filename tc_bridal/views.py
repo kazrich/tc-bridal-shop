@@ -17,11 +17,11 @@ def home(request):
             fail_silently=False
         )
 
-        return render(request, 'home.html', {
+        return render(request, 'index.html', {
             'full_name': full_name,
         })
 
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
 
 
