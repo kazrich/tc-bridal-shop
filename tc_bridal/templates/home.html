@@ -1,0 +1,600 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore elegant bridal shoes and accessories at TC Bridal Shop. Step into style and comfort on your special day." />
+  <meta name="keywords" content="bridal shop, wedding shoes, bridal accessories, Kampala bridal wear, TC Bridal" />
+  <meta name="author" content="TC Bridal Shop" />
+
+  <title>Home | TC Bridal Shop</title>
+  <link rel="icon" href="{% static 'tc_bridal/img/logo.png' %} " type="image/png" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
+  <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Shop now at TC Bridal Shop." />
+  <meta property="og:image" content="https://yourdomain.com/img/logo.png" />
+  <meta property="og:url" content="https://yourdomain.com/ceo.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Custom CSS -->
+  <style>
+    .dropdown-menu {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    .dropdown-menu.show-animation {
+      opacity: 1 !important;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991px) {
+      #navbarNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        padding: 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 9999;
+      }
+      #navbarNav.active {
+        transform: translateX(0);
+      }
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      z-index: 1050;
+    }
+    #mobileMenu.show {
+      display: block;
+    }
+    .mobile-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+    }
+    .mobile-sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 80%;
+      max-width: 300px;
+      background: white;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    #mobileMenu.show .mobile-sidebar {
+      transform: translateX(0);
+    }
+
+    .fade-up-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+  }
+    
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION SECTION -->
+    <!-- Top Banner -->
+    <section class="fixed-top">
+      <div id="topBanner" class="over d-flex justify-content-center align-items-center p-2 bg-light">
+        <a href="{% url 'appoint'  %}" class="text-decoration-none d-flex align-items-center">
+          <h3 class="mb-0 me-5" id="ban" style="font-family: 'Great Vibes', cursive; font-weight: lighter; color: #d63384; font-size: 22px;">
+            <i class="fas fa-calendar-check me-2"></i>Click To Make Your Booking
+          </h3>
+        </a>
+      </div>
+  
+      <!-- Header/Navbar -->
+      <header id="mainHeader" style="box-shadow: 0px 12px 4px rgba(0, 0, 0, 0.1);">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+          <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+              <img src="{% static 'tc_bridal/img/logo.png' %}" alt="TC BRIDALS" width="80px" class="me-2" />
+              <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">TC BRIDALS</h2>
+            </a>
+  
+            <!-- Mobile Toggle -->
+            <button class="btn btn-outline-dark d-lg-none" id="openSidebar">
+              <i class="fas fa-bars"></i>
+            </button>
+  
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ACCESSORIES</a>
+                  <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
+                    <li><a class="dropdown-item" href="{% url 'necklaces' %}">Necklaces</a></li>
+                    <li><a class="dropdown-item" href="{% url 'earring' %}">Earrings</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bracelets' %}">Bracelets</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
+                    <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
+                    <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ABOUT US</a>
+                  <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                    <li><a class="dropdown-item" href="{% url 'ceo' %}">TC BRIDAL CEO</a></li>
+                    <li><a class="dropdown-item" href="#location">Location</a></li>
+                    <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">EVENT</a></li>
+              </ul>
+  
+              <!-- Search -->
+              <form class="d-flex ms-lg-3 mt-3 mt-lg-0">
+                <input class="form-control me-2" type="search" placeholder="Search here" />
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+  
+      <!-- Mobile Menu Sidebar -->
+      <div id="mobileMenu" class="d-lg-none">
+        <div class="mobile-overlay" id="menuOverlay"></div>
+        <div class="mobile-sidebar bg-white p-4 shadow-lg">
+          <button class="btn-close float-end" id="closeSidebar"></button>
+          <ul class="list-unstyled mt-5">
+            <li><a href="#" class="d-block fw-bold py-2">Home</a></li>
+            
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="{% url 'necklaces' %}" class="d-block py-2">Necklaces</a></li>
+                <li><a href="{% url 'earring' %}" class="d-block py-2">Earrings</a></li>
+                <li><a href="{% url 'bracelets' %}" class="d-block py-2">Bracelets</a></li>
+                <li><a href="{% url 'bags' %}" class="d-block py-2">Bags</a></li>
+                <li><a href="{% url 'shoes' %}" class="d-block py-2">Shoes</a></li>
+                <li><a href="{% url 'veils' %}" class="d-block py-2">Veils & Headpieces</a></li>
+                <li><a href="{% url 'makeup' %}" class="d-block py-2">Makeup</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">About Us<i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="{% url 'ceo' %}" class="d-block py-2">TC BRIDAL CEO</a></li>
+                <li><a href="#location" class="d-block py-2">Location</a></li>
+                <li><a href="#working-hours" class="d-block py-2">Working Hours</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'events' %}" class="d-block fw-bold py-2">Events</a></li>
+          </ul>
+  
+          <div class="text-center mt-5">
+            <form class="d-flex">
+              <input type="text" class="form-control me-2" placeholder="Search..." />
+              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i> Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- ... KEEP YOUR FULL NAVIGATION SECTION HERE (NO CHANGE NEEDED) ... -->
+
+
+{% if full_name %}
+  <div style="margin: 100px auto; padding: 40px; background-color: #fff0f5; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding-top: 180px;">
+    <i class="fa-solid fa-circle-check fa-3x" style="color: #d63384;"></i>
+    <h2 class="mt-3" style="color: #d63384; font-weight: bold;">Hello, {{ full_name }}!</h2>
+    
+    <p>In no time, we are going to keep you updated on my <span style="font-weight: bold;">product Arrivals, Offers and TC bridal Events</span></p>
+
+    <p style="font-size: 0.95rem; color: gray;">Your data is secure with us. 💌</p>
+  </div>
+{% else %}
+
+        
+<!-- Main body Section with Background Image     -->
+<div style="padding-top: 180px;">
+    <div style="background-image: url('static/tc_bridal/img/next1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; min-height: 100%; padding: 20px 0;">
+      <section class="container my-4" style="background: transparent; border-radius: 20px; padding: 20px;">
+        <div class="row g-4 shadow-lg rounded-4 overflow-hidden">
+  
+          <!-- Text Column -->
+          <div class="col-12 col-md-4 bg-light d-flex flex-column justify-content-center align-items-center p-4 text-center"
+               id="textColumn"
+               style="opacity: 0; transform: translateY(50px); transition: opacity 2s ease, transform 2s ease;">
+            <h2 class="mb-3" style="color: #d63384; font-family: 'Great Vibes', cursive;">Welcome!</h2>
+            <h3 style="font-family: 'Segoe Print', cursive; font-weight: bold;">To</h3>
+            <h2 style="font-family: 'Segoe Print', cursive; font-weight: bold;">TC BRIDALS</h2>
+  
+            <p class="text-muted" style="font-family: 'Segoe UI', sans-serif;">
+              <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
+              <span>From the gowns that we wear with the help of the best Designers</span><br>
+              <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
+              <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
+            </p>
+          </div>
+  
+          <!-- Image Column -->
+          <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div id="imageBox" style="opacity: 0; transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
+              <img src="{% static 'tc_bridal/img/next.jpg' %}" alt="Bridal Login" class="img-fluid" style="max-height: 600px;">
+            </div>
+          </div>
+  
+          <!-- Form Column -->
+          <div id="register-form" class="col-12 col-md-4 bg-white p-4 d-flex flex-column justify-content-center">
+            <h4 class="mb-4 text-center fw-bold" style="color: #d63384;">Subcribe with Your Email</h4>
+            <p style="font-weight: bold;">For our latest product Updates and News</p>
+            <form action="{% url 'home' %}" method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="email" class="form-label">Full names</label>
+                <input name="full-name" type="text" class="form-control" id="fname" placeholder="Enter your full names" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="mb-3 form-check">
+                <input name="remember-Me" type="checkbox" class="form-check-input" id="rememberMe" r>
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100" style="background-color: #d63384; border: none; text-align: center;">
+                Subcribe 
+              </button>
+
+              <p class="mt-3 text-center">
+                <a class="text-decoration-none text-muted">"Customer data is highly valued and protected"</a>
+              </p>
+            </form>
+          </div>
+
+  
+        </div>
+      </section>
+    </div>
+  </div>
+
+{% endif %}
+  
+
+
+<!-- Example Section that will animate -->
+<div data-aos="fade-up" data-aos-duration="2000"> <!-- Duration set to 2 seconds -->
+  <div class="container py-4">
+    <div>
+      <div class="container py-5">
+        <div class="row justify-content-center animated-row">
+          <div style="text-align: center;">
+              <h2 id="collection-title" class="animate-title fancy-underline mb-5"
+                  style="font-weight: bolder; color: #000; font-family: 'Myanmar Text'; font-size: 36px; display: inline-block; position: relative; margin-bottom: 2rem;">
+                <span id="hover-title" style="position: relative;">Gowns & Dresses</span> quick search
+                <span id="hover-underline"
+                      style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
+                             width: 0; height: 2px; background-color: #d63384; transition: width 0.5s ease;"></span>
+              </h2>
+          </div>
+
+          <!-- START: Collection Items -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4 collection-item">
+            <div class="hover-image image-card fade-up-item">
+              <div class="image-box position-relative">
+                <a href="{% url 'evening' %}">
+                  <img src="{% static 'tc_bridal/img/Evening2.jpg' %}" alt="Before look" class="img-fluid rounded shadow">
+                  <div class="image-text">Evening Gowns</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4 collection-item">
+            <div class="hover-image image-card fade-up-item">
+              <div class="image-box position-relative">
+                <a href="{% url 'kids' %}">
+                  <img src="{% static 'tc_bridal/img/kid2.jpg' %}" alt="Before look" class="img-fluid rounded shadow">
+                  <div class="image-text">Kids Gowns</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4 collection-item">
+            <div class="hover-image image-card fade-up-item">
+              <div class="image-box position-relative">
+                <a href="{% url 'maid' %}">
+                  <img src="{% static 'tc_bridal/img/maid1.jpg' %}" alt="Before look" class="img-fluid rounded shadow">
+                  <div class="image-text">Maid Dresses</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- END: Collection Items -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<!-- Promotion Banner -->
+<div class="promotion-banner text-center" style="background: linear-gradient(135deg, #ffe4ec, #fff); padding: 50px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <!-- Carousel Section -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div id="promotionCarousel" class="carousel slide" data-bs-ride="carousel" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div class="carousel-inner">
+              <!-- Slides -->
+              <div class="carousel-item active">
+                <img src="{% static 'tc_bridal/img/new.jpg' %}" alt="Promotion Image 1" class="d-block w-100" style="height: 650px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'tc_bridal/img/new1.jpg' %}" alt="Promotion Image 2" class="d-block w-100" style="height: 650px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'tc_bridal/img/new2.jpg' %}" alt="Promotion Image 3" class="d-block w-100" style="height: 650px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'tc_bridal/img/new3.jpg' %}" alt="Promotion Image 4" class="d-block w-100" style="height: 650px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'tc_bridal/img/new4.jpg' %}" alt="Promotion Image 5" class="d-block w-100" style="height: 650px; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'tc_bridal/img/new5.jpg' %}" alt="Promotion Image 6" class="d-block w-100" style="height: 650px; object-fit: cover;">
+              </div>
+            </div>
+            <!-- Controls -->
+            
+          </div>
+        </div>
+  
+        <!-- Text Column with Smooth Fade-Up -->
+        <div class="col-md-6 fade-up" id="promoText"style="color: #000; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; font-weight: bold; margin-bottom: 15px; color: #000;">
+                Exclusive Offer Just For You!
+            </h2>
+            <p style="font-family: 'Segoe UI', sans-serif; font-size: 18px; margin-bottom: 25px; color: #000;">
+                💖 Get <strong>20% OFF</strong> on All Bridal Accessories for a Limited Time.<br>Hurry, offer ends soon!
+            </p>
+            <div class="text-center mb-5">
+              <a href="{% url 'inquires' %}" class="btn btn-inquire">
+                <i class="fas fa-envelope-open-text"></i> Inquire Now
+              </a>
+          </div>
+        </div>
+
+  
+      </div>
+    </div>
+  </div>
+
+
+  
+
+
+<!-- Footer -->
+<footer class="bg-light text-black py-4 mt-5 px-3">
+    <div class="container">
+        <!-- Row 1: Info Sections in One Line -->
+        <div class="row text-center text-md-start mb-4">
+        <!-- Working Hours -->
+        <div class="col-md-3" id="working-hours">
+            <h5 class="fw-bold"><i class="far fa-clock me-2"></i>Working Hours</h5>
+            <p><strong style="font-family: 'Myanmar Text';">Mon - Thur:</strong> 8:00 AM - 8:30 PM</p>
+            <p><strong style="font-family: 'Myanmar Text';">Fri:</strong> 10:00 AM - 8:30 PM</p>
+            <p><strong style="font-family: 'Myanmar Text';">Sat:</strong> 8:00 AM - 8:30 PM</p>
+            <p><strong style="font-family: 'Myanmar Text';">Sun:</strong> 12:00 PM - 6:00 PM</p>
+        </div>
+    
+        <!-- Gowns and Dresses -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">
+          <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
+          </h5>
+          <ul class="list-unstyled" id="show">
+          <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
+          <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
+          <li><a href="{% url 'maid' %}">Maid Dresses</a></li>
+          </ul>
+      </div>
+
+
+      <!-- Accessories -->
+      <div class="col-md-3">
+        <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
+        <ul class="list-unstyled" id="show">
+          <li><a  href="{% url 'necklaces' %}">Necklaces</a></li>
+          <li><a  href="{% url 'earring' %}">Earrings</a></li>
+          <li><a  href="{% url 'bracelets' %}">Bracelets</a></li>
+          <li><a  href="{% url 'bags' %}">Bags</a></li>
+          <li><a  href="{% url 'shoes' %}">Shoes</a></li>
+          <li><a  href="{% url 'veils' %}">Veils & Headpieces</a></li>
+          <li><a  href="{% url 'makeup' %}">Makeup</a></li>
+        </ul>
+      </div>
+    
+        <!-- Contact Info -->
+        <div class="col-md-3" id="location">
+            <h5 class="fw-bold"><i class="fas fa-envelope me-2"></i>Contact Us</h5>
+            <p><strong style="font-family: 'Myanmar Text';">Email:</strong> tcbridals@gmail.com</p>
+            <p><strong style="font-family: 'Myanmar Text';">Phone:</strong> +256 (0) 752 823545</p>
+            <p><strong style="font-family: 'Myanmar Text';">Address:</strong> South Point Mall, Kabalagala<br>along Ggaba road<br>Kampala, Uganda</p>
+        </div>
+        </div>
+    
+        <!-- Row 2: Social Media -->
+        <div class="row text-center mb-3">
+        <div class="col">
+            <h5 class="fw-bold">Follow Us</h5>
+            <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-tiktok me-1"></i>TikTok</a>
+            <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-instagram me-1"></i>Instagram</a>
+            <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a>
+        </div>
+        </div>
+    
+        <!-- Row 3: Copyright -->
+        <div class="row text-center">
+        <div class="col">
+            <p class="mb-0 fw-bold">&copy; 2025 TC BRIDAL SHOP. All rights reserved.</p>
+        </div>
+        </div>
+    </div>
+</footer>
+
+<!--java script-->
+<script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
+  <!-- JS SECTION -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JS to Trigger Animation on Scroll -->
+
+<script>
+
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const fadeItems = document.querySelectorAll('.fade-up-item');
+
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Apply smooth fade-in with slow transition
+          entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        } else {
+          // Apply smooth fade-out with slow transition
+          entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = "translateY(40px)";
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    fadeItems.forEach(item => fadeInObserver.observe(item));
+  });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textColumn = document.getElementById("textColumn");
+    const imageBox = document.getElementById("imageBox");
+    const promoText = document.getElementById("promoText");
+
+    const options = {
+      threshold: 0.3
+    };
+
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        } else {
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = "translateY(50px)";
+        }
+      });
+    }, options);
+
+    // Observing all relevant elements
+    if (textColumn) fadeInObserver.observe(textColumn);
+    if (imageBox) fadeInObserver.observe(imageBox);
+    if (promoText) fadeInObserver.observe(promoText);
+  });
+
+
+  
+     document.addEventListener("DOMContentLoaded", function () {
+    const textColumn = document.getElementById("textColumn");
+    const imageBox = document.getElementById("imageBox");
+
+    const options = {
+      threshold: 0.3
+    };
+
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        } else {
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = "translateY(50px)";
+        }
+      });
+    }, options);
+
+    if (textColumn) fadeInObserver.observe(textColumn);
+    if (imageBox) fadeInObserver.observe(imageBox);
+  });
+
+    // Dropdown hover animation
+    document.querySelectorAll('.dropdown').forEach(drop => {
+        drop.addEventListener('show.bs.dropdown', function () {
+          this.querySelector('.dropdown-menu').classList.add('show-animation');
+        });
+        drop.addEventListener('hide.bs.dropdown', function () {
+          this.querySelector('.dropdown-menu').classList.remove('show-animation');
+        });
+      });
+
+      // Mobile menu toggle
+      const openSidebar = document.getElementById("openSidebar");
+      const closeSidebar = document.getElementById("closeSidebar");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      openSidebar?.addEventListener("click", () => {
+        mobileMenu.classList.add("show");
+      });
+
+      closeSidebar?.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+      });
+
+      // Toggle mobile submenus
+      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          const submenu = this.nextElementSibling;
+          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+</script>
+
+</body>
+</html>

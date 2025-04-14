@@ -1,0 +1,399 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore elegant bridal shoes and accessories at TC Bridal Shop. Step into style and comfort on your special day." />
+  <meta name="keywords" content="bridal shop, wedding shoes, bridal accessories, Kampala bridal wear, TC Bridal" />
+  <meta name="author" content="TC Bridal Shop" />
+
+  <title>Necklaces | TC Bridal Shop</title>
+  <link rel="icon" href="{% static 'tc_bridal/img/logo.png' %}" type="image/png" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
+  <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Shop now at TC Bridal Shop." />
+  <meta property="og:image" content="https://yourdomain.com/img/logo.png" />
+  <meta property="og:url" content="https://yourdomain.com/ceo.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Custom CSS -->
+  <style>
+    .dropdown-menu {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    .dropdown-menu.show-animation {
+      opacity: 1 !important;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991px) {
+      #navbarNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        padding: 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 9999;
+      }
+      #navbarNav.active {
+        transform: translateX(0);
+      }
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      z-index: 1050;
+    }
+    #mobileMenu.show {
+      display: block;
+    }
+    .mobile-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+    }
+    .mobile-sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 80%;
+      max-width: 300px;
+      background: white;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    #mobileMenu.show .mobile-sidebar {
+      transform: translateX(0);
+    }
+
+    #background-image {
+    background-image: url("{% static 'tc_bridal/img/necklace.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    position: relative;
+    color: white;
+    }
+  </style>
+</head>
+
+<body>
+ <!-- NAVIGATION SECTION -->
+    <!-- Top Banner -->
+    <section class="fixed-top">
+      <div id="topBanner" class="over d-flex justify-content-center align-items-center p-2 bg-light">
+        <a href="{% url 'appoint'  %}" class="text-decoration-none d-flex align-items-center">
+          <h3 class="mb-0 me-5" id="ban" style="font-family: 'Great Vibes', cursive; font-weight: lighter; color: #d63384; font-size: 22px;">
+            <i class="fas fa-calendar-check me-2"></i>Click To Make Your Booking
+          </h3>
+        </a>
+      </div>
+  
+      <!-- Header/Navbar -->
+      <header id="mainHeader" style="box-shadow: 0px 12px 4px rgba(0, 0, 0, 0.1);">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+          <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+              <img src="{% static 'tc_bridal/img/logo.png' %}" alt="TC BRIDALS" width="80px" class="me-2" />
+              <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">TC BRIDALS</h2>
+            </a>
+  
+            <!-- Mobile Toggle -->
+            <button class="btn btn-outline-dark d-lg-none" id="openSidebar">
+              <i class="fas fa-bars"></i>
+            </button>
+  
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">HOME</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ACCESSORIES</a>
+                  <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
+                    <li><a class="dropdown-item" href="#">Necklaces</a></li>
+                    <li><a class="dropdown-item" href="{% url 'earring' %}">Earrings</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bracelets' %}">Bracelets</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
+                    <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
+                    <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ABOUT US</a>
+                  <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                    <li><a class="dropdown-item" href="{% url 'ceo' %}">TC BRIDAL CEO</a></li>
+                    <li><a class="dropdown-item" href="#location">Location</a></li>
+                    <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">EVENT</a></li>
+              </ul>
+  
+              <!-- Search -->
+              <form class="d-flex ms-lg-3 mt-3 mt-lg-0">
+                <input class="form-control me-2" type="search" placeholder="Search here" />
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+  
+      <!-- Mobile Menu Sidebar -->
+      <div id="mobileMenu" class="d-lg-none">
+        <div class="mobile-overlay" id="menuOverlay"></div>
+        <div class="mobile-sidebar bg-white p-4 shadow-lg">
+          <button class="btn-close float-end" id="closeSidebar"></button>
+          <ul class="list-unstyled mt-5">
+            <li><a href="{% url 'home' %}" class="d-block fw-bold py-2">Home</a></li>
+            
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="#" class="d-block py-2">Necklaces</a></li>
+                <li><a href="{% url 'earring' %}" class="d-block py-2">Earrings</a></li>
+                <li><a href="{% url 'bracelets' %}" class="d-block py-2">Bracelets</a></li>
+                <li><a href="{% url 'bags' %}" class="d-block py-2">Bags</a></li>
+                <li><a href="{% url 'shoes' %}" class="d-block py-2">Shoes</a></li>
+                <li><a href="{% url 'veils' %}" class="d-block py-2">Veils & Headpieces</a></li>
+                <li><a href="{% url 'makeup' %}" class="d-block py-2">Makeup</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">About Us<i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="{% url 'ceo' %}" class="d-block py-2">TC BRIDAL CEO</a></li>
+                <li><a href="#location" class="d-block py-2">Location</a></li>
+                <li><a href="#working-hours" class="d-block py-2">Working Hours</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'events' %}" class="d-block fw-bold py-2">Events</a></li>
+          </ul>
+  
+          <div class="text-center mt-5">
+            <form class="d-flex">
+              <input type="text" class="form-control me-2" placeholder="Search..." />
+              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i> Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- ... KEEP YOUR FULL NAVIGATION SECTION HERE (NO CHANGE NEEDED) ... -->
+
+<!-- Section with background and text -->
+<div style="padding-top: 180px;">
+    <section class="feature-section" id="background-image">
+      <div class="overlay">
+        <div class="text-content">
+          <h2>Necklaces</h2>
+          <h4>Timeless Elegance Around Your Neck 💖</h4>
+          <p>
+            <i class="fas fa-gem"></i> Add a touch of sparkle with delicate and dazzling bridal necklaces.<br>
+            <i class="fas fa-heart"></i> From classic pearls to statement crystals, there's a piece for every bride.<br>
+            <i class="fas fa-hand-sparkles"></i> Carefully crafted to complement your gown and your glow.
+          </p>
+        </div>
+      </div>
+    </section>
+</div>
+  
+  
+</div>
+  
+
+  <section >
+    <div class="container py-4">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/necklace1.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/necklace2.jpg' %}" alt="Item 2" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/necklace3.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/necklace4.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <a href="{% url 'inquires' %}" class="btn btn-inquire">
+          <i class="fas fa-envelope-open-text"></i> Inquire Now
+        </a>
+    </div>
+</section>
+        
+  
+
+<!-- Footer -->
+<footer class="bg-light text-black py-4 mt-5 px-3">
+  <div class="container">
+      <!-- Row 1: Info Sections in One Line -->
+      <div class="row text-center text-md-start mb-4">
+      <!-- Working Hours -->
+      <div class="col-md-3" id="working-hours">
+          <h5 class="fw-bold"><i class="far fa-clock me-2"></i>Working Hours</h5>
+          <p><strong style="font-family: 'Myanmar Text';">Mon - Thur:</strong> 8:00 AM - 8:30 PM</p>
+          <p><strong style="font-family: 'Myanmar Text';">Fri:</strong> 10:00 AM - 8:30 PM</p>
+          <p><strong style="font-family: 'Myanmar Text';">Sat:</strong> 8:00 AM - 8:30 PM</p>
+          <p><strong style="font-family: 'Myanmar Text';">Sun:</strong> 12:00 PM - 6:00 PM</p>
+      </div>
+  
+      <!-- Gowns and Dresses -->
+      <div class="col-md-3">
+        <h5 class="fw-bold">
+        <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
+        </h5>
+        <ul class="list-unstyled" id="show">
+        <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
+        <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
+        <li><a href="{% url 'maid' %}">Maid Dresses</a></li>
+        </ul>
+    </div>
+
+
+    <!-- Accessories -->
+    <div class="col-md-3">
+      <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
+      <ul class="list-unstyled" id="show">
+        <li><a  href="#">Necklaces</a></li>
+        <li><a  href="{% url 'earring' %}">Earrings</a></li>
+        <li><a  href="{% url 'bracelets' %}">Bracelets</a></li>
+        <li><a  href="{% url 'bags' %}">Bags</a></li>
+        <li><a  href="{% url 'shoes' %}">Shoes</a></li>
+        <li><a  href="{% url 'veils' %}">Veils & Headpieces</a></li>
+        <li><a  href="{% url 'makeup' %}">Makeup</a></li>
+      </ul>
+    </div>
+  
+      <!-- Contact Info -->
+      <div class="col-md-3" id="location">
+          <h5 class="fw-bold"><i class="fas fa-envelope me-2"></i>Contact Us</h5>
+          <p><strong style="font-family: 'Myanmar Text';">Email:</strong> tcbridals@gmail.com</p>
+          <p><strong style="font-family: 'Myanmar Text';">Phone:</strong> +256 (0) 752 823545</p>
+          <p><strong style="font-family: 'Myanmar Text';">Address:</strong> South Point Mall, Kabalagala<br>along Ggaba road<br>Kampala, Uganda</p>
+      </div>
+      </div>
+  
+      <!-- Row 2: Social Media -->
+      <div class="row text-center mb-3">
+      <div class="col">
+          <h5 class="fw-bold">Follow Us</h5>
+          <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-tiktok me-1"></i>TikTok</a>
+          <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-instagram me-1"></i>Instagram</a>
+          <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a>
+      </div>
+      </div>
+  
+      <!-- Row 3: Copyright -->
+      <div class="row text-center">
+      <div class="col">
+          <p class="mb-0 fw-bold">&copy; 2025 TC BRIDAL SHOP. All rights reserved.</p>
+      </div>
+      </div>
+  </div>
+</footer>
+
+<!--java script-->
+<script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
+  <!-- JS SECTION -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JS to Trigger Animation on Scroll -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const kidsCollection = document.getElementById("kidsCollection");
+
+    const observerOptions = { threshold: 0.3 };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('*').forEach((element) => {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          });
+        } else {
+          entry.target.querySelectorAll('*').forEach((element) => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(30px)";
+          });
+        }
+      });
+    }, observerOptions);
+
+    fadeObserver.observe(kidsCollection);
+  });
+
+  // Dropdown hover animation
+  document.querySelectorAll('.dropdown').forEach(drop => {
+      drop.addEventListener('show.bs.dropdown', function () {
+        this.querySelector('.dropdown-menu').classList.add('show-animation');
+      });
+      drop.addEventListener('hide.bs.dropdown', function () {
+        this.querySelector('.dropdown-menu').classList.remove('show-animation');
+      });
+    });
+
+    // Mobile menu toggle
+    const openSidebar = document.getElementById("openSidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    openSidebar?.addEventListener("click", () => {
+      mobileMenu.classList.add("show");
+    });
+
+    closeSidebar?.addEventListener("click", () => {
+      mobileMenu.classList.remove("show");
+    });
+
+    // Toggle mobile submenus
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const submenu = this.nextElementSibling;
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+</script>
+
+</body>
+</html>
