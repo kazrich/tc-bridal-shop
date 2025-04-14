@@ -196,7 +196,7 @@
 
 
 
-    {% if name and email %}
+  {% if name and email %}
     <div style="
       max-width: 550px;
       margin: 160px auto 40px;
@@ -222,8 +222,25 @@
       <div style="margin-top: 20px; font-size: 18px;">
         <i class="fas fa-headset"></i> We're here to assist you!
       </div>
+  
+      <!-- Back to Home Button -->
+      <a href="{% url 'home' %}" style="
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 24px;
+        background-color: #e83e8c;
+        color: white;
+        font-weight: 600;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(232, 62, 140, 0.3);
+        transition: background-color 0.3s ease;
+      ">
+        <i class="fas fa-home me-2"></i>Back to Home
+      </a>
     </div>
   {% else %}
+  
 
   <!-- Contact Form Section -->
 <!-- Contact Form Section -->

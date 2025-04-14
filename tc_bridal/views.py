@@ -95,8 +95,8 @@ def inquires(request):
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone = request.POST.get("phone")
-        inquiry_type = request.POST.get("inquiry-type")
-        message = request.POST.get("messge")  # Make sure this name matches the form input
+        inquiry_type = request.POST.get("inquiry_type")  # ✅ corrected name
+        message = request.POST.get("message")            # ✅ corrected typo
 
         # Compose the full message
         full_message = f"""
