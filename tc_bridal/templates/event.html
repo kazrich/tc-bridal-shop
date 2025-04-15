@@ -104,6 +104,12 @@
   <!-- NAVIGATION SECTION -->
     <!-- Top Banner -->
 <section class="fixed-top">
+{% if search_success and searched %}
+<div class="alert alert-success text-center mt-4">
+  <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
+</div>
+{% endif %}
+
       <div id="topBanner" class="over d-flex justify-content-center align-items-center p-2 bg-light">
         <a href="{% url 'appoint'  %}" class="text-decoration-none d-flex align-items-center">
           <h3 class="mb-0 me-5" id="ban" style="font-family: 'Great Vibes', cursive; font-weight: lighter; color: #d63384; font-size: 22px;">
@@ -155,8 +161,9 @@
               </ul>
   
               <!-- Search -->
-              <form class="d-flex ms-lg-3 mt-3 mt-lg-0">
-                <input class="form-control me-2" type="search" placeholder="Search here" />
+              <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}" >
+                {% csrf_token %}
+                <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
                 <button class="btn btn-outline-dark" type="submit">Search</button>
               </form>
             </div>
@@ -196,9 +203,10 @@
           </ul>
   
           <div class="text-center mt-5">
-            <form class="d-flex">
-              <input type="text" class="form-control me-2" placeholder="Search..." />
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i> Search</button>
+            <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}" >
+              {% csrf_token %}
+              <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
+              <button class="btn btn-outline-dark" type="submit">Search</button>
             </form>
           </div>
         </div>

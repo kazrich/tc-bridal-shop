@@ -157,8 +157,9 @@
               </ul>
   
               <!-- Search -->
-              <form class="d-flex ms-lg-3 mt-3 mt-lg-0">
-                <input class="form-control me-2" type="search" placeholder="Search here" />
+              <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}" >
+                {% csrf_token %}
+                <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
                 <button class="btn btn-outline-dark" type="submit">Search</button>
               </form>
             </div>
@@ -198,9 +199,10 @@
           </ul>
   
           <div class="text-center mt-5">
-            <form class="d-flex">
-              <input type="text" class="form-control me-2" placeholder="Search..." />
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i> Search</button>
+            <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}" >
+              {% csrf_token %}
+              <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
+              <button class="btn btn-outline-dark" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -213,6 +215,12 @@
 <!-- Banner -->
 <!-- Section with background and text -->
 <div style="padding-top: 180px;">
+{% if search_success and searched %}
+<div class="alert alert-success text-center mt-4">
+  <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
+</div>
+{% endif %}
+
   <section class="kids-banner position-relative text-white d-flex align-items-center" id="background-image">
     <div class="overlay position-absolute w-100 h-100" style="background: rgba(0, 0, 0, 0.5);"></div>
   

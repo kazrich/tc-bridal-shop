@@ -159,3 +159,63 @@ def maid(request):
 
 
 
+
+# search form
+def search(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched').strip().lower()
+
+        # Dictionary that maps search terms to their view/page
+        routes = {
+            "bags": "bags.html",
+            "bag": "bags.html",
+            "necklaces": "necklaces.html",
+            "necklace": "necklaces.html",
+            "neck": "necklaces.html",
+            "shoe": "shoes.html",
+            "sho": "shoes.html",
+            "shoes": "shoes.html",
+            "appointments": "appoint.html",
+            "appoint": "appoint.html",
+            "Booking": "appoint.html",
+            "book": "appoint.html",
+            "appointment": "appoint.html",
+            "kids": "kids.html",
+            "ki": "kids.html",
+            "kid": "kids.html",
+            "kids gowns": "kids.html",
+            "events": "event.html",
+            "inquiries": "inquires.html",
+            "makeup": "makeup.html",
+            "veils": "veils.html",
+            "wallets": "bags.html",
+            "suit case": "bags.html",
+            "suit": "bags.html",
+            "headpieces": "earrings.html",
+            "earrings": "earrings.html",
+            "ear": "earrings.html",
+            "ceo": "ceo.html",
+            "bracelets": "bracelets.html",
+            "brace": "bracelets.html",
+            "bracelet": "bracelets.html",
+            "hand": "bracelets.html",
+            "evening": "evening.html",
+            "dresses": "evening.html",
+            "evening dresses": "evening.html",
+            "evening gowns": "evening.html",
+            "maid": "maid.html",
+            "maid dresses": "maid.html",
+        }
+
+         # Check if search matches a route
+        if searched in routes:
+            return render(request, routes[searched], {
+                'searched': searched,
+                'search_success': True  # To show a success message in the template
+            })
+        else:
+            return render(request, 'search.html', {
+                'searched': searched,
+                'not_found': True  # To show a not-found message and the inquiry button
+            })
+

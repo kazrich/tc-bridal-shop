@@ -182,3 +182,26 @@ observer.observe(imageBox);
 
 
 // its a new start for desktop and mobile navbar
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const keyword = params.get("highlight");
+
+  if (keyword) {
+      const regex = new RegExp(`(${keyword})`, "gi");
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+
+      let node;
+      while (node = walker.nextNode()) {
+          if (node.nodeValue.trim() !== "") {
+              const span = document.createElement("span");
+              span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+              if (span.innerHTML !== node.nodeValue) {
+                  const parent = node.parentNode;
+                  const wrapper = document.createElement("span");
+                  wrapper.innerHTML = span.innerHTML;
+                  parent.replaceChild(wrapper, node);
+              }
+          }
+      }
+  }
+});
