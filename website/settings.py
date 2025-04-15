@@ -18,6 +18,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['tc-bridal-shop-4.onrender.com']
 
 
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # add this near the top
+    ...
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -112,6 +118,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",  # or os.path.join(BASE_DIR, 'static')
 ]
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # required for collectstatic
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 

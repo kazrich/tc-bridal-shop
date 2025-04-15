@@ -21,3 +21,4 @@ pymupdf
 google-generativeai
 django
 gunicorn
+whitenoise
