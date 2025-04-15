@@ -18,6 +18,6 @@ tzdata==2023.3
 virtualenv==20.24.6
 
 pymupdf
-google-generatuveal
+google-generativeai
 django
 gunicorn
