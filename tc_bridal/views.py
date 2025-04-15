@@ -156,3 +156,6 @@ def evening(request):
 
 def maid(request):
     return render(request, 'maid.html')
+
+
+

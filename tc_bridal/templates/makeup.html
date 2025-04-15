@@ -96,6 +96,55 @@
     position: relative;
     color: white;
     }
+
+    .category-card .image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.category-card .image-wrapper:hover {
+  transform: scale(1.03);
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  text-align: center;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-count {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.btn-inquire {
+  background-color: #d69fa2;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-inquire:hover {
+  background-color: #c6878c;
+}
+
+
+
   </style>
 </head>
 
@@ -221,6 +270,38 @@
 </div>
 
 
+
+<!-- Product Category Grid Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!-- Category Card -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="category-card text-center">
+          <div class="image-wrapper">
+            <img src="{% static 'tc_bridal/img/earrings.jpg' %}" class="img-fluid rounded" alt="Earrings">
+            <div class="overlay-text">
+              <h3 class="category-title">EARRINGS</h3>
+              <p class="product-count">3 PRODUCTS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="text-card p-4 text-center">
+          <h3 class="category-title mb-2">MAKE-UP</h3>
+          <p class="product-count">
+            Discover our premium bridal make-up collection — featuring long-lasting foundations, vibrant eyeshadow palettes, soft blushes, and waterproof mascaras to keep you glowing all day. 💄✨
+          </p>
+        </div>
+      </div>
+      
+      
+
+    </div>
+</section>
   
 
   <section >
@@ -229,21 +310,37 @@
           <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/make-up1.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
-            </div>
+                <div class="overlay-text">
+                  <h3 class="category-title">Lip sticks</h3>
+                  <p class="product-count"> PRODUCTS</p>
+                </div>
+            </div>       
           </div>
           <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/nail polish.jpg' %}" alt="Item 2" class="img-fluid rounded hover-effect">
+                <div class="overlay-text">
+                  <h3 class="category-title">Nail Polish</h3>
+                  <p class="product-count">PRODUCTS</p>
+                </div>
             </div>
           </div>
           <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/make-up2.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+                <div class="overlay-text">
+                  <h3 class="category-title">Eye Rushs</h3>
+                  <p class="product-count">PRODUCTS</p>
+                </div>
             </div>
           </div>
           <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/make-up3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
+                <div class="overlay-text">
+                  <h3 class="category-title">Make-Up</h3>
+                  <p class="product-count">PRODUCTS</p>
+                </div>
             </div>
           </div>
           
