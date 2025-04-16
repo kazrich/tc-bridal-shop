@@ -114,71 +114,27 @@ const title = document.getElementById('collection-title');
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-const fadeElement = document.getElementById("promoText");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      fadeElement.style.opacity = "1";
-      fadeElement.style.transform = "translateY(0)";
-    } else {
-      fadeElement.style.opacity = "0";
-      fadeElement.style.transform = "translateY(40px)";
-    }
-  });
-}, { threshold: 0.3 });
-
-observer.observe(fadeElement);
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-const imageBox = document.getElementById("image-box");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      imageBox.style.opacity = "1";  // fade in
-    } else {
-      imageBox.style.opacity = "0";  // fade out
-    }
-  });
-}, { threshold: 0.2 });
-
-observer.observe(imageBox);
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-const textColumn = document.getElementById("textColumn");
-const imageBox = document.getElementById("imageBox");
-
-const observerOptions = {
-  threshold: 0.3
-};
-
-const animateFadeInOut = (element, isVisible) => {
-  if (isVisible) {
-    element.style.opacity = "1";
-    element.style.transform = "translateY(0)";
-  } else {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(50px)";
-  }
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    animateFadeInOut(entry.target, entry.isIntersecting);
-  });
-}, observerOptions);
-
-// Observe both elements for full scroll-back-in replays
-observer.observe(textColumn);
-observer.observe(imageBox);
-});
-
-
-
 // its a new start for desktop and mobile navbar
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const keyword = params.get("highlight");
+
+  if (keyword) {
+      const regex = new RegExp(`(${keyword})`, "gi");
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+
+      let node;
+      while (node = walker.nextNode()) {
+          if (node.nodeValue.trim() !== "") {
+              const span = document.createElement("span");
+              span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+              if (span.innerHTML !== node.nodeValue) {
+                  const parent = node.parentNode;
+                  const wrapper = document.createElement("span");
+                  wrapper.innerHTML = span.innerHTML;
+                  parent.replaceChild(wrapper, node);
+              }
+          }
+      }
+  }
+});
