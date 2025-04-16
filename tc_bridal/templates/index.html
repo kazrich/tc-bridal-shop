@@ -480,33 +480,61 @@
 /* Phone screen adjustments */
 @media (max-width: 480px) {
   .carousel .list .item .content .author {
-    font-size: 14px;
-    letter-spacing: 3px;
+    font-size: 10px;
+    letter-spacing: 5px;
   }
 
   .carousel .list .item .content .title {
-    font-size: 30em;
+    font-size: 35px;
   }
 
   .carousel .list .item .content .topic {
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .carousel .list .item .content .des span {
-    font-size: 35px;
-    line-height: 1.4em;
+    font-size: 14px;
+    line-height: 1em;
     display: block;
     margin-bottom: 4px;
   }
 
   .carousel .list .item .content {
     padding-top: 70px;
-    padding-right: 10%;
+    padding-right: 5%;
     text-align: left;
   }
 }
 
-/* promotion image css*/
+
+/* Adjust for very small screens  CAROUSEL */
+@media (max-width: 576px) {
+  .carousel .item img {
+    width: 3414px;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 576px) {
+  .thumbnail .item img {
+    width: 90%;
+    height: 100%;
+  }
+}
+
+
+
+/* Adjust for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .carousel .item img {
+    max-height: 400px;
+  }
+}
+
+
+
 /* promotion image css */
 @media (min-width: 992px) {
   #customPromotionCarousel .my-carousel-inner {
