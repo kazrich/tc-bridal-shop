@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-h2eus7w^sdufy2r4k=jun2b6m_i&w^*ajc08mxb_w!&=c78mm+
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tc-bridal-shop-4.onrender.com']
 
 #'tc-bridal-shop-4.onrender.com'
 

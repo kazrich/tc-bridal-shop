@@ -15,6 +15,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
   <!-- Open Graph Meta -->
   <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
   <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Shop now at TC Bridal Shop." />
@@ -92,7 +100,437 @@
     transform: translateY(40px);
     transition: opacity 2s ease-in-out, transform 2s ease-in-out;
   }
-    
+
+
+ 
+  .carousel{
+    width: 100vw;
+    height: 110vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: space-between;
+    object-position: center;
+  }
+
+  .carousel .list .item .content {
+  padding-top: 100px;
+  padding-bottom: 200px; /* ← Add this to give room below the description text */
+  position: absolute;
+  top: 20%;
+  width: 1140px;
+  max-width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-right: 30%;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0 5px 10px black;
+}
+
+
+  .carousel .list .item .content .author{
+    font-weight: bold;
+    letter-spacing: 10px;
+  }
+
+  .carousel .list .item .content .topic,
+  .carousel .list .item .content .title{
+    font-weight: bold;
+    font-size: 5em;
+    list-style: 1.3em;
+  }
+
+  .carousel .list .item .content .title{
+    color: rgb(255, 0, 149);
+  }
+  .carousel .list .item .content .button{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  .carousel .list .item .content button{
+    bottom: none;
+    background-color: #fff;
+    letter-spacing: 3px;
+    font-family: Quicksand;
+    font-weight: 500;
+    border: none;
+  }
+  
+  .carousel .list .item .content button:nth-child(2){
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid white;
+  }
+
+  /* thumbnail */
+
+  .thumbnail {
+  position: absolute;
+  bottom: 2px; /* ← reduce overlap by pushing it down further */
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+}
+
+  .thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .thumbnail .item .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .thumbnail .item .content .title{
+    font-weight: bold;
+  }
+  
+
+
+
+  .carousel .list .item:nth-child(1){
+    z-index: 1;
+  }
+
+/* Carousel animated content styles */
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .des,
+.carousel .list .item:nth-child(1) .button {
+  transform: translateX(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s linear forwards;
+  animation-delay: 1s;
+}
+
+.carousel .list .item:nth-child(1) .title {
+  animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .topic {
+  animation-delay: 1.4s;
+}
+
+.carousel .list .item:nth-child(1) .button {
+  animation-delay: 1.8s;
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+
+/* Image animation for active carousel item */
+.carousel .item.active img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  border-radius: 20px;
+  animation: showImage 0.1s linear 1 forwards;
+}
+
+@keyframes showImage {
+  to {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+
+/* Thumbnail animation for next item */
+.carousel.next .thumbnail .item:nth-last-child(1) {
+  width: 0;
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes showThumbnail {
+  to {
+    width: 150px;
+  }
+}
+
+/* Transform animation for thumbnail container */
+.carousel.next .thumbnail {
+  transform: translateX(150px);
+  animation: transformThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail {
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/* Animation when moving to previous slide (image out transition) */
+.carousel.prev .list .item:nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: outImage 0.5s linear 1 forwards;
+}
+
+@keyframes outImage {
+  to {
+    width: 150px;
+    height: 220px;
+    border-radius: 20px;
+    left: 50%;
+    bottom: 50px;
+  }
+}
+
+/* Animation for thumbnail when going to previous slide */
+.carousel.prev .thumbnail .item:nth-child(1) {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+/* Fade-out animation for content when sliding to previous */
+.carousel.prev .list .item:nth-child(2) .author,
+.carousel.prev .list .item:nth-child(2) .title,
+.carousel.prev .list .item:nth-child(2) .topic,
+.carousel.prev .list .item:nth-child(2) .des,
+.carousel.prev .list .item:nth-child(2) .button {
+  animation: contentOut 1.5s linear 1 forwards;
+}
+
+@keyframes contentOut {
+  to {
+    transform: translateY(-150px);
+    filter: blur(2px);
+    opacity: 0;
+  }
+}
+
+/* Disable arrow buttons during animation */
+.carousel.next .arrows button,
+.carousel.prev .arrows button {
+  pointer-events: none;
+}
+
+
+/* Progress bar at the top of the carousel */
+.carousel-timer {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 101;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: orangered;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+
+/* Animate time bar on next or prev transition */
+.carousel.next .time,
+.carousel.prev .time {
+  width: 100%;
+  animation: timeRunning 2s linear forwards;
+}
+
+/* Shrink animation for the progress bar */
+@keyframes timeRunning {
+  to {
+    width: 0;
+  }
+}
+
+@media screen and (max-width: 678px){
+  .carousel .list .item ,.content{
+    padding-right: 0;
+  }
+  .carousel .list .item ,.content .title{
+    font-size: 10px;
+  }
+}
+
+.custom-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  margin: 10px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Hover effect */
+.custom-btn:hover {
+  border: 2px solid #ff007b;
+  box-shadow: 0 8px 25px rgba(255, 0, 123, 0.5);
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    width: 100%;
+    display: block;
+  }
+}
+
+
+
+/*buttons of booking and inquery*/
+/* Responsive for tablets and down */
+@media (max-width: 768px) {
+  .custom-btn {
+    padding: 15px 20px;
+    font-size: 10px;
+    width: 100px;
+    height: 35px;
+    margin-right: 10px; /* space between buttons */
+  }
+}
+
+/* Responsive for small screens like phones */
+@media (max-width: 480px) {
+  .custom-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    width: 100%;
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+/* content */
+/* Tablet screen adjustments */
+@media (max-width: 768px) {
+  .carousel .list .item .content .author {
+    font-size: 10px;
+    letter-spacing: 5px;
+  }
+
+  .carousel .list .item .content .title {
+    font-size: 4em;
+  }
+
+  .carousel .list .item .content .topic {
+    font-size: 4em;
+  }
+
+  .carousel .list .item .content .des span {
+    font-size: 14px;
+    line-height: 1.4em;
+  }
+}
+
+/* Phone screen adjustments */
+@media (max-width: 480px) {
+  .carousel .list .item .content .author {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .carousel .list .item .content .title {
+    font-size: 30em;
+  }
+
+  .carousel .list .item .content .topic {
+    font-size: 50px;
+  }
+
+  .carousel .list .item .content .des span {
+    font-size: 35px;
+    line-height: 1.4em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .carousel .list .item .content {
+    padding-top: 70px;
+    padding-right: 10%;
+    text-align: left;
+  }
+}
+
+/* promotion image css*/
+/* promotion image css */
+@media (min-width: 992px) {
+  #customPromotionCarousel .my-carousel-inner {
+    width: 100%;
+    height: 800px;
+  }
+
+  #customPromotionCarousel .my-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-left: 40px; /* 👈 Set the left padding here */
+    box-sizing: border-box; /* Ensures padding doesn't break the layout */
+  }
+}
+
+
+  #customPromotionCarousel .my-carousel-item:hover img {
+    transform: scale(1); /* Scale back to normal size on hover */
+  }
+
+
+
+
   </style>
 </head>
 
@@ -197,13 +635,150 @@
               {% csrf_token %}
               <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
               <button class="btn btn-outline-dark" type="submit">Search</button>
-            </form>>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
   <!-- ... KEEP YOUR FULL NAVIGATION SECTION HERE (NO CHANGE NEEDED) ... -->
+
+    <!--new carousel/slider-->
+  <div class="carousel" style="padding-top: 180px;">
+        <!--list of items-->
+        <div class="list">
+          <div class="item">
+            <img src="{% static 'tc_bridal/img/cs1.jpg' %}" alt="">
+            <div class="content">
+              <div class="author">Harriet Taylor</div>
+              <div class="title">TC BRIDALS</div>
+              <div class="topic">special moments</div>
+              <div class="des">
+                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
+                <span>From the gowns that we wear with the help of the best Designers</span><br>
+                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
+                <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
+              </div>
+              <div>
+                <button>
+                  <a href="{% url 'appoint' %}" class="custom-btn">
+                    Booking
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'tc_bridal/img/cs2.jpg' %}" alt="">
+            <div class="content">
+              <div class="author">Harriet Taylor</div>
+              <div class="title">TC BRIDALS</div>
+              <div class="topic">special moments</div>
+              <div class="des">
+                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
+                <span>From the gowns that we wear with the help of the best Designers</span><br>
+                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
+                <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
+              </div>
+              <div>
+                <button>
+                  <a href="{% url 'appoint' %}" class="custom-btn">
+                     Booking
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'tc_bridal/img/cs3.jpg' %}" alt="">
+            <div class="content">
+              <div class="author">Harriet Taylor</div>
+              <div class="title">TC BRIDALS</div>
+              <div class="topic">special moments</div>
+              <div class="des">
+                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
+                <span>From the gowns that we wear with the help of the best Designers</span><br>
+                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
+                <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
+              </div>
+              <div>
+                <button>
+                  <a href="{% url 'appoint' %}" class="custom-btn">
+                    Booking
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'tc_bridal/img/cs4.jpg' %}" alt="">
+            <div class="content">
+              <div class="author">Harriet Taylor</div>
+              <div class="title">TC BRIDALS</div>
+              <div class="topic">special moments</div>
+              <div class="des">
+                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
+                <span>From the gowns that we wear with the help of the best Designers</span><br>
+                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
+                <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
+              </div>
+              <div>
+                <button>
+                  <a href="{% url 'appoint' %}" class="custom-btn">
+                    Booking
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <!-- Thumbnail -->
+    <div class="thumbnail">
+      <div class="item">
+        <img src="{% static 'tc_bridal/img/cs1.jpg' %}" alt="">
+        <div class="content">
+          <div class="title">Name Slider</div>
+          <div class="des">Description</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="{% static 'tc_bridal/img/cs2.jpg' %}" alt="">
+        <div class="content">
+          <div class="title">Name Slider</div>
+          <div class="des">Description</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="{% static 'tc_bridal/img/cs3.jpg' %}" alt="">
+        <div class="content">
+          <div class="title">Name Slider</div>
+          <div class="des">Description</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="{% static 'tc_bridal/img/cs4.jpg' %}" alt="">
+        <div class="content">
+          <div class="title">Name Slider</div>
+          <div class="des">Description</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrows">
+      <button class="prevBtn"></button>
+      <button class="nextBtn"></button>
+    </div>
+
+    <div class="carousel-timer">
+      <span id="carouselCountdown">00:02</span>
+    </div>
+    <div class="time"></div>
+    
+  </div>
+
 
 
 {% if full_name %}
@@ -215,97 +790,55 @@
 
     <p style="font-size: 0.95rem; color: gray;">Your data is secure with us. 💌</p>
   </div>
-{% else %}
-
-        
+{% else %}       
 <!-- Main body Section with Background Image     -->
-<div style="position: relative; padding-top: 180px;">
-
-  <!-- Blur Overlay for Background -->
-  <div style="
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url('static/tc_bridal/img/next1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(20px); /* Apply the blur effect here */
-    z-index: -1;"> <!-- Negative z-index to place it behind content -->
-  </div>
-
+<div style="position: relative;">
   <!-- Content Section (Text, Form, etc.) -->
-  <div style="position: relative;  width: 100%; min-height: 100%; padding: 20px 0;">
-
-    <section class="container my-4" style="background: transparent; border-radius: 20px; padding: 20px;">
-      <div class="row g-4 shadow-lg rounded-4 overflow-hidden">
-
-        <!-- Text Column -->
-        <div class="col-12 col-md-4 bg-white d-flex flex-column justify-content-center align-items-center p-4 text-center"
-             id="textColumn"
-             style="opacity: 0; transform: translateY(50px); transition: opacity 2s ease, transform 2s ease;">
-          <h2 class="mb-3" style="color: #d63384; font-family: 'Great Vibes', cursive;">Welcome!</h2>
-          <h3 style="font-family: 'Segoe Print', cursive; font-weight: bold;">To</h3>
-          <h2 style="font-family: 'Segoe Print', cursive; font-weight: bold;">TC BRIDALS</h2>
-
-          <p class="text-muted" style="font-family: 'Segoe UI', sans-serif;">
-            <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
-            <span>From the gowns that we wear with the help of the best Designers</span><br>
-            <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
-            <span>So think about <span style="font-family: 'Segoe Print'; font-weight: bolder;">TC BRIDALS</span> for that Beautiful moment 💍✨</span>
-          </p>
+  <div style="width: 100%; padding: 30px 10px; display: flex; justify-content: center; background-color: #f8f9fa;">
+    <div style="max-width: 500px; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
+      <h4 style="margin-bottom: 20px; text-align: center; color: #d63384; font-weight: bold;">Subscribe with Your Email</h4>
+      <p style="font-weight: bold; text-align: center; margin-bottom: 25px;">For our latest product Updates and News</p>
+      
+      <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+          <label for="fname" style="display: block; font-weight: 500; margin-bottom: 5px;">Full names</label>
+          <input name="full-name" type="text" id="fname" placeholder="Enter your full names"
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
         </div>
-
-        <!-- Image Column -->
-        <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-          <div id="imageBox" style="opacity: 0; transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
-            <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Bridal Login" class="img-fluid" style="max-height: 600px;">
-          </div>
+  
+        <div style="margin-bottom: 15px;">
+          <label for="email" style="display: block; font-weight: 500; margin-bottom: 5px;">Email address</label>
+          <input name="email" type="email" id="email" placeholder="Enter your email"
+                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
         </div>
-
-        <!-- Form Column -->
-        <div id="register-form" class="col-12 col-md-4 bg-light  p-4 d-flex flex-column justify-content-center">
-          <h4 class="mb-4 text-center fw-bold" style="color: #d63384;">Subscribe with Your Email</h4>
-          <p style="font-weight: bold;">For our latest product Updates and News</p>
-          <form action="{% url 'home' %}" method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-              <label for="email" class="form-label">Full names</label>
-              <input name="full-name" type="text" class="form-control" id="fname" placeholder="Enter your full names" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="mb-3 form-check">
-              <input name="remember-Me" type="checkbox" class="form-check-input" id="rememberMe" r>
-              <label class="form-check-label" for="rememberMe">Remember me</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100" style="background-color: #d63384; border: none; text-align: center;">
-              Subscribe
-            </button>
-
-            <h5 style="text-align: center; padding-top: 10px;">If you have already subscribed, DON'T subscribe again!!</h5>
-
-            <p class="mt-3 text-center">
-              <a class="text-decoration-none text-muted">"Customer data is highly valued and protected"</a>
-            </p>
-          </form>
+  
+        <div style="margin-bottom: 15px; display: flex; align-items: center;">
+          <input name="remember-Me" type="checkbox" id="rememberMe" style="margin-right: 10px;">
+          <label for="rememberMe" style="margin: 0;">Remember me</label>
         </div>
-
-      </div>
-    </section>
+  
+        <button type="submit"
+                style="width: 100%; padding: 12px; background-color: #d63384; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
+          Subscribe
+        </button>
+  
+        <h5 style="text-align: center; padding-top: 15px; font-size: 14px; color: #555;">If you have already subscribed, DON'T subscribe again!!</h5>
+  
+        <p style="margin-top: 20px; text-align: center; font-size: 13px; color: #999;">
+          "Customer data is highly valued and protected"
+        </p>
+      </form>
+    </div>
   </div>
+  
 </div>
-
-
 {% endif %}
   
 
 
 <!-- Example Section that will animate -->
+ <!--COLLECTIONS-->
 <div data-aos="fade-up" data-aos-duration="2000"> <!-- Duration set to 2 seconds -->
   <div class="container py-4">
     <div>
@@ -365,60 +898,93 @@
   
   
 
-
 <!-- Promotion Banner -->
 <div class="promotion-banner text-center" style="background: linear-gradient(135deg, #ffe4ec, #fff); padding: 50px 0;">
-    <div class="container">
-      <div class="row align-items-center">
-        
-        <!-- Carousel Section -->
-        <div class="col-md-6 mb-4 mb-md-0">
-          <div id="promotionCarousel" class="carousel slide" data-bs-ride="carousel" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <div class="carousel-inner">
-              <!-- Slides -->
-              <div class="carousel-item active">
-                <img src="{% static 'tc_bridal/img/new.jpg' %}" alt="Promotion Image 1" class="d-block w-100" style="height: 650px; object-fit: cover;">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'tc_bridal/img/new1.jpg' %}" alt="Promotion Image 2" class="d-block w-100" style="height: 650px; object-fit: cover;">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'tc_bridal/img/new2.jpg' %}" alt="Promotion Image 3" class="d-block w-100" style="height: 650px; object-fit: cover;">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'tc_bridal/img/new3.jpg' %}" alt="Promotion Image 4" class="d-block w-100" style="height: 650px; object-fit: cover;">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'tc_bridal/img/new4.jpg' %}" alt="Promotion Image 5" class="d-block w-100" style="height: 650px; object-fit: cover;">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'tc_bridal/img/new5.jpg' %}" alt="Promotion Image 6" class="d-block w-100" style="height: 650px; object-fit: cover;">
-              </div>
-            </div>
-            <!-- Controls -->
-            
-          </div>
-        </div>
-  
-        <!-- Text Column with Smooth Fade-Up -->
-        <div class="col-md-6 fade-up" id="promoText"style="color: #000; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; font-weight: bold; margin-bottom: 15px; color: #000;">
-                Exclusive Offer Just For You!
-            </h2>
-            <p style="font-family: 'Segoe UI', sans-serif; font-size: 18px; margin-bottom: 25px; color: #000;">
-                💖 Get <strong>20% OFF</strong> on All Bridal Accessories for a Limited Time.<br>Hurry, offer ends soon!
-            </p>
-            <div class="text-center mb-5">
-              <a href="{% url 'inquires' %}" class="btn btn-inquire">
-                <i class="fas fa-envelope-open-text"></i> Inquire Now
-              </a>
-          </div>
-        </div>
+  <div class="container-fluid"> <!-- Use container-fluid for full width -->
+    <div class="row align-items-center">
 
-  
+      <!-- Custom Carousel Section -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div id="customPromotionCarousel" class="my-carousel-slide" data-bs-ride="carousel"
+             style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; overflow: hidden; width: 100%;">
+
+          <div class="my-carousel-inner" style="width: 100%; height: 800px; position: relative;">
+
+            <!-- Slides -->
+            <div class="my-carousel-item active" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/2.jpg' %}" alt="Promotion Image 1"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Promotion Image 2"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/4.jpg' %}" alt="Promotion Image 3"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/5.jpg' %}" alt="Promotion Image 4"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/6.jpg' %}" alt="Promotion Image 5"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/7.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/8.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/9.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/10.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/11.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/12.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/13.jpg' %}" alt="Promotion Image 6"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Text Column -->
+      <div class="col-md-6 fade-up" id="promoText"
+           style="color: #000; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; font-weight: bold; margin-bottom: 15px; color: #000;">
+          Exclusive Offer Just For You!
+        </h2>
+        <p style="font-family: 'Segoe UI', sans-serif; font-size: 18px; margin-bottom: 25px; color: #000;">
+          💖 Get <strong>20% OFF</strong> on All Bridal Accessories for a Limited Time.<br>Hurry, offer ends soon!
+        </p>
+        <div class="text-center mb-5">
+          <a href="{% url 'inquires' %}" class="btn btn-inquire">
+            <i class="fas fa-envelope-open-text"></i> Inquire Now
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
+
+
+
 
 
   
@@ -499,121 +1065,269 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- JS to Trigger Animation on Scroll -->
 
+
 <script>
 
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
+    const slides = carousel.querySelectorAll(".my-carousel-item");
+    let current = 0;
+    const total = slides.length;
 
-
- document.addEventListener("DOMContentLoaded", function () {
-    const fadeItems = document.querySelectorAll('.fade-up-item');
-
-    const fadeInObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Apply smooth fade-in with slow transition
-          entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        } else {
-          // Apply smooth fade-out with slow transition
-          entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
-          entry.target.style.opacity = "0";
-          entry.target.style.transform = "translateY(40px)";
-        }
-      });
-    }, {
-      threshold: 0.3
+    // Initial visibility
+    slides.forEach((slide, index) => {
+      slide.style.position = "absolute";
+      slide.style.top = "0";
+      slide.style.left = "0";
+      slide.style.opacity = index === 0 ? "1" : "0";
+      slide.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
     });
 
-    fadeItems.forEach(item => fadeInObserver.observe(item));
-  });
+    // Function to scale images
+    function scaleImage(slide) {
+      slide.style.transform = "scale(1.05)";
+      setTimeout(() => {
+        slide.style.transform = "scale(1)";
+      }, 1000); // The scale effect resets after 1 second
+    }
+
+    // Slide function
+    function nextSlide() {
+      slides[current].style.opacity = "0";
+      current = (current + 1) % total;
+      slides[current].style.opacity = "1";
+
+      // Apply scaling effect to the new image
+      scaleImage(slides[current]);
+    }
+
+    // Auto move every 4 seconds
+    setInterval(nextSlide, 4000);
+});
 
 
 
+ // === DOMContentLoaded Carousel Logic ===
 
 document.addEventListener("DOMContentLoaded", function () {
-    const textColumn = document.getElementById("textColumn");
-    const imageBox = document.getElementById("imageBox");
-    const promoText = document.getElementById("promoText");
+  const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
+  const slides = carousel.querySelectorAll(".my-carousel-item");
+  let current = 0;
+  const total = slides.length;
 
-    const options = {
-      threshold: 0.3
-    };
-
-    const fadeInObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        } else {
-          entry.target.style.opacity = "0";
-          entry.target.style.transform = "translateY(50px)";
-        }
-      });
-    }, options);
-
-    // Observing all relevant elements
-    if (textColumn) fadeInObserver.observe(textColumn);
-    if (imageBox) fadeInObserver.observe(imageBox);
-    if (promoText) fadeInObserver.observe(promoText);
+  // Initial visibility
+  slides.forEach((slide, index) => {
+    slide.style.position = "absolute";
+    slide.style.top = "0";
+    slide.style.left = "0";
+    slide.style.opacity = index === 0 ? "1" : "0";
+    slide.style.transition = "opacity 1s ease-in-out";
   });
 
+  // Slide function
+  function nextSlide() {
+    slides[current].style.opacity = "0";
+    current = (current + 1) % total;
+    slides[current].style.opacity = "1";
+  }
 
-  
-     document.addEventListener("DOMContentLoaded", function () {
-    const textColumn = document.getElementById("textColumn");
-    const imageBox = document.getElementById("imageBox");
+  // Auto move every 4 seconds
+  setInterval(nextSlide, 4000);
+});
 
-    const options = {
-      threshold: 0.3
-    };
 
-    const fadeInObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        } else {
-          entry.target.style.opacity = "0";
-          entry.target.style.transform = "translateY(50px)";
-        }
-      });
-    }, options);
+// === Carousel Timer Countdown Logic ===
 
-    if (textColumn) fadeInObserver.observe(textColumn);
-    if (imageBox) fadeInObserver.observe(imageBox);
+const countdownSpan = document.getElementById("carouselCountdown");
+const totalDuration = 2; // Duration in seconds
+let currentTime = totalDuration;
+
+function startCarouselTimer() {
+  currentTime = totalDuration;
+  updateCountdownDisplay();
+
+  const countdownInterval = setInterval(() => {
+    currentTime--;
+    updateCountdownDisplay();
+
+    if (currentTime <= 0) {
+      clearInterval(countdownInterval);
+    }
+  }, 1000);
+}
+
+function updateCountdownDisplay() {
+  const minutes = String(Math.floor(currentTime / 60)).padStart(2, '0');
+  const seconds = String(currentTime % 60).padStart(2, '0');
+  countdownSpan.textContent = `${minutes}:${seconds}`;
+}
+
+startCarouselTimer();
+
+
+// === Main Carousel with Thumbnails ===
+
+const nextBtn = document.querySelector('.nextBtn');
+const prevBtn = document.querySelector('.prevBtn');
+const carouselMain = document.querySelector('.carousel');
+const list = document.querySelector('.carousel .list');
+const thumbnails = document.querySelector('.carousel .thumbnail');
+const timeBar = document.querySelector('.carousel .time');
+
+function slideNext() {
+  carouselMain.classList.remove('prev');
+  carouselMain.classList.add('next');
+
+  let listItem = list.querySelectorAll('.item');
+  let thumbItem = thumbnails.querySelectorAll('.item');
+
+  list.appendChild(listItem[0]);
+  thumbnails.appendChild(thumbItem[0]);
+
+  restartTimeBar();
+}
+
+function slidePrev() {
+  carouselMain.classList.remove('next');
+  carouselMain.classList.add('prev');
+
+  let listItem = list.querySelectorAll('.item');
+  let thumbItem = thumbnails.querySelectorAll('.item');
+
+  list.prepend(listItem[listItem.length - 1]);
+  thumbnails.prepend(thumbItem[thumbItem.length - 1]);
+
+  restartTimeBar();
+}
+
+nextBtn.onclick = slideNext;
+prevBtn.onclick = slidePrev;
+
+function restartTimeBar() {
+  timeBar.style.animation = 'none';
+  void timeBar.offsetWidth;
+  timeBar.style.animation = null;
+}
+
+setInterval(slideNext, 5000);
+
+
+// === Scroll-based Fade-in Animations ===
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fadeItems = document.querySelectorAll('.fade-up-item');
+
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      } else {
+        entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
+        entry.target.style.opacity = "0";
+        entry.target.style.transform = "translateY(40px)";
+      }
+    });
+  }, {
+    threshold: 0.3
   });
 
-    // Dropdown hover animation
-    document.querySelectorAll('.dropdown').forEach(drop => {
-        drop.addEventListener('show.bs.dropdown', function () {
-          this.querySelector('.dropdown-menu').classList.add('show-animation');
-        });
-        drop.addEventListener('hide.bs.dropdown', function () {
-          this.querySelector('.dropdown-menu').classList.remove('show-animation');
-        });
-      });
+  fadeItems.forEach(item => fadeInObserver.observe(item));
+});
 
-      // Mobile menu toggle
-      const openSidebar = document.getElementById("openSidebar");
-      const closeSidebar = document.getElementById("closeSidebar");
-      const mobileMenu = document.getElementById("mobileMenu");
 
-      openSidebar?.addEventListener("click", () => {
-        mobileMenu.classList.add("show");
-      });
+// === Targeted Fade-in Animations ===
 
-      closeSidebar?.addEventListener("click", () => {
-        mobileMenu.classList.remove("show");
-      });
+document.addEventListener("DOMContentLoaded", function () {
+  const textColumn = document.getElementById("textColumn");
+  const imageBox = document.getElementById("imageBox");
+  const promoText = document.getElementById("promoText");
 
-      // Toggle mobile submenus
-      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const submenu = this.nextElementSibling;
-          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-        });
-      });
+  const options = {
+    threshold: 0.3
+  };
+
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      } else {
+        entry.target.style.opacity = "0";
+        entry.target.style.transform = "translateY(50px)";
+      }
+    });
+  }, options);
+
+  if (textColumn) fadeInObserver.observe(textColumn);
+  if (imageBox) fadeInObserver.observe(imageBox);
+  if (promoText) fadeInObserver.observe(promoText);
+});
+
+
+// === Redundant Fade Section (optional, can be merged above) ===
+
+document.addEventListener("DOMContentLoaded", function () {
+  const textColumn = document.getElementById("textColumn");
+  const imageBox = document.getElementById("imageBox");
+
+  const options = {
+    threshold: 0.3
+  };
+
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      } else {
+        entry.target.style.opacity = "0";
+        entry.target.style.transform = "translateY(50px)";
+      }
+    });
+  }, options);
+
+  if (textColumn) fadeInObserver.observe(textColumn);
+  if (imageBox) fadeInObserver.observe(imageBox);
+});
+
+
+// === Dropdown Hover Animation ===
+
+document.querySelectorAll('.dropdown').forEach(drop => {
+  drop.addEventListener('show.bs.dropdown', function () {
+    this.querySelector('.dropdown-menu').classList.add('show-animation');
+  });
+  drop.addEventListener('hide.bs.dropdown', function () {
+    this.querySelector('.dropdown-menu').classList.remove('show-animation');
+  });
+});
+
+
+// === Mobile Sidebar Menu ===
+
+const openSidebar = document.getElementById("openSidebar");
+const closeSidebar = document.getElementById("closeSidebar");
+const mobileMenu = document.getElementById("mobileMenu");
+
+openSidebar?.addEventListener("click", () => {
+  mobileMenu.classList.add("show");
+});
+
+closeSidebar?.addEventListener("click", () => {
+  mobileMenu.classList.remove("show");
+});
+
+// Toggle submenus in mobile
+
+document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    const submenu = this.nextElementSibling;
+    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+  });
+});
 </script>
 
 </body>
