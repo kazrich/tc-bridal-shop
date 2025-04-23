@@ -130,19 +130,6 @@
   letter-spacing: 1px;
 }
 
-.btn-inquire {
-  background-color: #d69fa2;
-  color: white;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-inquire:hover {
-  background-color: #c6878c;
-}
-
 
 
   </style>
@@ -220,6 +207,15 @@
       <button class="btn-close float-end" id="closeSidebar"></button>
       <ul class="list-unstyled mt-5">
         <li><a href="{% url 'home' %}" class="d-block fw-bold py-2">Home</a></li>
+
+        <li class="has-submenu">
+          <a href="#" class="d-block fw-bold py-2 submenu-toggle">Gowns & Dresses <i class="fas fa-chevron-down float-end"></i></a>
+          <ul class="submenu list-unstyled ps-3" style="display: none;">
+            <li><a href="{% url 'evening' %}" class="d-block py-2">Evening Dresses</a></li>
+            <li><a href="{% url 'kids' %}" class="d-block py-2">Kids chamber</a></li>
+            <li><a href="{% url 'maid' %}" class="d-block py-2">Maids chamber</a></li>
+          </ul>
+        </li>
         
         <li class="has-submenu">
           <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>
@@ -265,15 +261,26 @@
     <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
   </div>
   {% endif %}
-    <section class="feature-section" id="background-image">
-        <div class="overlay">
-        <div class="text-content">
-            <h2>Make-Up</h2>
-            <h4>Enhancing Natural Beauty</h4>
-            <p> Bridal makeup should enhance the bride’s natural beauty, giving her the confidence to shine on her big day. 💖</p>
-        </div>
-        </div>
-    </section>
+   
+    
+  <section class="kids-banner position-relative text-white d-flex align-items-center feature-section background-image" id="background-image">
+    <div class="overlay position-absolute w-100 h-100" style="background: rgba(0, 0, 0, 0.5);"></div>
+  
+    <div class="container position-relative z-1 text-center" id="kidsCollection">
+      <h2 class="display-5 fw-bold" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+        Bridal Make-Up
+      </h2>
+      <h4 class="mb-3" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+        Enhancing Natural Beauty ✨
+      </h4>
+      <p class="lead" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+        Bridal makeup should enhance the bride’s natural beauty,<br>
+        giving her the confidence to shine on her big day. 💖 
+      </p>
+    </div>
+  </section>
+
+
 </div>
 
 
@@ -287,10 +294,10 @@
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
         <div class="category-card text-center">
           <div class="image-wrapper">
-            <img src="{% static 'tc_bridal/img/earrings.jpg' %}" class="img-fluid rounded" alt="Earrings">
+            <img src="{% static 'tc_bridal/img/make-up3.jpg' %}" class="img-fluid rounded" alt="Earrings">
             <div class="overlay-text">
-              <h3 class="category-title">EARRINGS</h3>
-              <p class="product-count">3 PRODUCTS</p>
+              <h3 class="category-title">MAKE-UP</h3>
+              <p class="product-count">4 PRODUCTS</p>
             </div>
           </div>
         </div>
@@ -441,7 +448,29 @@
 <!-- JS to Trigger Animation on Scroll -->
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const kidsCollection = document.getElementById("kidsCollection");
 
+      const observerOptions = { threshold: 0.3 };
+
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('*').forEach((element) => {
+              element.style.opacity = "1";
+              element.style.transform = "translateY(0)";
+            });
+          } else {
+            entry.target.querySelectorAll('*').forEach((element) => {
+              element.style.opacity = "0";
+              element.style.transform = "translateY(30px)";
+            });
+          }
+        });
+      }, observerOptions);
+
+      fadeObserver.observe(kidsCollection);
+    });
 
 
 document.addEventListener("DOMContentLoaded", function () {

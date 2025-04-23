@@ -171,6 +171,15 @@
           <button class="btn-close float-end" id="closeSidebar"></button>
           <ul class="list-unstyled mt-5">
             <li><a href="{% url 'home' %}" class="d-block fw-bold py-2">Home</a></li>
+
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Gowns & Dresses <i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="{% url 'evening' %}" class="d-block py-2">Evening Dresses</a></li>
+                <li><a href="{% url 'kids' %}" class="d-block py-2">Kids chamber</a></li>
+                <li><a href="{% url 'maid' %}" class="d-block py-2">Maids chamber</a></li>
+              </ul>
+            </li>
             
             <li class="has-submenu">
               <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>

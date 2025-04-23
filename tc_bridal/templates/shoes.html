@@ -96,6 +96,42 @@
     position: relative;
     color: white;
     }
+
+
+    /* WRAPPERS FOR NEW PRODUCTS */
+.category-card .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card .image-wrapper:hover {
+    transform: scale(1.03);
+  }
+  
+  .overlay-text {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    text-align: center;
+  }
+  
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .product-count {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+ 
   </style>
 </head>
 
@@ -171,6 +207,15 @@
           <button class="btn-close float-end" id="closeSidebar"></button>
           <ul class="list-unstyled mt-5">
             <li><a href="{% url 'home' %}" class="d-block fw-bold py-2">Home</a></li>
+
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Gowns & Dresses <i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="{% url 'evening' %}" class="d-block py-2">Evening Dresses</a></li>
+                <li><a href="{% url 'kids' %}" class="d-block py-2">Kids chamber</a></li>
+                <li><a href="{% url 'maid' %}" class="d-block py-2">Maids chamber</a></li>
+              </ul>
+            </li>
             
             <li class="has-submenu">
               <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>
@@ -216,18 +261,23 @@
   </div>
   {% endif %}
   
-    <section class="feature-section" id="background-image">
-        <div class="overlay">
-        <div class="text-content">
-            <h2>Bridal Shoes <br></h2>
-
-            <h3><span style="padding-left: 20px;">Elegance in Every Step 👠✨</span></h3>
-
-            <p>Bridal shoes are more than just footwear—they complete the look, add confidence, and carry the bride through one of the most memorable days of her life. </p>
-            
-        </div>
-        </div>
-    </section>
+  <section class="kids-banner position-relative text-white d-flex align-items-center" id="background-image">
+    <div class="overlay position-absolute w-100 h-100" style="background: rgba(0, 0, 0, 0.5);"></div>
+  
+    <div class="container position-relative z-1 text-center" id="kidsCollection">
+      <h2 class="display-5 fw-bold" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+        Braidal Shoes
+      </h2>
+      <h4 class="mb-3" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+        Elegance in Every Step 👠✨
+      </h4>
+      <p class="lead" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+        Bridal shoes are more than just footwear—they complete the look,<br>
+         add confidence, and carry the bride through one of the most memorable days of her life.
+      </p>
+    </div>
+  </section>
+  
 </div>
 
 <!-- Product Category Grid Section -->
@@ -239,10 +289,10 @@
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
         <div class="category-card text-center">
           <div class="image-wrapper">
-            <img src="{% static 'tc_bridal/img/earrings.jpg' %}" class="img-fluid rounded" alt="Earrings">
+            <img src="{% static 'tc_bridal/img/shoe4.jpg' %}" class="img-fluid rounded" alt="Earrings">
             <div class="overlay-text">
-              <h3 class="category-title">EARRINGS</h3>
-              <p class="product-count">3 PRODUCTS</p>
+              <h3 class="category-title">SHOES</h3>
+              <p class="product-count">4 NEW PRODUCTS</p>
             </div>
           </div>
         </div>

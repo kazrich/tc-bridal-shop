@@ -96,6 +96,41 @@
     position: relative;
     color: white;
     }
+
+    /* WRAPPERS FOR NEW PRODUCTS */
+.category-card .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card .image-wrapper:hover {
+    transform: scale(1.03);
+  }
+  
+  .overlay-text {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    text-align: center;
+  }
+  
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .product-count {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+ 
   </style>
 </head>
 
@@ -171,6 +206,15 @@
           <button class="btn-close float-end" id="closeSidebar"></button>
           <ul class="list-unstyled mt-5">
             <li><a href="{% url 'home' %}" class="d-block fw-bold py-2">Home</a></li>
+
+            <li class="has-submenu">
+              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Gowns & Dresses <i class="fas fa-chevron-down float-end"></i></a>
+              <ul class="submenu list-unstyled ps-3" style="display: none;">
+                <li><a href="{% url 'evening' %}" class="d-block py-2">Evening Dresses</a></li>
+                <li><a href="{% url 'kids' %}" class="d-block py-2">Kids chamber</a></li>
+                <li><a href="{% url 'maid' %}" class="d-block py-2">Maids chamber</a></li>
+              </ul>
+            </li>
             
             <li class="has-submenu">
               <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>
@@ -217,19 +261,25 @@
     <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
   </div>
   {% endif %}
-  
-    <section class="feature-section"  id="background-image">
-      <div class="overlay">
-        <div class="text-content">
-          <h2>Veils & Headpieces</h2>
-          <h4>The Finishing Touch for Every Bride 👰✨</h4><br>
-          <p>
-            <i class="fas fa-feather"></i> Soft, graceful, and elegant – our veils add a magical charm to your bridal look.<br>
-            <i class="fas fa-crown"></i> Choose from sparkling tiaras, delicate combs, or floral headpieces for your perfect moment.<br>
-          </p>
-        </div>
+
+
+    <section class="kids-banner position-relative text-white d-flex align-items-center feature-section background-image" id="background-image">
+      <div class="overlay position-absolute w-100 h-100" style="background: rgba(0, 0, 0, 0.5);"></div>
+    
+      <div class="container position-relative z-1 text-center" id="kidsCollection">
+        <h2 class="display-5 fw-bold" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+          Bridal Veils & Headpieces
+        </h2>
+        <h4 class="mb-3" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+          The Finishing Touch for Every Bride 👰✨
+        </h4>
+        <p class="lead" style="opacity: 0; transform: translateY(30px); transition: opacity 2s ease, transform 2s ease;">
+          <i class="fas fa-feather"></i> Soft, graceful, and elegant – our veils add a magical charm to your bridal look.<br>
+          <i class="fas fa-crown"></i> Choose from sparkling tiaras, delicate combs, or floral headpieces for your perfect moment.<br>
+        </p>
       </div>
     </section>
+
   </div>
   
 </div>
