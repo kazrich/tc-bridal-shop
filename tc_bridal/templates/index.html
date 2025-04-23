@@ -32,6 +32,68 @@
 
   <!-- Custom CSS -->
   <style>
+    /* preloader css start*/
+    #preloader-full, #preloader-minimal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('static/tc_bridal/img/bgs.jpg') center center no-repeat;
+  background-size: cover;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#preloader-minimal {
+  background: none;
+  backdrop-filter: blur(3px);
+}
+
+.flower-spinner {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.flower-spinner .petal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  animation: rotate 1.5s linear infinite;
+  border: 5px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+
+.flower-spinner .petal:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0.7;
+}
+.flower-spinner .petal:nth-child(3) {
+  animation-delay: 0.4s;
+  opacity: 0.5;
+}
+
+.welcome-text {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+/* preloader css end*/
+
+
     .dropdown-menu {
       opacity: 0;
       transform: translateY(10px);
@@ -568,6 +630,31 @@
 </head>
 
 <body>
+
+<!-- Preloader with Bridal Icons -->
+<!-- Full Preloader (for first-time visitors) -->
+<div id="preloader-full" style="display: none;">
+  <div class="preloader-content text-center">
+    <h2 class="welcome-text">Welcome to TC Bridals</h2>
+    <div class="flower-spinner">
+      <div class="petal"></div>
+      <div class="petal"></div>
+      <div class="petal"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Minimal Spinner (for returning visitors) -->
+<div id="preloader-minimal" style="display: none;">
+  <div class="flower-spinner centered-only">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+</div>
+
+
+
   <!-- NAVIGATION SECTION -->
     <!-- Top Banner -->
     <section class="fixed-top">
@@ -1104,6 +1191,28 @@
 
 
 <script>
+
+// preloader js start
+document.addEventListener("DOMContentLoaded", function () {
+    const isFirstVisit = localStorage.getItem("tcBridalsVisited");
+    
+    if (!isFirstVisit) {
+      document.getElementById("preloader-full").style.display = "flex";
+
+      setTimeout(() => {
+        document.getElementById("preloader-full").style.display = "none";
+        localStorage.setItem("tcBridalsVisited", "yes");
+      }, 4900);
+    } else {
+      document.getElementById("preloader-minimal").style.display = "flex";
+
+      setTimeout(() => {
+        document.getElementById("preloader-minimal").style.display = "none";
+      }, 4900);
+    }
+  });
+// preloader js end
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
