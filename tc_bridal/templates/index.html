@@ -33,7 +33,7 @@
   <!-- Custom CSS -->
   <style>
     /* preloader css start*/
-    #preloader-full, #preloader-minimal {
+    #preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -45,17 +45,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
-#preloader-minimal {
-  background: none;
-  backdrop-filter: blur(3px);
+.preloader-content {
+  text-align: center;
+  color: white;
 }
 
+.welcome-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Circular Flower Spinner */
 .flower-spinner {
   width: 60px;
   height: 60px;
   position: relative;
+  margin: auto;
 }
 
 .flower-spinner .petal {
@@ -72,23 +81,16 @@
   animation-delay: 0.2s;
   opacity: 0.7;
 }
+
 .flower-spinner .petal:nth-child(3) {
   animation-delay: 0.4s;
   opacity: 0.5;
-}
-
-.welcome-text {
-  color: white;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: bold;
 }
 
 @keyframes rotate {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 
 
 /* preloader css end*/
@@ -632,10 +634,9 @@
 <body>
 
 <!-- Preloader with Bridal Icons -->
-<!-- Full Preloader (for first-time visitors) -->
-<div id="preloader-full" style="display: none;">
+<!-- Preloader -->
+<div id="preloader">
   <div class="preloader-content text-center">
-    <h2 class="welcome-text">Welcome to TC Bridals</h2>
     <div class="flower-spinner">
       <div class="petal"></div>
       <div class="petal"></div>
@@ -643,16 +644,6 @@
     </div>
   </div>
 </div>
-
-<!-- Minimal Spinner (for returning visitors) -->
-<div id="preloader-minimal" style="display: none;">
-  <div class="flower-spinner centered-only">
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-  </div>
-</div>
-
 
 
   <!-- NAVIGATION SECTION -->
@@ -1192,26 +1183,13 @@
 
 <script>
 
-// preloader js start
-document.addEventListener("DOMContentLoaded", function () {
-    const isFirstVisit = localStorage.getItem("tcBridalsVisited");
-    
-    if (!isFirstVisit) {
-      document.getElementById("preloader-full").style.display = "flex";
-
-      setTimeout(() => {
-        document.getElementById("preloader-full").style.display = "none";
-        localStorage.setItem("tcBridalsVisited", "yes");
-      }, 4900);
-    } else {
-      document.getElementById("preloader-minimal").style.display = "flex";
-
-      setTimeout(() => {
-        document.getElementById("preloader-minimal").style.display = "none";
-      }, 4900);
-    }
+// preloader js
+window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+    }, 4900); // Matches your previous request
   });
-// preloader js end
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
