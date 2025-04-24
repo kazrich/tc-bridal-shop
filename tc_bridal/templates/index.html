@@ -593,39 +593,24 @@
   }
 }
 
+/* Responsive banner height */
+.responsive-banner {
+  width: 100%;
+  height: 700px; /* default for desktops */
+  position: relative;
+}
 
-
-/* Adjust for tablets */
-@media (min-width: 577px) and (max-width: 991px) {
-  .carousel .item img {
-    max-height: 400px;
+@media (max-width: 768px) {
+  .responsive-banner {
+    height: 200px; /* mobile height */
   }
 }
 
-
-
-/* promotion image css */
-@media (min-width: 992px) {
-  #customPromotionCarousel .my-carousel-inner {
-    width: 100%;
-    height: 800px;
-  }
-
-  #customPromotionCarousel .my-carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    padding-left: 40px; /* 👈 Set the left padding here */
-    box-sizing: border-box; /* Ensures padding doesn't break the layout */
+@media (max-width: 480px) {
+  .responsive-banner {
+    height: 400px; /* smaller screens */
   }
 }
-
-
-  #customPromotionCarousel .my-carousel-item:hover img {
-    transform: scale(1); /* Scale back to normal size on hover */
-  }
-
-
 
 
   </style>
@@ -637,6 +622,8 @@
 <!-- Preloader -->
 <div id="preloader">
   <div class="preloader-content text-center">
+    <h2>Tc bridals</h2>
+    <p>...just a moment...</p>
     <div class="flower-spinner">
       <div class="petal"></div>
       <div class="petal"></div>
@@ -644,6 +631,7 @@
     </div>
   </div>
 </div>
+
 
 
   <!-- NAVIGATION SECTION -->
@@ -1024,57 +1012,30 @@
         <div id="customPromotionCarousel" class="my-carousel-slide" data-bs-ride="carousel"
              style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; overflow: hidden; width: 100%;">
 
-          <div class="my-carousel-inner" style="width: 100%; height: 800px; position: relative;">
+          <div class="my-carousel-inner responsive-banner">
 
             <!-- Slides -->
             <div class="my-carousel-item active" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/2.jpg' %}" alt="Promotion Image 1"
+              <img src="{% static 'tc_bridal/img/1.jpg' %}" alt="Promotion Image 1"
                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Promotion Image 2"
+              <img src="{% static 'tc_bridal/img/2.jpg' %}" alt="Promotion Image 2"
                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/4.jpg' %}" alt="Promotion Image 3"
+              <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Promotion Image 3"
                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/5.jpg' %}" alt="Promotion Image 4"
+              <img src="{% static 'tc_bridal/img/4.jpg' %}" alt="Promotion Image 4"
                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/6.jpg' %}" alt="Promotion Image 5"
+              <img src="{% static 'tc_bridal/img/11.jpg' %}" alt="Promotion Image 4"
                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/7.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/8.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/9.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/10.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/11.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/12.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/13.jpg' %}" alt="Promotion Image 6"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>          </div>
+          </div>
         </div>
       </div>
 
