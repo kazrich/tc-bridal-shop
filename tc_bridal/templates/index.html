@@ -32,68 +32,87 @@
 
   <!-- Custom CSS -->
   <style>
+    /*booking css for small screen*/
+        /* Center #topBanner contents on small screens only */
+    @media (max-width: 576px) {
+      #topBanner {
+        justify-content: center !important;
+        text-align: center;
+      }
+
+      #topBanner h3 {
+        margin-right: 0 !important;
+        font-size: 18px !important; /* Optional: make text a bit smaller on phones */
+      }
+
+      #topBanner a {
+        flex-direction: column;
+      }
+    }
+
+
     /* preloader css start*/
     #preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('static/tc_bridal/img/bgs.jpg') center center no-repeat;
-  background-size: cover;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('static/tc_bridal/img/bgs.jpg') center center no-repeat;
+      background-size: cover;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
 
-.preloader-content {
-  text-align: center;
-  color: white;
-}
+    .preloader-content {
+      text-align: center;
+      color: white;
+    }
 
-.welcome-text {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
+    .welcome-text {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
 
-/* Circular Flower Spinner */
-.flower-spinner {
-  width: 60px;
-  height: 60px;
-  position: relative;
-  margin: auto;
-}
+    /* Circular Flower Spinner */
+    .flower-spinner {
+      width: 60px;
+      height: 60px;
+      position: relative;
+      margin: auto;
+    }
 
-.flower-spinner .petal {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  animation: rotate 1.5s linear infinite;
-  border: 5px solid #fff;
-  border-top-color: transparent;
-  border-radius: 50%;
-}
+    .flower-spinner .petal {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      animation: rotate 1.5s linear infinite;
+      border: 5px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+    }
 
-.flower-spinner .petal:nth-child(2) {
-  animation-delay: 0.2s;
-  opacity: 0.7;
-}
+    .flower-spinner .petal:nth-child(2) {
+      animation-delay: 0.2s;
+      opacity: 0.7;
+    }
 
-.flower-spinner .petal:nth-child(3) {
-  animation-delay: 0.4s;
-  opacity: 0.5;
-}
+    .flower-spinner .petal:nth-child(3) {
+      animation-delay: 0.4s;
+      opacity: 0.5;
+    }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
 
-/* preloader css end*/
+    /* preloader css end*/
 
 
     .dropdown-menu {

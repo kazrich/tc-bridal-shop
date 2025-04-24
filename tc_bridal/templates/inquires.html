@@ -24,6 +24,26 @@
 
   <!-- Custom CSS -->
   <style>
+
+    /*booking css for small screen*/
+/* Center #topBanner contents on small screens only */
+@media (max-width: 576px) {
+    #topBanner {
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    #topBanner h3 {
+        margin-right: 0 !important;
+        font-size: 18px !important; /* Optional: make text a bit smaller on phones */
+    }
+
+    #topBanner a {
+        flex-direction: column;
+    }
+    }
+
+
     .dropdown-menu {
       opacity: 0;
       transform: translateY(10px);
