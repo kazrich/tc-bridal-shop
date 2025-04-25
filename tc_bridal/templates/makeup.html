@@ -301,89 +301,161 @@
 
 
 
-<!-- Product Category Grid Section -->
-<section class="py-5">
-  <div class="container">
-    <div class="row justify-content-center">
 
-      <!-- Category Card -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="category-card text-center">
-          <div class="image-wrapper">
-            <img src="{% static 'tc_bridal/img/make-up3.jpg' %}" class="img-fluid rounded" alt="Earrings">
-            <div class="overlay-text">
-              <h3 class="category-title">MAKE-UP</h3>
-              <p class="product-count">4 PRODUCTS</p>
+<!-- Banner Section -->
+<div class="banner">
+  <div class="banner-image">
+    <img src="{% static 'tc_bridal/img/make-up2.jpg' %}" alt="Suitcase" />
+  </div>
+  <div class="banner-text">
+    <h2>Eye Shadow</h2>
+  </div>
+</div>
+
+
+<section >
+  <div class="container py-4">
+    <div class="row">
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/eye1.jpg' %}" alt="Item 1" class="img-fluid hover-effect">
             </div>
-          </div>
         </div>
-      </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="text-card p-4 text-center">
-          <h3 class="category-title mb-2">MAKE-UP</h3>
-          <p class="product-count">
-            Discover our premium bridal make-up collection — featuring long-lasting foundations, vibrant eyeshadow palettes, soft blushes, and waterproof mascaras to keep you glowing all day. 💄✨
-          </p>
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/eye2.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
+            </div>
         </div>
-      </div>
-      
-      
 
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/eye3.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/eye4.jpg' %}" alt="Item 3" class="img-fluid hover-effect">
+            </div>
+        </div>
     </div>
+  </div>
+
+
+  <div class="text-center mb-5">
+      <a href="{% url 'inquires' %}" class="btn btn-inquire">
+        <i class="fas fa-envelope-open-text"></i> Inquire Now
+      </a>
+  </div>
 </section>
-  
 
-  <section >
-    <div class="container py-4">
-        <div class="row">
-          <div class="col-6 col-md-3 mb-4">
+
+<!-- Banner Section -->
+<div class="banner">
+  <div class="banner-image">
+    <img src="{% static 'tc_bridal/img/make-up3.jpg' %}" alt="Suitcase" />
+  </div>
+  <div class="banner-text">
+    <h2>Lip Stick</h2>
+  </div>
+</div>
+
+
+<section >
+  <div class="container py-4">
+    <div class="row">
+        <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
-                <img src="{% static 'tc_bridal/img/make-up1.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
-                <div class="overlay-text">
-                  <h3 class="category-title">Lip sticks</h3>
-                  <p class="product-count"> PRODUCTS</p>
-                </div>
-            </div>       
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/nail polish.jpg' %}" alt="Item 2" class="img-fluid rounded hover-effect">
-                <div class="overlay-text">
-                  <h3 class="category-title">Nail Polish</h3>
-                  <p class="product-count">PRODUCTS</p>
-                </div>
+                <img src="{% static 'tc_bridal/img/lip1.jpg' %}" alt="Item 1" class="img-fluid hover-effect">
             </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
-                <img src="{% static 'tc_bridal/img/make-up2.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-                <div class="overlay-text">
-                  <h3 class="category-title">Eye Rushs</h3>
-                  <p class="product-count">PRODUCTS</p>
-                </div>
+                <img src="{% static 'tc_bridal/img/lip2.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
             </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
             <div class="image-box">
-                <img src="{% static 'tc_bridal/img/make-up3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
-                <div class="overlay-text">
-                  <h3 class="category-title">Make-Up</h3>
-                  <p class="product-count">PRODUCTS</p>
-                </div>
+                <img src="{% static 'tc_bridal/img/lip3.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
             </div>
-          </div>
-          
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/lip4.jpg' %}" alt="Item 3" class="img-fluid hover-effect">
+            </div>
         </div>
     </div>
+  </div>
 
-    <div class="text-center mb-5">
-        <a href="{% url 'inquires' %}" class="btn btn-inquire">
-          <i class="fas fa-envelope-open-text"></i> Inquire Now
-        </a>
-    </div>
+
+  <div class="text-center mb-5">
+      <a href="{% url 'inquires' %}" class="btn btn-inquire">
+        <i class="fas fa-envelope-open-text"></i> Inquire Now
+      </a>
+  </div>
 </section>
-        
+
+<!-- Banner Section -->
+<div class="banner">
+  <div class="banner-image">
+    <img src="{% static 'tc_bridal/img/make-up1.jpg' %}" alt="Suitcase" />
+  </div>
+  <div class="banner-text">
+    <h2>Foundation</h2>
+  </div>
+</div>
+
+
+<section >
+  <div class="container py-4">
+    <div class="row">
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/h1.jpg' %}" alt="Item 1" class="img-fluid hover-effect">
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/h2.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/h3.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/h4.jpg' %}" alt="Item 3" class="img-fluid hover-effect">
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <div class="image-box">
+              <img src="{% static 'tc_bridal/img/h5.jpg' %}" alt="Item 3" class="img-fluid hover-effect">
+          </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box">
+            <img src="{% static 'tc_bridal/img/h6.jpg' %}" alt="Item 3" class="img-fluid hover-effect">
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="text-center mb-5">
+      <a href="{% url 'inquires' %}" class="btn btn-inquire">
+        <i class="fas fa-envelope-open-text"></i> Inquire Now
+      </a>
+  </div>
+</section>
 
 
 
