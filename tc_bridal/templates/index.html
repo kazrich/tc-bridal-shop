@@ -653,7 +653,12 @@
 
 
 
-  <!-- NAVIGATION SECTION -->
+
+<!-- Page Content Wrapper -->
+<div id="mainContent" style="display: none;">
+  <!-- Everything from the rest of your body goes here -->
+
+    <!-- NAVIGATION SECTION -->
     <!-- Top Banner -->
     <section class="fixed-top">
       <div id="topBanner" class="over d-flex justify-content-center align-items-center p-2 bg-light">
@@ -936,11 +941,6 @@
                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
         </div>
   
-        <div style="margin-bottom: 15px; display: flex; align-items: center;">
-          <input name="remember-Me" type="checkbox" id="rememberMe" style="margin-right: 10px;">
-          <label for="rememberMe" style="margin: 0;">Remember me</label>
-        </div>
-  
         <button type="submit"
                 style="width: 100%; padding: 12px; background-color: #d63384; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
           Subscribe
@@ -962,61 +962,62 @@
 
 <!-- Example Section that will animate -->
  <!--COLLECTIONS-->
-<div data-aos="fade-up" data-aos-duration="2000"> <!-- Duration set to 2 seconds -->
-  <div class="container py-4">
-    <div>
-      <div class="container py-5">
-        <div class="row justify-content-center animated-row">
-          <div style="text-align: center;">
-              <h2 id="collection-title" class="animate-title fancy-underline mb-5"
-                  style="font-weight: bolder; color: #000; font-family: 'Myanmar Text'; font-size: 36px; display: inline-block; position: relative; margin-bottom: 2rem;">
-                <span id="hover-title" style="position: relative;">Gowns & Dresses</span> quick search
-                <span id="hover-underline"
-                      style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
-                             width: 0; height: 2px; background-color: #d63384; transition: width 0.5s ease;"></span>
-              </h2>
-          </div>
+<!-- Premier Designers Section -->
+<section class="py-5" style="background-color: #fef6f8;">
+  <div class="container">
+    <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
+      Gowns & Dresses<br>
+      <span style="font-size: 42px; font-weight: 500;">quick search</span>
+    </h2>
 
-          <!-- START: Collection Items -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4 collection-item">
-            <div class="hover-image image-card fade-up-item">
-              <div class="image-box position-relative">
-                <a href="{% url 'evening' %}">
-                  <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Before look" class="img-fluid rounded shadow">
-                  <div class="image-text">Evening Gowns</div>
-                </a>
-              </div>
-            </div>
+    <div class="row justify-content-center align-items-stretch gy-5">
+      <!-- Collection 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+          <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses"
+                 style="width: 100%; height: 360px; object-fit: cover;" />
           </div>
-
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4 collection-item">
-            <div class="hover-image image-card fade-up-item">
-              <div class="image-box position-relative">
-                <a href="{% url 'kids' %}">
-                  <img src="{% static 'tc_bridal/img/kid2.jpg' %}" alt="Before look" class="img-fluid rounded shadow">
-                  <div class="image-text">Kids Gowns</div>
-                </a>
-              </div>
-            </div>
+          <div style="margin-top: 12px; text-align: center;">
+            <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Evening Dresses</h4>
+            <a href="{% url 'evening' %}" style=" color: #777; font-size: 13px;">Browse Dresses</a>
           </div>
-
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4 collection-item">
-            <div class="hover-image image-card fade-up-item">
-              <div class="image-box position-relative">
-                <a href="{% url 'maid' %}">
-                  <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Before look" class="img-fluid rounded shadow">
-                  <div class="image-text">Maid Dresses</div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- END: Collection Items -->
-
         </div>
       </div>
+
+      <!-- Collection 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+          <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <img src="{% static 'tc_bridal/img/kid2.jpg' %}" alt="Kids Dresses"
+                 style="width: 100%; height: 360px; object-fit: cover;" />
+          </div>
+          <div style="margin-top: 12px; text-align: center;">
+            <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Kids Dresses</h4>
+            <a href="{% url 'kids' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collection 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+          <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Maids Gowns"
+                 style="width: 100%; height: 360px; object-fit: cover;" />
+          </div>
+          <div style="margin-top: 12px; text-align: center;">
+            <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Maids Gowns</h4>
+            <a href="{% url 'maid' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
+</section>
+
+
 
   
   
@@ -1154,6 +1155,11 @@
     </div>
 </footer>
 
+</div> <!-- End of #mainContent -->
+
+
+
+
 <!--java script-->
 <script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
   <!-- JS SECTION -->
@@ -1163,11 +1169,11 @@
 
 <script>
 
-// preloader js
 window.addEventListener("load", function () {
     setTimeout(() => {
       document.getElementById("preloader").style.display = "none";
-    }, 4900); // Matches your previous request
+      document.getElementById("mainContent").style.display = "block";
+    }, 4900); // adjust this delay as needed
   });
 
 
