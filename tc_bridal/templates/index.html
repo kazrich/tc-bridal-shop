@@ -1080,10 +1080,14 @@
         <!-- Action Buttons -->
         <div class="d-flex justify-content-between flex-wrap gap-2">
           <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Not Now</button>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-success" id="submit-rating-btn">Submit</button>
         </div>
 
         <!-- Google Review Button -->
+        <p class="text-center mt-3" style="color: #000000; font-weight: bolder;">
+          Your star rating helps us, but when you <span class="btn btn-warning mt-3">Write a Google Review</span> makes us shine! 🌟 tap on the button below and we get to know your thoughts.
+        </p>
+        
         <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning mt-3">
           <i class="fab fa-google me-1"></i> Write a Google Review
         </a>
@@ -1091,6 +1095,23 @@
     </div>
   </div>
 </div>
+
+<!-- Custom Thank You Modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4" style="border-radius: 15px;">
+      <div class="modal-body">
+        <i class="fas fa-heart fa-3x mb-3 text-danger"></i>
+        <h5 class="mb-3" style="color: #d63384;">Thank You, Gorgeous! 💕</h5>
+        <p class="mb-4">Tc bridals appreciate your feedback. Now let’s shine together — leave us a Google review!</p>
+        <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning w-100">
+          <i class="fab fa-google me-1"></i> Write a Google Review
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -1129,37 +1150,37 @@
 <section >
     <div class="container py-4">
         <div class="row">
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
             </div>
           </div>
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
             </div>
           </div>
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
             </div>
           </div>
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
             </div>
           </div>
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
             </div>
           </div>
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
             </div>
           </div>
-          <div class="col-6 col-md-3 mb-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="image-box">
                 <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
             </div>
@@ -1257,6 +1278,47 @@
 
 
 <script>
+
+  // == rewiew stars ==
+  document.addEventListener('DOMContentLoaded', function () {
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', function () {
+        selectedRating = parseInt(this.getAttribute('data-value'));
+        stars.forEach(s => s.classList.replace('text-warning', 'text-muted'));
+        for (let i = 0; i < selectedRating; i++) {
+          stars[i].classList.replace('text-muted', 'text-warning');
+        }
+
+        document.getElementById('rating-label').textContent = 
+          `You selected ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
+      });
+    });
+
+    document.getElementById('submit-rating-btn').addEventListener('click', function () {
+      if (selectedRating === 0) {
+        alert("Please select a rating before submitting.");
+        return;
+      }
+
+    // Show thank you modal with soft style and icon
+      const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+      thankYouModal.show();
+
+      // Optional: close the rating modal (if still open)
+      const reviewModal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
+      if (reviewModal) reviewModal.hide();
+
+      // Close modal (Bootstrap 5)
+      const modal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
+      modal.hide();
+    });
+  });
+
+
+
   // === Preloader Logic ===
   const MIN_PRELOADER_TIME = 5500;
   const start = Date.now();
