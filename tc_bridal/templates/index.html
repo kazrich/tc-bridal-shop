@@ -8,7 +8,7 @@
   <meta name="keywords" content="bridal shop, wedding shoes, bridal accessories, Kampala bridal wear, TC Bridal" />
   <meta name="author" content="TC Bridal Shop" />
 
-  <title>Home | TC Bridal Shop</title>
+  <title>Home | Tc bridals</title>
   <link rel="icon" href="{% static 'tc_bridal/img/log.jpg' %} " type="image/png" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
@@ -645,27 +645,25 @@
 
 
 
-<!-- Preloader -->
-<div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background-color: #1a1a1a; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center;">
+  <!-- Preloader -->
+  <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #1a1a1a; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center;">
 
- <!-- Logo Image -->
-  <img src="static/tc_bridal/img/log.jpg" alt="Tc Bridals Logo" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; animation: fadein 1.5s ease-in-out;">
+  <!-- Logo Image -->
+    <img src="static/tc_bridal/img/log.jpg" alt="Tc Bridals Logo" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; animation: fadein 1.5s ease-in-out;">
 
-  <h2 style="font-size: 48px; margin-bottom: 10px; animation: pulse 1.5s ease-in-out infinite;">Tc bridals</h2>
-  <p style="font-size: 16px; animation: fadein 2s ease-in-out;">...just a moment...</p>
+    <h2 style="font-size: 48px; margin-bottom: 10px; animation: pulse 1.5s ease-in-out infinite;">Tc bridals</h2>
+    <p style="font-size: 16px; animation: fadein 2s ease-in-out;">...just a moment...</p>
 
-  <br>
+    <br>
 
-  <div style="margin-bottom: 20px;">
-    <div class="spinner" style="width: 40px; height: 40px; border: 4px solid #ffffff; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    <div style="margin-bottom: 20px;">
+      <div class="spinner" style="width: 40px; height: 40px; border: 4px solid #ffffff; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    </div>
+    
   </div>
-  
-</div>
 
 
-<!-- Page Content Wrapper -->
-<div id="mainContent" style="display: none;">
   <!-- Everything from the rest of your body goes here -->
 
     <!-- NAVIGATION SECTION -->
@@ -919,599 +917,599 @@
 
 
 
-{% if full_name %}
-  <div style="margin: 100px auto; padding: 40px; background-color: #fff0f5; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding-top: 180px;">
-    <i class="fa-solid fa-circle-check fa-3x" style="color: #d63384;"></i>
-    <h2 class="mt-3" style="color: #d63384; font-weight: bold;"></h2>
-    
-    <p>In no time, we are going to keep you updated on my <span style="font-weight: bold;">product Arrivals, Offers and TC bridal Events</span></p>
-
-    <p style="font-size: 0.95rem; color: gray;">Your data is secure with us. 💌</p>
-  </div>
-{% else %}       
-<!-- Main body Section with Background Image     -->
-<div style="position: relative;">
-  <!-- Content Section (Text, Form, etc.) -->
-  <div style="width: 100%; padding: 30px 10px; display: flex; justify-content: center; background-color: #f8f9fa;">
-    <div style="max-width: 500px; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
+  {% if full_name %}
+    <div style="margin: 100px auto; padding: 40px; background-color: #fff0f5; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding-top: 180px;">
+      <i class="fa-solid fa-circle-check fa-3x" style="color: #d63384;"></i>
+      <h2 class="mt-3" style="color: #d63384; font-weight: bold;"></h2>
       
-      <h4 style="margin-bottom: 20px; text-align: center; color: #d63384; font-weight: bold;">Subscribe with Your Email</h4>
-      <p style="font-weight: bold; text-align: center; margin-bottom: 25px;">For our latest product Updates and News</p>
-      
-      <form action="{% url 'home' %}" method="post">
-        {% csrf_token %}
-  
-        <div style="margin-bottom: 15px;">
-          <label for="fname" style="display: block; font-weight: 500; margin-bottom: 5px;">Full names</label>
-          <input name="full-name" type="text" id="fname" placeholder="Enter your full names"
-                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
-        </div>
-  
-        <div style="margin-bottom: 20px;">
-          <label for="email" style="display: block; font-weight: 500; margin-bottom: 5px;">Email address</label>
-          <input name="email" type="email" id="email" placeholder="Enter your email"
-                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
-        </div>
-  
-        <button type="submit"
-                style="width: 100%; padding: 12px; background-color: #d63384; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
-          Subscribe
-        </button>
+      <p>In no time, we are going to keep you updated on my <span style="font-weight: bold;">product Arrivals, Offers and TC bridal Events</span></p>
 
-        <h1 style="text-align: center;">OR</h1>
-  
-        <!-- Add spacing between buttons -->
-        <div style="margin-top: 15px;">
-          <button type="button" data-bs-toggle="modal" data-bs-target="#reviewModal"
-                  style="width: 100%; padding: 12px; background-color: #0d6efd; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
-            Leave a Review
-          </button>
-        </div>
-  
-        <h5 style="text-align: center; padding-top: 20px; font-size: 14px; color: #555;">
-          If you have already subscribed, DON'T subscribe again!!
-        </h5>
-  
-        <p style="margin-top: 20px; text-align: center; font-size: 13px; color: #999;">
-          "Customer data is highly valued and protected"
-        </p>
-      </form>
+      <p style="font-size: 0.95rem; color: gray;">Your data is secure with us. 💌</p>
     </div>
-  </div>
-  
-  
-</div>
-{% endif %}
-
-
-  
-
-
-<!-- Example Section that will animate -->
- <!--COLLECTIONS-->
-<!-- Premier Designers Section -->
-<section class="py-5" style="background-color: #fef6f8;">
-  <div class="container">
-    <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
-      Gowns & Dresses<br>
-      <span style="font-size: 42px; font-weight: 500;">quick search</span>
-    </h2>
-
-    <div class="row justify-content-center align-items-stretch gy-5">
-      <!-- Collection 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-          <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-            <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses"
-                 style="width: 100%; height: 360px; object-fit: cover;" />
-          </div>
-          <div style="margin-top: 12px; text-align: center;">
-            <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Evening Dresses</h4>
-            <a href="{% url 'evening' %}" style=" color: #777; font-size: 13px;">Browse Dresses</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Collection 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-          <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-            <img src="{% static 'tc_bridal/img/kid2.jpg' %}" alt="Kids Dresses"
-                 style="width: 100%; height: 360px; object-fit: cover;" />
-          </div>
-          <div style="margin-top: 12px; text-align: center;">
-            <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Kids Dresses</h4>
-            <a href="{% url 'kids' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Collection 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-          <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-            <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Maids Gowns"
-                 style="width: 100%; height: 360px; object-fit: cover;" />
-          </div>
-          <div style="margin-top: 12px; text-align: center;">
-            <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Maids Gowns</h4>
-            <a href="{% url 'maid' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-  
-  
-
-
-
-
-
-
-<!-- Review Modal -->
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center p-3">
-      <div class="modal-header border-0">
-        <h5 class="modal-title w-100" id="reviewModalLabel">How was your experience?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Your answer is anonymous. Help us improve our service.</p>
-
-        <!-- Star Rating -->
-        <div class="rating mb-3">
-          <i class="fas fa-star fa-2x text-muted star" data-value="1"></i>
-          <i class="fas fa-star fa-2x text-muted star" data-value="2"></i>
-          <i class="fas fa-star fa-2x text-muted star" data-value="3"></i>
-          <i class="fas fa-star fa-2x text-muted star" data-value="4"></i>
-          <i class="fas fa-star fa-2x text-muted star" data-value="5"></i>
-        </div>
-
-        <p id="rating-label" class="fw-semibold">Select a rating</p>
-
-        <!-- Action Buttons -->
-        <div class="d-flex justify-content-between flex-wrap gap-2">
-          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Not Now</button>
-          <button type="button" class="btn btn-success" id="submit-rating-btn">Submit</button>
-        </div>
-
-        <!-- Google Review Button -->
-        <p class="text-center mt-3" style="color: #000000; font-weight: bolder;">
-          Your star rating helps us, but when you <span class="btn btn-warning mt-3">Write a Google Review</span> makes us shine! 🌟 tap on the button below and we get to know your thoughts.
-        </p>
+  {% else %}       
+  <!-- Main body Section with Background Image     -->
+  <div style="position: relative;">
+    <!-- Content Section (Text, Form, etc.) -->
+    <div style="width: 100%; padding: 30px 10px; display: flex; justify-content: center; background-color: #f8f9fa;">
+      <div style="max-width: 500px; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
         
-        <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning mt-3">
-          <i class="fab fa-google me-1"></i> Write a Google Review
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Custom Thank You Modal -->
-<div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center p-4" style="border-radius: 15px;">
-      <div class="modal-body">
-        <i class="fas fa-heart fa-3x mb-3 text-danger"></i>
-        <h5 class="mb-3" style="color: #d63384;">Thank You, Gorgeous! 💕</h5>
-        <p class="mb-4">Tc bridals appreciate your feedback. Now let’s shine together — leave us a Google review!</p>
-        <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning w-100">
-          <i class="fab fa-google me-1"></i> Write a Google Review
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!--bridal traditional wear-->
-<!-- Product Category Grid Section -->
-<section class="py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-
-      <!-- Category Card -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="category-card text-center">
-          <div class="image-wrapper">
-            <img src="{% static 'tc_bridal/img/g1.jpg' %}" class="img-fluid rounded" alt="Earrings">
-            <div class="overlay-text">
-              <h3 class="category-title">GOMESI</h3>
-              <p class="product-count">See our beautifull clients</p>
-            </div>
+        <h4 style="margin-bottom: 20px; text-align: center; color: #d63384; font-weight: bold;">Subscribe with Your Email</h4>
+        <p style="font-weight: bold; text-align: center; margin-bottom: 25px;">For our latest product Updates and News</p>
+        
+        <form action="{% url 'home' %}" method="post">
+          {% csrf_token %}
+    
+          <div style="margin-bottom: 15px;">
+            <label for="fname" style="display: block; font-weight: 500; margin-bottom: 5px;">Full names</label>
+            <input name="full-name" type="text" id="fname" placeholder="Enter your full names"
+                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
           </div>
-        </div>
-      </div>
+    
+          <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; font-weight: 500; margin-bottom: 5px;">Email address</label>
+            <input name="email" type="email" id="email" placeholder="Enter your email"
+                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
+          </div>
+    
+          <button type="submit"
+                  style="width: 100%; padding: 12px; background-color: #d63384; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
+            Subscribe
+          </button>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="text-card p-4 text-center">
-          <h3 class="category-title mb-2">GOMESI</h3>
-          <p class="product-count">
-            Explore our elegant Gomesi collection — rich in cultural heritage, crafted with luxurious fabrics, and tailored for timeless beauty. Perfect for traditional ceremonies and graceful celebrations. 👗✨
+          <h1 style="text-align: center;">OR</h1>
+    
+          <!-- Add spacing between buttons -->
+          <div style="margin-top: 15px;">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#reviewModal"
+                    style="width: 100%; padding: 12px; background-color: #0d6efd; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
+              Leave a Review
+            </button>
+          </div>
+    
+          <h5 style="text-align: center; padding-top: 20px; font-size: 14px; color: #555;">
+            If you have already subscribed, DON'T subscribe again!!
+          </h5>
+    
+          <p style="margin-top: 20px; text-align: center; font-size: 13px; color: #999;">
+            "Customer data is highly valued and protected"
           </p>
-        </div>
-      </div>  
-
+        </form>
+      </div>
     </div>
-</section>
+    
+    
+  </div>
+  {% endif %}
 
-
-<section >
-    <div class="container py-4">
-        <div class="row">
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="image-box">
-                <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="text-center mb-5">
-        <a href="{% url 'inquires' %}" class="btn btn-inquire">
-          <i class="fas fa-envelope-open-text"></i> Inquire Now
-        </a>
-    </div>
-</section>
 
   
 
 
-<!-- Footer -->
-<footer class="bg-light text-black py-4 mt-5 px-3">
+  <!-- Example Section that will animate -->
+  <!--COLLECTIONS-->
+  <!-- Premier Designers Section -->
+  <section class="py-5" style="background-color: #fef6f8;">
     <div class="container">
-        <!-- Row 1: Info Sections in One Line -->
-        <div class="row text-center text-md-start mb-4">
-        <!-- Working Hours -->
-        <div class="col-md-3" id="working-hours">
-            <h5 class="fw-bold"><i class="far fa-clock me-2"></i>Working Hours</h5>
-            <p><strong style="font-family: 'Myanmar Text';">Mon - sat:</strong> 8:30 AM - 7:30 PM</p>
-            <p><strong style="font-family: 'Myanmar Text';">Make your Booking in Time</strong></p>         
-        </div>
-    
-        <!-- Gowns and Dresses -->
-        <div class="col-md-3">
-          <h5 class="fw-bold">
-          <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
-          </h5>
-          <ul class="list-unstyled" id="show">
-          <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
-          <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
-          <li><a href="{% url 'maid' %}">Maid Dresses</a></li>
-          </ul>
-      </div>
+      <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
+        Gowns & Dresses<br>
+        <span style="font-size: 42px; font-weight: 500;">quick search</span>
+      </h2>
 
+      <div class="row justify-content-center align-items-stretch gy-5">
+        <!-- Collection 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+            <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+              <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses"
+                  style="width: 100%; height: 360px; object-fit: cover;" />
+            </div>
+            <div style="margin-top: 12px; text-align: center;">
+              <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Evening Dresses</h4>
+              <a href="{% url 'evening' %}" style=" color: #777; font-size: 13px;">Browse Dresses</a>
+            </div>
+          </div>
+        </div>
 
-      <!-- Accessories -->
-      <div class="col-md-3">
-        <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
-        <ul class="list-unstyled" id="show">
-          <li><a  href="{% url 'necklaces' %}">Necklaces</a></li>
-          <li><a  href="{% url 'earring' %}">Earrings</a></li>
-          <li><a  href="{% url 'bracelets' %}">Bracelets</a></li>
-          <li><a  href="{% url 'bags' %}">Bags</a></li>
-          <li><a  href="{% url 'shoes' %}">Shoes</a></li>
-          <li><a  href="{% url 'veils' %}">Veils & Headpieces</a></li>
-          <li><a  href="{% url 'makeup' %}">Makeup</a></li>
-        </ul>
+        <!-- Collection 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+            <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+              <img src="{% static 'tc_bridal/img/kid2.jpg' %}" alt="Kids Dresses"
+                  style="width: 100%; height: 360px; object-fit: cover;" />
+            </div>
+            <div style="margin-top: 12px; text-align: center;">
+              <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Kids Dresses</h4>
+              <a href="{% url 'kids' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+            <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+              <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Maids Gowns"
+                  style="width: 100%; height: 360px; object-fit: cover;" />
+            </div>
+            <div style="margin-top: 12px; text-align: center;">
+              <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Maids Gowns</h4>
+              <a href="{% url 'maid' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    
-        <!-- Contact Info -->
-        <div class="col-md-3" id="location">
-            <h5 class="fw-bold"><i class="fas fa-envelope me-2"></i>Contact Us</h5>
-            <p><strong style="font-family: 'Myanmar Text';">Email:</strong> tcbridals@gmail.com</p>
-            <p><strong style="font-family: 'Myanmar Text';">Phone:</strong> +256 (0) 752 823545</p>
-            <p><strong style="font-family: 'Myanmar Text';">Address:</strong> South Point Mall, Kabalagala<br>along Ggaba road<br>Kampala, Uganda</p>
-        </div>
-        </div>
-    
-        <!-- Row 2: Social Media -->
-        <div class="row text-center mb-3">
-        <div class="col">
-            <h5 class="fw-bold">Follow Us</h5>
-            <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-tiktok me-1"></i>TikTok</a>
-            <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-instagram me-1"></i>Instagram</a>
-            <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a>
-        </div>
-        </div>
-    
-        <!-- Row 3: Copyright -->
-        <div class="row text-center">
-        <div class="col">
-            <p class="mb-0 fw-bold">&copy; 2025 TC BRIDAL SHOP. All rights reserved.</p>
-        </div>
-        </div>
     </div>
-</footer>
-
-</div> <!-- End of #mainContent -->
+  </section>
 
 
 
-<!--java script-->
-<script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
-  <!-- JS SECTION -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- JS to Trigger Animation on Scroll -->
+
+  
+  
 
 
 
-<script>
-
-  // == rewiew stars ==
-  document.addEventListener('DOMContentLoaded', function () {
-    const stars = document.querySelectorAll('.star');
-    let selectedRating = 0;
-
-    stars.forEach(star => {
-      star.addEventListener('click', function () {
-        selectedRating = parseInt(this.getAttribute('data-value'));
-        stars.forEach(s => s.classList.replace('text-warning', 'text-muted'));
-        for (let i = 0; i < selectedRating; i++) {
-          stars[i].classList.replace('text-muted', 'text-warning');
-        }
-
-        document.getElementById('rating-label').textContent = 
-          `You selected ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
-      });
-    });
-
-    document.getElementById('submit-rating-btn').addEventListener('click', function () {
-      if (selectedRating === 0) {
-        alert("Please select a rating before submitting.");
-        return;
-      }
-
-    // Show thank you modal with soft style and icon
-      const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
-      thankYouModal.show();
-
-      // Optional: close the rating modal (if still open)
-      const reviewModal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
-      if (reviewModal) reviewModal.hide();
-
-      // Close modal (Bootstrap 5)
-      const modal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
-      modal.hide();
-    });
-  });
 
 
 
-  // === Preloader Logic ===
-  const MIN_PRELOADER_TIME = 5500;
-  const start = Date.now();
+  <!-- Review Modal -->
+  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title w-100" id="reviewModalLabel">How was your experience?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Your answer is anonymous. Help us improve our service.</p>
 
-  window.addEventListener("load", function () {
-    const preloader = document.getElementById("preloader");
-    const mainContent = document.getElementById("mainContent");
-    const timeElapsed = Date.now() - start;
-    const remainingTime = Math.max(0, MIN_PRELOADER_TIME - timeElapsed);
+          <!-- Star Rating -->
+          <div class="rating mb-3">
+            <i class="fas fa-star fa-2x text-muted star" data-value="1"></i>
+            <i class="fas fa-star fa-2x text-muted star" data-value="2"></i>
+            <i class="fas fa-star fa-2x text-muted star" data-value="3"></i>
+            <i class="fas fa-star fa-2x text-muted star" data-value="4"></i>
+            <i class="fas fa-star fa-2x text-muted star" data-value="5"></i>
+          </div>
 
-    setTimeout(() => {
-      preloader.style.opacity = "0";
-      setTimeout(() => {
-        preloader.style.display = "none";
-        if (mainContent) mainContent.style.display = "block";
-      }, 500);
-    }, remainingTime);
-  });
+          <p id="rating-label" class="fw-semibold">Select a rating</p>
 
-  // === Custom Carousel (Scale Effect) ===
-  document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
-    if (carousel) {
-      const slides = carousel.querySelectorAll(".my-carousel-item");
-      let current = 0;
-      const total = slides.length;
+          <!-- Action Buttons -->
+          <div class="d-flex justify-content-between flex-wrap gap-2">
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Not Now</button>
+            <button type="button" class="btn btn-success" id="submit-rating-btn">Submit</button>
+          </div>
 
-      slides.forEach((slide, index) => {
-        slide.style.position = "absolute";
-        slide.style.top = "0";
-        slide.style.left = "0";
-        slide.style.opacity = index === 0 ? "1" : "0";
-        slide.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
-      });
+          <!-- Google Review Button -->
+          <p class="text-center mt-3" style="color: #000000; font-weight: bolder;">
+            Your star rating helps us, but when you <span class="btn btn-warning mt-3">Write a Google Review</span> makes us shine! 🌟 tap on the button below and we get to know your thoughts.
+          </p>
+          
+          <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning mt-3">
+            <i class="fab fa-google me-1"></i> Write a Google Review
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      function scaleImage(slide) {
-        slide.style.transform = "scale(1.05)";
-        setTimeout(() => {
-          slide.style.transform = "scale(1)";
-        }, 1000);
-      }
+  <!-- Custom Thank You Modal -->
+  <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4" style="border-radius: 15px;">
+        <div class="modal-body">
+          <i class="fas fa-heart fa-3x mb-3 text-danger"></i>
+          <h5 class="mb-3" style="color: #d63384;">Thank You, Gorgeous! 💕</h5>
+          <p class="mb-4">Tc bridals appreciate your feedback. Now let’s shine together — leave us a Google review!</p>
+          <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning w-100">
+            <i class="fab fa-google me-1"></i> Write a Google Review
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      function nextSlide() {
-        slides[current].style.opacity = "0";
-        current = (current + 1) % total;
-        slides[current].style.opacity = "1";
-        scaleImage(slides[current]);
-      }
 
-      setInterval(nextSlide, 4000);
-    }
-  });
 
-  // === Carousel Countdown Timer ===
-  document.addEventListener("DOMContentLoaded", function () {
-    const countdownSpan = document.getElementById("carouselCountdown");
-    if (countdownSpan) {
-      const totalDuration = 2;
-      let currentTime = totalDuration;
 
-      function updateCountdownDisplay() {
-        const minutes = String(Math.floor(currentTime / 60)).padStart(2, '0');
-        const seconds = String(currentTime % 60).padStart(2, '0');
-        countdownSpan.textContent = `${minutes}:${seconds}`;
-      }
+  <!--bridal traditional wear-->
+  <!-- Product Category Grid Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
 
-      function startCarouselTimer() {
-        currentTime = totalDuration;
-        updateCountdownDisplay();
-        const countdownInterval = setInterval(() => {
-          currentTime--;
-          updateCountdownDisplay();
-          if (currentTime <= 0) {
-            clearInterval(countdownInterval);
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="category-card text-center">
+            <div class="image-wrapper">
+              <img src="{% static 'tc_bridal/img/g1.jpg' %}" class="img-fluid rounded" alt="Earrings">
+              <div class="overlay-text">
+                <h3 class="category-title">GOMESI</h3>
+                <p class="product-count">See our beautifull clients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="text-card p-4 text-center">
+            <h3 class="category-title mb-2">GOMESI</h3>
+            <p class="product-count">
+              Explore our elegant Gomesi collection — rich in cultural heritage, crafted with luxurious fabrics, and tailored for timeless beauty. Perfect for traditional ceremonies and graceful celebrations. 👗✨
+            </p>
+          </div>
+        </div>  
+
+      </div>
+  </section>
+
+
+  <section >
+      <div class="container py-4">
+          <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+              <div class="image-box">
+                  <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="text-center mb-5">
+          <a href="{% url 'inquires' %}" class="btn btn-inquire">
+            <i class="fas fa-envelope-open-text"></i> Inquire Now
+          </a>
+      </div>
+  </section>
+
+  
+
+
+  <!-- Footer -->
+  <footer class="bg-light text-black py-4 mt-5 px-3">
+      <div class="container">
+          <!-- Row 1: Info Sections in One Line -->
+          <div class="row text-center text-md-start mb-4">
+          <!-- Working Hours -->
+          <div class="col-md-3" id="working-hours">
+              <h5 class="fw-bold"><i class="far fa-clock me-2"></i>Working Hours</h5>
+              <p><strong style="font-family: 'Myanmar Text';">Mon - sat:</strong> 8:30 AM - 7:30 PM</p>
+              <p><strong style="font-family: 'Myanmar Text';">Make your Booking in Time</strong></p>         
+          </div>
+      
+          <!-- Gowns and Dresses -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">
+            <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
+            </h5>
+            <ul class="list-unstyled" id="show">
+            <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
+            <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
+            <li><a href="{% url 'maid' %}">Maid Dresses</a></li>
+            </ul>
+        </div>
+
+
+        <!-- Accessories -->
+        <div class="col-md-3">
+          <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
+          <ul class="list-unstyled" id="show">
+            <li><a  href="{% url 'necklaces' %}">Necklaces</a></li>
+            <li><a  href="{% url 'earring' %}">Earrings</a></li>
+            <li><a  href="{% url 'bracelets' %}">Bracelets</a></li>
+            <li><a  href="{% url 'bags' %}">Bags</a></li>
+            <li><a  href="{% url 'shoes' %}">Shoes</a></li>
+            <li><a  href="{% url 'veils' %}">Veils & Headpieces</a></li>
+            <li><a  href="{% url 'makeup' %}">Makeup</a></li>
+          </ul>
+        </div>
+      
+          <!-- Contact Info -->
+          <div class="col-md-3" id="location">
+              <h5 class="fw-bold"><i class="fas fa-envelope me-2"></i>Contact Us</h5>
+              <p><strong style="font-family: 'Myanmar Text';">Email:</strong> tcbridals@gmail.com</p>
+              <p><strong style="font-family: 'Myanmar Text';">Phone:</strong> +256 (0) 752 823545</p>
+              <p><strong style="font-family: 'Myanmar Text';">Address:</strong> South Point Mall, Kabalagala<br>along Ggaba road<br>Kampala, Uganda</p>
+          </div>
+          </div>
+      
+          <!-- Row 2: Social Media -->
+          <div class="row text-center mb-3">
+          <div class="col">
+              <h5 class="fw-bold">Follow Us</h5>
+              <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-tiktok me-1"></i>TikTok</a>
+              <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-instagram me-1"></i>Instagram</a>
+              <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a>
+          </div>
+          </div>
+      
+          <!-- Row 3: Copyright -->
+          <div class="row text-center">
+          <div class="col">
+              <p class="mb-0 fw-bold">&copy; 2025 TC BRIDAL SHOP. All rights reserved.</p>
+          </div>
+          </div>
+      </div>
+  </footer>
+
+
+
+
+
+  <!--java script-->
+  <script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
+    <!-- JS SECTION -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS to Trigger Animation on Scroll -->
+
+
+
+  <script>
+
+    // == rewiew stars ==
+    document.addEventListener('DOMContentLoaded', function () {
+      const stars = document.querySelectorAll('.star');
+      let selectedRating = 0;
+
+      stars.forEach(star => {
+        star.addEventListener('click', function () {
+          selectedRating = parseInt(this.getAttribute('data-value'));
+          stars.forEach(s => s.classList.replace('text-warning', 'text-muted'));
+          for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.replace('text-muted', 'text-warning');
           }
-        }, 1000);
+
+          document.getElementById('rating-label').textContent = 
+            `You selected ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
+        });
+      });
+
+      document.getElementById('submit-rating-btn').addEventListener('click', function () {
+        if (selectedRating === 0) {
+          alert("Please select a rating before submitting.");
+          return;
+        }
+
+      // Show thank you modal with soft style and icon
+        const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+        thankYouModal.show();
+
+        // Optional: close the rating modal (if still open)
+        const reviewModal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
+        if (reviewModal) reviewModal.hide();
+
+        // Close modal (Bootstrap 5)
+        const modal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
+        modal.hide();
+      });
+    });
+
+
+
+    // === Preloader Logic ===
+    const MIN_PRELOADER_TIME = 5500;
+    const start = Date.now();
+
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      const mainContent = document.getElementById("mainContent");
+      const timeElapsed = Date.now() - start;
+      const remainingTime = Math.max(0, MIN_PRELOADER_TIME - timeElapsed);
+
+      setTimeout(() => {
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+          preloader.style.display = "none";
+          if (mainContent) mainContent.style.display = "block";
+        }, 500);
+      }, remainingTime);
+    });
+
+    // === Custom Carousel (Scale Effect) ===
+    document.addEventListener("DOMContentLoaded", function () {
+      const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
+      if (carousel) {
+        const slides = carousel.querySelectorAll(".my-carousel-item");
+        let current = 0;
+        const total = slides.length;
+
+        slides.forEach((slide, index) => {
+          slide.style.position = "absolute";
+          slide.style.top = "0";
+          slide.style.left = "0";
+          slide.style.opacity = index === 0 ? "1" : "0";
+          slide.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
+        });
+
+        function scaleImage(slide) {
+          slide.style.transform = "scale(1.05)";
+          setTimeout(() => {
+            slide.style.transform = "scale(1)";
+          }, 1000);
+        }
+
+        function nextSlide() {
+          slides[current].style.opacity = "0";
+          current = (current + 1) % total;
+          slides[current].style.opacity = "1";
+          scaleImage(slides[current]);
+        }
+
+        setInterval(nextSlide, 4000);
+      }
+    });
+
+    // === Carousel Countdown Timer ===
+    document.addEventListener("DOMContentLoaded", function () {
+      const countdownSpan = document.getElementById("carouselCountdown");
+      if (countdownSpan) {
+        const totalDuration = 2;
+        let currentTime = totalDuration;
+
+        function updateCountdownDisplay() {
+          const minutes = String(Math.floor(currentTime / 60)).padStart(2, '0');
+          const seconds = String(currentTime % 60).padStart(2, '0');
+          countdownSpan.textContent = `${minutes}:${seconds}`;
+        }
+
+        function startCarouselTimer() {
+          currentTime = totalDuration;
+          updateCountdownDisplay();
+          const countdownInterval = setInterval(() => {
+            currentTime--;
+            updateCountdownDisplay();
+            if (currentTime <= 0) {
+              clearInterval(countdownInterval);
+            }
+          }, 1000);
+        }
+
+        startCarouselTimer();
+      }
+    });
+
+    // === Thumbnail Carousel with Time Bar ===
+    document.addEventListener("DOMContentLoaded", function () {
+      const nextBtn = document.querySelector('.nextBtn');
+      const prevBtn = document.querySelector('.prevBtn');
+      const carouselMain = document.querySelector('.carousel');
+      const list = document.querySelector('.carousel .list');
+      const thumbnails = document.querySelector('.carousel .thumbnail');
+      const timeBar = document.querySelector('.carousel .time');
+
+      function slideNext() {
+        carouselMain.classList.remove('prev');
+        carouselMain.classList.add('next');
+        let listItem = list.querySelectorAll('.item');
+        let thumbItem = thumbnails.querySelectorAll('.item');
+        list.appendChild(listItem[0]);
+        thumbnails.appendChild(thumbItem[0]);
+        restartTimeBar();
       }
 
-      startCarouselTimer();
-    }
-  });
+      function slidePrev() {
+        carouselMain.classList.remove('next');
+        carouselMain.classList.add('prev');
+        let listItem = list.querySelectorAll('.item');
+        let thumbItem = thumbnails.querySelectorAll('.item');
+        list.prepend(listItem[listItem.length - 1]);
+        thumbnails.prepend(thumbItem[thumbItem.length - 1]);
+        restartTimeBar();
+      }
 
-  // === Thumbnail Carousel with Time Bar ===
-  document.addEventListener("DOMContentLoaded", function () {
-    const nextBtn = document.querySelector('.nextBtn');
-    const prevBtn = document.querySelector('.prevBtn');
-    const carouselMain = document.querySelector('.carousel');
-    const list = document.querySelector('.carousel .list');
-    const thumbnails = document.querySelector('.carousel .thumbnail');
-    const timeBar = document.querySelector('.carousel .time');
+      function restartTimeBar() {
+        timeBar.style.animation = 'none';
+        void timeBar.offsetWidth;
+        timeBar.style.animation = null;
+      }
 
-    function slideNext() {
-      carouselMain.classList.remove('prev');
-      carouselMain.classList.add('next');
-      let listItem = list.querySelectorAll('.item');
-      let thumbItem = thumbnails.querySelectorAll('.item');
-      list.appendChild(listItem[0]);
-      thumbnails.appendChild(thumbItem[0]);
-      restartTimeBar();
-    }
-
-    function slidePrev() {
-      carouselMain.classList.remove('next');
-      carouselMain.classList.add('prev');
-      let listItem = list.querySelectorAll('.item');
-      let thumbItem = thumbnails.querySelectorAll('.item');
-      list.prepend(listItem[listItem.length - 1]);
-      thumbnails.prepend(thumbItem[thumbItem.length - 1]);
-      restartTimeBar();
-    }
-
-    function restartTimeBar() {
-      timeBar.style.animation = 'none';
-      void timeBar.offsetWidth;
-      timeBar.style.animation = null;
-    }
-
-    nextBtn?.addEventListener('click', slideNext);
-    prevBtn?.addEventListener('click', slidePrev);
-    setInterval(slideNext, 5000);
-  });
-
-  // === Scroll-based Fade-in Animation ===
-  document.addEventListener("DOMContentLoaded", function () {
-    const fadeItems = document.querySelectorAll('.fade-up-item');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        } else {
-          entry.target.style.opacity = "0";
-          entry.target.style.transform = "translateY(40px)";
-        }
-      });
-    }, { threshold: 0.3 });
-
-    fadeItems.forEach(item => observer.observe(item));
-  });
-
-  // === Targeted Fade-ins ===
-  document.addEventListener("DOMContentLoaded", function () {
-    const fadeTargets = ["textColumn", "imageBox", "promoText"];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        entry.target.style.transition = "opacity 2s ease, transform 2s ease";
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        } else {
-          entry.target.style.opacity = "0";
-          entry.target.style.transform = "translateY(50px)";
-        }
-      });
-    }, { threshold: 0.3 });
-
-    fadeTargets.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      nextBtn?.addEventListener('click', slideNext);
+      prevBtn?.addEventListener('click', slidePrev);
+      setInterval(slideNext, 5000);
     });
-  });
 
-  // === Dropdown Hover Animation ===
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.dropdown').forEach(drop => {
-      drop.addEventListener('show.bs.dropdown', function () {
-        this.querySelector('.dropdown-menu').classList.add('show-animation');
-      });
-      drop.addEventListener('hide.bs.dropdown', function () {
-        this.querySelector('.dropdown-menu').classList.remove('show-animation');
+    // === Scroll-based Fade-in Animation ===
+    document.addEventListener("DOMContentLoaded", function () {
+      const fadeItems = document.querySelectorAll('.fade-up-item');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          } else {
+            entry.target.style.opacity = "0";
+            entry.target.style.transform = "translateY(40px)";
+          }
+        });
+      }, { threshold: 0.3 });
+
+      fadeItems.forEach(item => observer.observe(item));
+    });
+
+    // === Targeted Fade-ins ===
+    document.addEventListener("DOMContentLoaded", function () {
+      const fadeTargets = ["textColumn", "imageBox", "promoText"];
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          entry.target.style.transition = "opacity 2s ease, transform 2s ease";
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          } else {
+            entry.target.style.opacity = "0";
+            entry.target.style.transform = "translateY(50px)";
+          }
+        });
+      }, { threshold: 0.3 });
+
+      fadeTargets.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
       });
     });
-  });
 
-  // === Mobile Sidebar Menu ===
-  document.addEventListener("DOMContentLoaded", function () {
-    const openSidebar = document.getElementById("openSidebar");
-    const closeSidebar = document.getElementById("closeSidebar");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    openSidebar?.addEventListener("click", () => mobileMenu.classList.add("show"));
-    closeSidebar?.addEventListener("click", () => mobileMenu.classList.remove("show"));
-
-    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    // === Dropdown Hover Animation ===
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.dropdown').forEach(drop => {
+        drop.addEventListener('show.bs.dropdown', function () {
+          this.querySelector('.dropdown-menu').classList.add('show-animation');
+        });
+        drop.addEventListener('hide.bs.dropdown', function () {
+          this.querySelector('.dropdown-menu').classList.remove('show-animation');
+        });
       });
     });
-  });
-</script>
+
+    // === Mobile Sidebar Menu ===
+    document.addEventListener("DOMContentLoaded", function () {
+      const openSidebar = document.getElementById("openSidebar");
+      const closeSidebar = document.getElementById("closeSidebar");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      openSidebar?.addEventListener("click", () => mobileMenu.classList.add("show"));
+      closeSidebar?.addEventListener("click", () => mobileMenu.classList.remove("show"));
+
+      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          const submenu = this.nextElementSibling;
+          submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    });
+  </script>
 
 
 </body>
