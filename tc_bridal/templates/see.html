@@ -1,8 +1,56 @@
-<li class="has-submenu">
-  <a href="#" class="d-block fw-bold py-2 submenu-toggle">Gowns & Dresses <i class="fas fa-chevron-down float-end"></i></a>
-  <ul class="submenu list-unstyled ps-3" style="display: none;">
-    <li><a href="{% url 'necklaces' %}" class="d-block py-2">Evening Dresses</a></li>
-    <li><a href="{% url 'earring' %}" class="d-block py-2">Kids chamber</a></li>
-    <li><a href="{% url 'bracelets' %}" class="d-block py-2">Maids chamber</a></li>
-  </ul>
-</li>
+<!-- Promotion Banner -->
+<div class="promotion-banner text-center" style="background: linear-gradient(135deg, #ffe4ec, #fff); padding: 50px 0;">
+  <div class="container-fluid"> <!-- Use container-fluid for full width -->
+    <div class="row align-items-center">
+
+      <!-- Custom Carousel Section -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div id="customPromotionCarousel" class="my-carousel-slide" data-bs-ride="carousel"
+             style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; overflow: hidden; width: 100%;">
+
+          <div class="my-carousel-inner responsive-banner">
+
+            <!-- Slides -->
+            <div class="my-carousel-item active" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/1.jpg' %}" alt="Promotion Image 1"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/2.jpg' %}" alt="Promotion Image 2"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Promotion Image 3"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/4.jpg' %}" alt="Promotion Image 4"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="my-carousel-item" style="width: 100%; height: 100%;">
+              <img src="{% static 'tc_bridal/img/11.jpg' %}" alt="Promotion Image 4"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Column -->
+      <div class="col-md-6 fade-up" id="promoText"
+           style="color: #000; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; font-weight: bold; margin-bottom: 15px; color: #000;">
+          Exclusive Offer Just For You!
+        </h2>
+        <p style="font-family: 'Segoe UI', sans-serif; font-size: 18px; margin-bottom: 25px; color: #000;">
+          💖 Get <strong>20% OFF</strong> on All Bridal Accessories for a Limited Time.<br>Hurry, offer ends soon!
+        </p>
+        <div class="text-center mb-5">
+          <a href="{% url 'inquires' %}" class="btn btn-inquire">
+            <i class="fas fa-envelope-open-text"></i> Inquire Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

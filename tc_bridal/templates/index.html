@@ -664,8 +664,6 @@
 </div>
 
 
-
-
 <!-- Page Content Wrapper -->
 <div id="mainContent" style="display: none;">
   <!-- Everything from the rest of your body goes here -->
@@ -924,7 +922,7 @@
 {% if full_name %}
   <div style="margin: 100px auto; padding: 40px; background-color: #fff0f5; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding-top: 180px;">
     <i class="fa-solid fa-circle-check fa-3x" style="color: #d63384;"></i>
-    <h2 class="mt-3" style="color: #d63384; font-weight: bold;">Hello, {{ full_name }}!</h2>
+    <h2 class="mt-3" style="color: #d63384; font-weight: bold;"></h2>
     
     <p>In no time, we are going to keep you updated on my <span style="font-weight: bold;">product Arrivals, Offers and TC bridal Events</span></p>
 
@@ -936,18 +934,20 @@
   <!-- Content Section (Text, Form, etc.) -->
   <div style="width: 100%; padding: 30px 10px; display: flex; justify-content: center; background-color: #f8f9fa;">
     <div style="max-width: 500px; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
+      
       <h4 style="margin-bottom: 20px; text-align: center; color: #d63384; font-weight: bold;">Subscribe with Your Email</h4>
       <p style="font-weight: bold; text-align: center; margin-bottom: 25px;">For our latest product Updates and News</p>
       
       <form action="{% url 'home' %}" method="post">
         {% csrf_token %}
+  
         <div style="margin-bottom: 15px;">
           <label for="fname" style="display: block; font-weight: 500; margin-bottom: 5px;">Full names</label>
           <input name="full-name" type="text" id="fname" placeholder="Enter your full names"
                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
         </div>
   
-        <div style="margin-bottom: 15px;">
+        <div style="margin-bottom: 20px;">
           <label for="email" style="display: block; font-weight: 500; margin-bottom: 5px;">Email address</label>
           <input name="email" type="email" id="email" placeholder="Enter your email"
                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
@@ -957,8 +957,20 @@
                 style="width: 100%; padding: 12px; background-color: #d63384; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
           Subscribe
         </button>
+
+        <h1 style="text-align: center;">OR</h1>
   
-        <h5 style="text-align: center; padding-top: 15px; font-size: 14px; color: #555;">If you have already subscribed, DON'T subscribe again!!</h5>
+        <!-- Add spacing between buttons -->
+        <div style="margin-top: 15px;">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#reviewModal"
+                  style="width: 100%; padding: 12px; background-color: #0d6efd; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
+            Leave a Review
+          </button>
+        </div>
+  
+        <h5 style="text-align: center; padding-top: 20px; font-size: 14px; color: #555;">
+          If you have already subscribed, DON'T subscribe again!!
+        </h5>
   
         <p style="margin-top: 20px; text-align: center; font-size: 13px; color: #999;">
           "Customer data is highly valued and protected"
@@ -967,8 +979,11 @@
     </div>
   </div>
   
+  
 </div>
 {% endif %}
+
+
   
 
 
@@ -1031,69 +1046,133 @@
 
 
 
+
   
   
 
-<!-- Promotion Banner -->
-<div class="promotion-banner text-center" style="background: linear-gradient(135deg, #ffe4ec, #fff); padding: 50px 0;">
-  <div class="container-fluid"> <!-- Use container-fluid for full width -->
-    <div class="row align-items-center">
 
-      <!-- Custom Carousel Section -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <div id="customPromotionCarousel" class="my-carousel-slide" data-bs-ride="carousel"
-             style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; overflow: hidden; width: 100%;">
 
-          <div class="my-carousel-inner responsive-banner">
 
-            <!-- Slides -->
-            <div class="my-carousel-item active" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/1.jpg' %}" alt="Promotion Image 1"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/2.jpg' %}" alt="Promotion Image 2"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/3.jpg' %}" alt="Promotion Image 3"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/4.jpg' %}" alt="Promotion Image 4"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="my-carousel-item" style="width: 100%; height: 100%;">
-              <img src="{% static 'tc_bridal/img/11.jpg' %}" alt="Promotion Image 4"
-                   style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-          </div>
-        </div>
+
+
+<!-- Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100" id="reviewModalLabel">How was your experience?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <p>Your answer is anonymous. Help us improve our service.</p>
 
-      <!-- Text Column -->
-      <div class="col-md-6 fade-up" id="promoText"
-           style="color: #000; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 2s ease-in-out, transform 2s ease-in-out;">
-        <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; font-weight: bold; margin-bottom: 15px; color: #000;">
-          Exclusive Offer Just For You!
-        </h2>
-        <p style="font-family: 'Segoe UI', sans-serif; font-size: 18px; margin-bottom: 25px; color: #000;">
-          💖 Get <strong>20% OFF</strong> on All Bridal Accessories for a Limited Time.<br>Hurry, offer ends soon!
-        </p>
-        <div class="text-center mb-5">
-          <a href="{% url 'inquires' %}" class="btn btn-inquire">
-            <i class="fas fa-envelope-open-text"></i> Inquire Now
-          </a>
+        <!-- Star Rating -->
+        <div class="rating mb-3">
+          <i class="fas fa-star fa-2x text-muted star" data-value="1"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="2"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="3"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="4"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="5"></i>
         </div>
-      </div>
 
+        <p id="rating-label" class="fw-semibold">Select a rating</p>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between flex-wrap gap-2">
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Not Now</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+
+        <!-- Google Review Button -->
+        <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning mt-3">
+          <i class="fab fa-google me-1"></i> Write a Google Review
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
 
 
+<!--bridal traditional wear-->
+<!-- Product Category Grid Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
 
+      <!-- Category Card -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="category-card text-center">
+          <div class="image-wrapper">
+            <img src="{% static 'tc_bridal/img/g1.jpg' %}" class="img-fluid rounded" alt="Earrings">
+            <div class="overlay-text">
+              <h3 class="category-title">GOMESI</h3>
+              <p class="product-count">See our beautifull clients</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="text-card p-4 text-center">
+          <h3 class="category-title mb-2">GOMESI</h3>
+          <p class="product-count">
+            Explore our elegant Gomesi collection — rich in cultural heritage, crafted with luxurious fabrics, and tailored for timeless beauty. Perfect for traditional ceremonies and graceful celebrations. 👗✨
+          </p>
+        </div>
+      </div>  
+
+    </div>
+</section>
+
+
+<section >
+    <div class="container py-4">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="image-box">
+                <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <a href="{% url 'inquires' %}" class="btn btn-inquire">
+          <i class="fas fa-envelope-open-text"></i> Inquire Now
+        </a>
+    </div>
+</section>
 
   
 
@@ -1169,7 +1248,6 @@
 
 
 
-
 <!--java script-->
 <script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
   <!-- JS SECTION -->
@@ -1177,293 +1255,202 @@
 <!-- JS to Trigger Animation on Scroll -->
 
 
+
 <script>
+  // === Preloader Logic ===
+  const MIN_PRELOADER_TIME = 5500;
+  const start = Date.now();
 
-// js code for the preloader
-  const MIN_PRELOADER_TIME = 5500; // 3.5 seconds
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    const mainContent = document.getElementById("mainContent");
+    const timeElapsed = Date.now() - start;
+    const remainingTime = Math.max(0, MIN_PRELOADER_TIME - timeElapsed);
 
-const start = Date.now();
-window.addEventListener("load", function () {
-  const preloader = document.getElementById("preloader");
-  const timeElapsed = Date.now() - start;
-  const remainingTime = Math.max(0, MIN_PRELOADER_TIME - timeElapsed);
-
-  setTimeout(() => {
-    preloader.style.opacity = "0";
-    setTimeout(() => preloader.style.display = "none", 500);
-  }, remainingTime);
-});
-
-window.addEventListener("load", function () {
     setTimeout(() => {
-      document.getElementById("preloader").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    }, 4900); // adjust this delay as needed
-  });
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
-    const slides = carousel.querySelectorAll(".my-carousel-item");
-    let current = 0;
-    const total = slides.length;
-
-    // Initial visibility
-    slides.forEach((slide, index) => {
-      slide.style.position = "absolute";
-      slide.style.top = "0";
-      slide.style.left = "0";
-      slide.style.opacity = index === 0 ? "1" : "0";
-      slide.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
-    });
-
-    // Function to scale images
-    function scaleImage(slide) {
-      slide.style.transform = "scale(1.05)";
+      preloader.style.opacity = "0";
       setTimeout(() => {
-        slide.style.transform = "scale(1)";
-      }, 1000); // The scale effect resets after 1 second
-    }
-
-    // Slide function
-    function nextSlide() {
-      slides[current].style.opacity = "0";
-      current = (current + 1) % total;
-      slides[current].style.opacity = "1";
-
-      // Apply scaling effect to the new image
-      scaleImage(slides[current]);
-    }
-
-    // Auto move every 4 seconds
-    setInterval(nextSlide, 4000);
-});
-
-
-
- // === DOMContentLoaded Carousel Logic ===
-
-document.addEventListener("DOMContentLoaded", function () {
-  const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
-  const slides = carousel.querySelectorAll(".my-carousel-item");
-  let current = 0;
-  const total = slides.length;
-
-  // Initial visibility
-  slides.forEach((slide, index) => {
-    slide.style.position = "absolute";
-    slide.style.top = "0";
-    slide.style.left = "0";
-    slide.style.opacity = index === 0 ? "1" : "0";
-    slide.style.transition = "opacity 1s ease-in-out";
+        preloader.style.display = "none";
+        if (mainContent) mainContent.style.display = "block";
+      }, 500);
+    }, remainingTime);
   });
 
-  // Slide function
-  function nextSlide() {
-    slides[current].style.opacity = "0";
-    current = (current + 1) % total;
-    slides[current].style.opacity = "1";
-  }
+  // === Custom Carousel (Scale Effect) ===
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector("#customPromotionCarousel .my-carousel-inner");
+    if (carousel) {
+      const slides = carousel.querySelectorAll(".my-carousel-item");
+      let current = 0;
+      const total = slides.length;
 
-  // Auto move every 4 seconds
-  setInterval(nextSlide, 4000);
-});
+      slides.forEach((slide, index) => {
+        slide.style.position = "absolute";
+        slide.style.top = "0";
+        slide.style.left = "0";
+        slide.style.opacity = index === 0 ? "1" : "0";
+        slide.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
+      });
 
+      function scaleImage(slide) {
+        slide.style.transform = "scale(1.05)";
+        setTimeout(() => {
+          slide.style.transform = "scale(1)";
+        }, 1000);
+      }
 
-// === Carousel Timer Countdown Logic ===
+      function nextSlide() {
+        slides[current].style.opacity = "0";
+        current = (current + 1) % total;
+        slides[current].style.opacity = "1";
+        scaleImage(slides[current]);
+      }
 
-const countdownSpan = document.getElementById("carouselCountdown");
-const totalDuration = 2; // Duration in seconds
-let currentTime = totalDuration;
-
-function startCarouselTimer() {
-  currentTime = totalDuration;
-  updateCountdownDisplay();
-
-  const countdownInterval = setInterval(() => {
-    currentTime--;
-    updateCountdownDisplay();
-
-    if (currentTime <= 0) {
-      clearInterval(countdownInterval);
+      setInterval(nextSlide, 4000);
     }
-  }, 1000);
-}
+  });
 
-function updateCountdownDisplay() {
-  const minutes = String(Math.floor(currentTime / 60)).padStart(2, '0');
-  const seconds = String(currentTime % 60).padStart(2, '0');
-  countdownSpan.textContent = `${minutes}:${seconds}`;
-}
+  // === Carousel Countdown Timer ===
+  document.addEventListener("DOMContentLoaded", function () {
+    const countdownSpan = document.getElementById("carouselCountdown");
+    if (countdownSpan) {
+      const totalDuration = 2;
+      let currentTime = totalDuration;
 
-startCarouselTimer();
+      function updateCountdownDisplay() {
+        const minutes = String(Math.floor(currentTime / 60)).padStart(2, '0');
+        const seconds = String(currentTime % 60).padStart(2, '0');
+        countdownSpan.textContent = `${minutes}:${seconds}`;
+      }
 
+      function startCarouselTimer() {
+        currentTime = totalDuration;
+        updateCountdownDisplay();
+        const countdownInterval = setInterval(() => {
+          currentTime--;
+          updateCountdownDisplay();
+          if (currentTime <= 0) {
+            clearInterval(countdownInterval);
+          }
+        }, 1000);
+      }
 
-// === Main Carousel with Thumbnails ===
+      startCarouselTimer();
+    }
+  });
 
-const nextBtn = document.querySelector('.nextBtn');
-const prevBtn = document.querySelector('.prevBtn');
-const carouselMain = document.querySelector('.carousel');
-const list = document.querySelector('.carousel .list');
-const thumbnails = document.querySelector('.carousel .thumbnail');
-const timeBar = document.querySelector('.carousel .time');
+  // === Thumbnail Carousel with Time Bar ===
+  document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.querySelector('.nextBtn');
+    const prevBtn = document.querySelector('.prevBtn');
+    const carouselMain = document.querySelector('.carousel');
+    const list = document.querySelector('.carousel .list');
+    const thumbnails = document.querySelector('.carousel .thumbnail');
+    const timeBar = document.querySelector('.carousel .time');
 
-function slideNext() {
-  carouselMain.classList.remove('prev');
-  carouselMain.classList.add('next');
+    function slideNext() {
+      carouselMain.classList.remove('prev');
+      carouselMain.classList.add('next');
+      let listItem = list.querySelectorAll('.item');
+      let thumbItem = thumbnails.querySelectorAll('.item');
+      list.appendChild(listItem[0]);
+      thumbnails.appendChild(thumbItem[0]);
+      restartTimeBar();
+    }
 
-  let listItem = list.querySelectorAll('.item');
-  let thumbItem = thumbnails.querySelectorAll('.item');
+    function slidePrev() {
+      carouselMain.classList.remove('next');
+      carouselMain.classList.add('prev');
+      let listItem = list.querySelectorAll('.item');
+      let thumbItem = thumbnails.querySelectorAll('.item');
+      list.prepend(listItem[listItem.length - 1]);
+      thumbnails.prepend(thumbItem[thumbItem.length - 1]);
+      restartTimeBar();
+    }
 
-  list.appendChild(listItem[0]);
-  thumbnails.appendChild(thumbItem[0]);
+    function restartTimeBar() {
+      timeBar.style.animation = 'none';
+      void timeBar.offsetWidth;
+      timeBar.style.animation = null;
+    }
 
-  restartTimeBar();
-}
+    nextBtn?.addEventListener('click', slideNext);
+    prevBtn?.addEventListener('click', slidePrev);
+    setInterval(slideNext, 5000);
+  });
 
-function slidePrev() {
-  carouselMain.classList.remove('next');
-  carouselMain.classList.add('prev');
-
-  let listItem = list.querySelectorAll('.item');
-  let thumbItem = thumbnails.querySelectorAll('.item');
-
-  list.prepend(listItem[listItem.length - 1]);
-  thumbnails.prepend(thumbItem[thumbItem.length - 1]);
-
-  restartTimeBar();
-}
-
-nextBtn.onclick = slideNext;
-prevBtn.onclick = slidePrev;
-
-function restartTimeBar() {
-  timeBar.style.animation = 'none';
-  void timeBar.offsetWidth;
-  timeBar.style.animation = null;
-}
-
-setInterval(slideNext, 5000);
-
-
-// === Scroll-based Fade-in Animations ===
-
-document.addEventListener("DOMContentLoaded", function () {
-  const fadeItems = document.querySelectorAll('.fade-up-item');
-
-  const fadeInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  // === Scroll-based Fade-in Animation ===
+  document.addEventListener("DOMContentLoaded", function () {
+    const fadeItems = document.querySelectorAll('.fade-up-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      } else {
-        entry.target.style.transition = "opacity 2s ease-in-out, transform 2s ease-in-out";
-        entry.target.style.opacity = "0";
-        entry.target.style.transform = "translateY(40px)";
-      }
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        } else {
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = "translateY(40px)";
+        }
+      });
+    }, { threshold: 0.3 });
+
+    fadeItems.forEach(item => observer.observe(item));
+  });
+
+  // === Targeted Fade-ins ===
+  document.addEventListener("DOMContentLoaded", function () {
+    const fadeTargets = ["textColumn", "imageBox", "promoText"];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        entry.target.style.transition = "opacity 2s ease, transform 2s ease";
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        } else {
+          entry.target.style.opacity = "0";
+          entry.target.style.transform = "translateY(50px)";
+        }
+      });
+    }, { threshold: 0.3 });
+
+    fadeTargets.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
-  }, {
-    threshold: 0.3
   });
 
-  fadeItems.forEach(item => fadeInObserver.observe(item));
-});
-
-
-// === Targeted Fade-in Animations ===
-
-document.addEventListener("DOMContentLoaded", function () {
-  const textColumn = document.getElementById("textColumn");
-  const imageBox = document.getElementById("imageBox");
-  const promoText = document.getElementById("promoText");
-
-  const options = {
-    threshold: 0.3
-  };
-
-  const fadeInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      } else {
-        entry.target.style.opacity = "0";
-        entry.target.style.transform = "translateY(50px)";
-      }
+  // === Dropdown Hover Animation ===
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.dropdown').forEach(drop => {
+      drop.addEventListener('show.bs.dropdown', function () {
+        this.querySelector('.dropdown-menu').classList.add('show-animation');
+      });
+      drop.addEventListener('hide.bs.dropdown', function () {
+        this.querySelector('.dropdown-menu').classList.remove('show-animation');
+      });
     });
-  }, options);
+  });
 
-  if (textColumn) fadeInObserver.observe(textColumn);
-  if (imageBox) fadeInObserver.observe(imageBox);
-  if (promoText) fadeInObserver.observe(promoText);
-});
+  // === Mobile Sidebar Menu ===
+  document.addEventListener("DOMContentLoaded", function () {
+    const openSidebar = document.getElementById("openSidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+    const mobileMenu = document.getElementById("mobileMenu");
 
+    openSidebar?.addEventListener("click", () => mobileMenu.classList.add("show"));
+    closeSidebar?.addEventListener("click", () => mobileMenu.classList.remove("show"));
 
-// === Redundant Fade Section (optional, can be merged above) ===
-
-document.addEventListener("DOMContentLoaded", function () {
-  const textColumn = document.getElementById("textColumn");
-  const imageBox = document.getElementById("imageBox");
-
-  const options = {
-    threshold: 0.3
-  };
-
-  const fadeInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      } else {
-        entry.target.style.opacity = "0";
-        entry.target.style.transform = "translateY(50px)";
-      }
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const submenu = this.nextElementSibling;
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      });
     });
-  }, options);
-
-  if (textColumn) fadeInObserver.observe(textColumn);
-  if (imageBox) fadeInObserver.observe(imageBox);
-});
-
-
-// === Dropdown Hover Animation ===
-
-document.querySelectorAll('.dropdown').forEach(drop => {
-  drop.addEventListener('show.bs.dropdown', function () {
-    this.querySelector('.dropdown-menu').classList.add('show-animation');
   });
-  drop.addEventListener('hide.bs.dropdown', function () {
-    this.querySelector('.dropdown-menu').classList.remove('show-animation');
-  });
-});
-
-
-// === Mobile Sidebar Menu ===
-
-const openSidebar = document.getElementById("openSidebar");
-const closeSidebar = document.getElementById("closeSidebar");
-const mobileMenu = document.getElementById("mobileMenu");
-
-openSidebar?.addEventListener("click", () => {
-  mobileMenu.classList.add("show");
-});
-
-closeSidebar?.addEventListener("click", () => {
-  mobileMenu.classList.remove("show");
-});
-
-// Toggle submenus in mobile
-
-document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-  toggle.addEventListener('click', function (e) {
-    e.preventDefault();
-    const submenu = this.nextElementSibling;
-    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  });
-});
 </script>
+
 
 </body>
 </html>
