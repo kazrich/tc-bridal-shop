@@ -9,7 +9,7 @@
   <meta name="author" content="TC Bridal Shop" />
 
   <title>Home | TC Bridal Shop</title>
-  <link rel="icon" href="{% static 'tc_bridal/img/logo.jpg' %} " type="image/png" />
+  <link rel="icon" href="{% static 'tc_bridal/img/log.jpg' %} " type="image/png" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -26,7 +26,7 @@
   <!-- Open Graph Meta -->
   <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
   <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Visit now at TC Bridal Shop." />
-  <meta property="og:image" content="https://yourdomain.com/img/logo.jpg" />
+  <meta property="og:image" content="https://yourdomain.com/img/log.jpg" />
   <meta property="og:url" content="https://yourdomain.com/ceo.html" />
   <meta property="og:type" content="website" />
 
@@ -51,7 +51,46 @@
     }
 
 
-    /* preloader css start*/
+   /* Preloader animations */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* About heading hover effect */
+    h1.about-heading {
+      display: inline-block;
+      position: relative;
+      transition: color 0.3s;
+      cursor: pointer;
+      font-size: larger;
+    }
+
+    h1.about-heading::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 3px;
+      background-color: red;
+      transition: width 0.3s ease;
+    }
+
+    h1.about-heading:hover::after {
+      width: 100%;
+    }
+
+    /* Default preloader background (for large screens) */
     #preloader {
       position: fixed;
       top: 0;
@@ -65,52 +104,19 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-    }
-
-    .preloader-content {
+      color: #d4af37;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      color: white;
     }
+    
 
-    .welcome-text {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 30px;
+    /* Background override for mobile devices */
+    @media (max-width: 767px) {
+      #preloader {
+        background: url('static/tc_bridal/img/bg.jpg') center center no-repeat;
+        background-size: cover;
+      }
     }
-
-    /* Circular Flower Spinner */
-    .flower-spinner {
-      width: 60px;
-      height: 60px;
-      position: relative;
-      margin: auto;
-    }
-
-    .flower-spinner .petal {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      animation: rotate 1.5s linear infinite;
-      border: 5px solid #fff;
-      border-top-color: transparent;
-      border-radius: 50%;
-    }
-
-    .flower-spinner .petal:nth-child(2) {
-      animation-delay: 0.2s;
-      opacity: 0.7;
-    }
-
-    .flower-spinner .petal:nth-child(3) {
-      animation-delay: 0.4s;
-      opacity: 0.5;
-    }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
 
     /* preloader css end*/
 
@@ -637,18 +643,24 @@
 
 <body>
 
-<!-- Preloader with Bridal Icons -->
+
+
 <!-- Preloader -->
-<div id="preloader">
-  <div class="preloader-content text-center">
-    <h2>Tc bridals</h2>
-    <p>...just a moment...</p>
-    <div class="flower-spinner">
-      <div class="petal"></div>
-      <div class="petal"></div>
-      <div class="petal"></div>
-    </div>
+<div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: #1a1a1a; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center;">
+
+ <!-- Logo Image -->
+  <img src="static/tc_bridal/img/log.jpg" alt="Tc Bridals Logo" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; animation: fadein 1.5s ease-in-out;">
+
+  <h2 style="font-size: 48px; margin-bottom: 10px; animation: pulse 1.5s ease-in-out infinite;">Tc bridals</h2>
+  <p style="font-size: 16px; animation: fadein 2s ease-in-out;">...just a moment...</p>
+
+  <br>
+
+  <div style="margin-bottom: 20px;">
+    <div class="spinner" style="width: 40px; height: 40px; border: 4px solid #ffffff; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
   </div>
+  
 </div>
 
 
@@ -675,7 +687,7 @@
           <div class="container">
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-              <img src="{% static 'tc_bridal/img/logo.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
+              <img src="{% static 'tc_bridal/img/log.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
               <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">TC BRIDALS</h2>
             </a>
   
@@ -1166,6 +1178,21 @@
 
 
 <script>
+
+// js code for the preloader
+  const MIN_PRELOADER_TIME = 5500; // 3.5 seconds
+
+const start = Date.now();
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  const timeElapsed = Date.now() - start;
+  const remainingTime = Math.max(0, MIN_PRELOADER_TIME - timeElapsed);
+
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    setTimeout(() => preloader.style.display = "none", 500);
+  }, remainingTime);
+});
 
 window.addEventListener("load", function () {
     setTimeout(() => {

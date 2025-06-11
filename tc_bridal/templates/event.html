@@ -9,8 +9,8 @@
   <meta name="keywords" content="bridal shop, wedding shoes, bridal accessories, Kampala bridal wear, TC Bridal" />
   <meta name="author" content="TC Bridal Shop" />
 
-  <title>Makeup | TC Bridal Shop</title>
-  <link rel="icon" href="{% static 'tc_bridal/img/logo.jpg' %}" type="image/png" />
+  <title>Events | TC Bridal Shop</title>
+  <link rel="icon" href="{% static 'tc_bridal/img/log.jpg' %}" type="image/png" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -19,14 +19,14 @@
   <!-- Open Graph Meta -->
   <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
   <meta property="og:description" content="Step into elegance with our collection of bridal shoes. visit now at TC Bridal Shop." />
-  <meta property="og:image" content="https://yourdomain.com/img/logo.jpg" />
+  <meta property="og:image" content="https://yourdomain.com/img/log.jpg" />
   <meta property="og:url" content="https://yourdomain.com/ceo.html" />
   <meta property="og:type" content="website" />
 
   <!-- Custom CSS -->
 <style>
 
-/*booking css for small screen*/
+
 /* Center #topBanner contents on small screens only */
 @media (max-width: 576px) {
     #topBanner {
@@ -107,14 +107,7 @@
       transform: translateX(0);
     }
 
-    #background-image {
-    background-image: url("{% static 'tc_bridal/img/make-up.jpg' %}");
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-    position: relative;
-    color: white;
-    }
+   
 </style>
 
 </head>
@@ -143,7 +136,7 @@
           <div class="container">
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-              <img src="{% static 'tc_bridal/img/logo.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
+              <img src="{% static 'tc_bridal/img/log.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
               <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">TC BRIDALS</h2>
             </a>
   
@@ -165,7 +158,7 @@
                     <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
                     <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
                     <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
-                    <li><a class="dropdown-item" href="#">Makeup</a></li>
+                    <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -176,7 +169,7 @@
                     <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
                   </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">EVENT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">EVENT</a></li>
               </ul>
   
               <!-- Search -->
@@ -227,7 +220,7 @@
                 <li><a href="#working-hours" class="d-block py-2">Working Hours</a></li>
               </ul>
             </li>
-            <li><a href="{% url 'events' %}" class="d-block fw-bold py-2">Events</a></li>
+            <li><a href="#" class="d-block fw-bold py-2">Events</a></li>
           </ul>
   
           <div class="text-center mt-5">
@@ -246,25 +239,37 @@
 
   <!-- ... Add events here ... -->
 
-
 <!-- Section with background and text -->
+ 
 
+  <!-- Section with background and text -->
+  <div style="padding-top: 180px;">
+    {% if search_success and searched %}
+    <div class="alert alert-success text-center mt-4">
+      <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
+  </div>
+  {% endif %}
 
-
-<div style="padding-top: 180px;">
-    
-</div>
-
-
-  
-
-
-        
-
+  <!-- DEVELOPMENT NOTICE -->
+  <div class="alert alert-warning text-center mb-0" style="position: relative; padding: 80px;">
+    <div class="mb-2">
+      <strong><i class="fas fa-tools me-1"></i> Note:</strong>
+      Our website is currently under development. Some features or pages may not be fully functional yet. Thank you for your patience!
+    </div>
+    <br>
+    <div class="mt-2 d-flex justify-content-center flex-wrap gap-2">
+      <a href="{% url 'home' %}" class="btn btn-sm btn-outline-secondary">
+        <i class="fas fa-home me-1"></i> Home Page
+      </a>
+      <a href="{% url 'appoint' %}" class="btn btn-sm btn-outline-primary">
+        <i class="fas fa-calendar-check me-1"></i> Booking
+      </a>
+    </div>
+  </div>
 
 
    <!-- Footer -->
-   <footer class="bg-light text-black py-4 mt-5 px-3">
+<footer class="bg-light text-black py-4 mt-5 px-3">
     <div class="container">
       <!-- Row 1: Info Sections in One Line -->
       <div class="row text-center text-md-start mb-4">
@@ -281,9 +286,9 @@
             <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
             </h5>
             <ul class="list-unstyled" id="show">
-            <li><a href="evening-gowns.html">Evening Gowns</a></li>
-            <li><a href="kids-gowns.html">Kids Gowns</a></li>
-            <li><a href="maid-dresses.html">Maid Dresses</a></li>
+            <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
+            <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
+            <li><a href="{% url 'maid' %}">Maid Dresses</a></li>
             </ul>
         </div>
   
@@ -292,13 +297,13 @@
         <div class="col-md-3">
           <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
           <ul class="list-unstyled" id="show">
-            <li><a href="necklaces.html">Necklaces</a></li>
-            <li><a href="earrings.html">Earrings</a></li>
-            <li><a href="bracelets.html">Bracelets</a></li>
-            <li><a href="bags.html">Bags</a></li>
-            <li><a href="shoes.html">Shoes</a></li>
-            <li><a href="veils.html">Veils & Headpieces</a></li>
-            <li><a href="#">Makeup</a></li>
+            <li><a href="{% url 'necklaces' %}">Necklaces</a></li>
+            <li><a href="{% url 'earring' %}">Earrings</a></li>
+            <li><a href="{% url 'bracelets' %}">Bracelets</a></li>
+            <li><a href="{% url 'bags' %}">Bags</a></li>
+            <li><a href="{% url 'shoes' %}">Shoes</a></li>
+            <li><a href="{% url 'veils' %}">Veils & Headpieces</a></li>
+            <li><a href="{% url 'makeup' %}">Makeup</a></li>
           </ul>
         </div>
   
@@ -330,15 +335,19 @@
     </div>
 </footer>
 
+
+
 <!--java script-->
 <script src="javascript/javascript.js"></script>
   <!-- JS SECTION -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- JS to Trigger Animation on Scroll -->
 
+
+
 <script>
 
-// Dropdown hover animation
+  // Dropdown hover animation
   document.querySelectorAll('.dropdown').forEach(drop => {
       drop.addEventListener('show.bs.dropdown', function () {
         this.querySelector('.dropdown-menu').classList.add('show-animation');
@@ -369,6 +378,41 @@
         submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
       });
     });
+
+
+    const title = document.getElementById('collection-title');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          title.classList.add('visible');
+          observer.unobserve(title);
+        }
+      });
+    });
+    
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const eveningCollection = document.getElementById("eveningCollection");
+
+    if (eveningCollection) {
+      const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Animate each child element (h2, h4, p, etc.)
+            eveningCollection.querySelectorAll('*').forEach(el => {
+              el.style.opacity = "1";
+              el.style.transform = "translateY(0)";
+            });
+
+            // Stop observing after animation triggers once
+            observerInstance.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(eveningCollection);
+    }
+  });
 </script>
 
 </body>
