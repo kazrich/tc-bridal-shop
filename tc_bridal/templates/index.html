@@ -32,6 +32,245 @@
 
   <!-- Custom CSS -->
   <style>
+  .image-container {
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  .gallery-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+  }
+
+  .text-container {
+      margin-top: 12px;
+      text-align: center;
+  }
+
+  .gallery-title {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      font-size: 18px;
+      color: #000;
+  }
+
+  .gallery-link {
+      color: #777;
+      font-size: 13px;
+      text-decoration: none;
+  }
+
+  /* Responsive - Two images per row on small screens */
+  @media (max-width: 768px) {
+      .collection-item {
+          max-width: 48%;
+          flex: 1 1 48%;
+      }
+
+      .gallery-image {
+          height: 250px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .collection-item {
+          max-width: 50%;
+      }
+
+      .gallery-image {
+          height: 200px;
+      }
+  }
+
+  /* Increase image height on large screens */
+  @media (min-width: 1200px) {
+      .gallery-image {
+          height: 400px; /* Adjust this value as needed */
+      }
+  }
+
+
+    /* galley check */
+        /* WRAPPERS FOR NEW PRODUCTS */
+        .category-card .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+          }
+          
+          .category-card .image-wrapper:hover {
+            transform: scale(1.03);
+          }
+          
+          .overlay-text {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+            text-align: center;
+          }
+          
+          .category-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          
+          .product-count {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+          }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            position: relative;
+            max-width: 300px;
+            width: 100%;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Set a fixed height */
+            object-fit: cover; /* Crops images neatly to fit */
+            border-radius: 10px;
+        }
+
+
+        .gallery-item:hover img {
+            transform: scale(1.1); /* Gentle zoom-in effect */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 102, 153, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                gap: 10px;
+            }
+
+            .gallery-item {
+                max-width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* Keeps items centered */
+            }
+
+            .gallery-item {
+                max-width: 48%; /* Slightly less than 50% to account for spacing */
+                flex: 1 1 48%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+          .gallery-item img {
+              height: 400px; /* Increase image height */
+          }
+      }
+
+    /* pop up notification*/
+            @keyframes fadeInBounce {
+            0% { opacity: 0; transform: scale(0.5); }
+            60% { opacity: 1; transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glowEffect {
+            0% { box-shadow: 0px 0px 10px rgba(37, 211, 102, 0.2); }
+            50% { box-shadow: 0px 0px 20px rgba(37, 211, 102, 0.7); }
+            100% { box-shadow: 0px 0px 10px rgba(37, 211, 102, 0.2); }
+        }
+
+        /* Default pop-up styles */
+        #popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: rgb(0, 0, 0);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 200px;
+            width: 80%;
+            animation: fadeInBounce 0.8s ease-in-out;
+        }
+
+        #popup:hover {
+            animation: glowEffect 1.5s infinite alternate ease-in-out;
+        }
+
+        #popup button {
+            background-color: white;
+            color: #25D366;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #popup button:hover {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+
+        /* Responsive styles for larger screens */
+        @media (min-width: 768px) {
+            #popup {
+                max-width: 400px;
+                font-size: 18px;
+                padding: 20px;
+            }
+
+            #popup button {
+                padding: 12px;
+            }
+        }
+
+        /* Ultra-large screen styling */
+        @media (min-width: 1200px) {
+            #popup {
+                max-width: 450px;
+                font-size: 20px;
+            }
+        }
+
+
     /*booking css for small screen*/
         /* Center #topBanner contents on small screens only */
     @media (max-width: 576px) {
@@ -987,67 +1226,60 @@
 
   <!-- Example Section that will animate -->
   <!--COLLECTIONS-->
-  <!-- Premier Designers Section -->
-  <section class="py-5" style="background-color: #fef6f8;">
-    <div class="container">
-      <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
-        Gowns & Dresses<br>
-        <span style="font-size: 42px; font-weight: 500;">quick search</span>
-      </h2>
+<!-- Premier Designers Section -->
+<!-- Premier Designers Section -->
+<section id="bridal-collection" style="background-color: #fef6f8; padding: 40px 20px;">
+  <div class="container">
+    <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
+      Gowns & Dresses<br>
+      <span style="font-size: 42px; font-weight: 500;">quick search</span>
+    </h2>
 
-      <div class="row justify-content-center align-items-stretch gy-5">
-        <!-- Collection 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-            <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-              <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses"
-                  style="width: 100%; height: 360px; object-fit: cover;" />
-            </div>
-            <div style="margin-top: 12px; text-align: center;">
-              <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Evening Dresses</h4>
-              <a href="{% url 'evening' %}" style=" color: #777; font-size: 13px;">Browse Dresses</a>
-            </div>
+    <div class="row justify-content-center align-items-stretch gy-5">
+      <!-- Collection 1 -->
+      <div class="col-md-6 col-lg-4 collection-item">
+        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+          <div class="image-container">
+            <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses"
+                class="gallery-image" />
+          </div>
+          <div class="text-container">
+            <h4 class="gallery-title">Evening Dresses</h4>
+            <a href="{% url 'evening' %}" class="gallery-link">Browse</a>
           </div>
         </div>
+      </div>
 
-        <!-- Collection 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-            <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-              <img src="{% static 'tc_bridal/img/kid2.jpg' %}" alt="Kids Dresses"
-                  style="width: 100%; height: 360px; object-fit: cover;" />
-            </div>
-            <div style="margin-top: 12px; text-align: center;">
-              <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Kids Dresses</h4>
-              <a href="{% url 'kids' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
-            </div>
+      <!-- Collection 2 -->
+      <div class="col-md-6 col-lg-4 collection-item">
+        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+          <div class="image-container">
+            <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Kids Dresses"
+                class="gallery-image" />
+          </div>
+          <div class="text-container">
+            <h4 class="gallery-title">Kids Dresses</h4>
+            <a href="{% url 'kids' %}" class="gallery-link">Browse</a>
           </div>
         </div>
+      </div>
 
-        <!-- Collection 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-            <div style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-              <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Maids Gowns"
-                  style="width: 100%; height: 360px; object-fit: cover;" />
-            </div>
-            <div style="margin-top: 12px; text-align: center;">
-              <h4 style="font-family: 'Georgia', serif; font-weight: bold; font-size: 18px; color: #000;">Maids Gowns</h4>
-              <a href="{% url 'maid' %}" style="color: #777; font-size: 13px;">Browse Dresses</a>
-            </div>
+      <!-- Collection 3 -->
+      <div class="col-md-6 col-lg-4 collection-item">
+        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
+          <div class="image-container">
+            <img src="{% static 'tc_bridal/img/bads.jpg' %}" alt="Maids Gowns"
+                class="gallery-image" />
+          </div>
+          <div class="text-container">
+            <h4 class="gallery-title">Maids Gowns</h4>
+            <a href="{% url 'maid' %}" class="gallery-link">Browse</a>
           </div>
         </div>
-
       </div>
     </div>
-  </section>
-
-
-
-
-  
-  
-
+  </div>
+</section>
 
 
 
@@ -1111,13 +1343,82 @@
   </div>
 
 
-
-
-  <!--bridal traditional wear-->
-  <!-- Product Category Grid Section -->
+    <!-- bridal gowns -->
   <section class="py-5">
     <div class="container">
       <div class="row justify-content-center">
+
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="text-card p-4 text-center">
+            <h3 class="category-title mb-2">BRIDAL GOWNS</h3>
+            <p class="product-count" style="color: #000;">
+              Discover our stunning Bridal Gowns collection — designed to make your special day unforgettable. Featuring exquisite details, luxurious fabrics, and timeless elegance for every bride’s dream look. 💍👰✨
+            </p>
+          </div>
+        </div>
+
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="category-card text-center">
+            <div class="image-wrapper">
+              <img src="{% static 'tc_bridal/img/b.jpg' %}" class="img-fluid rounded" alt="Earrings">
+              <div class="overlay-text">
+                <h3 class="category-title">BRIDAL GOWNS</h3>
+                <p class="product-count">see beauty for her</p>
+              </div>
+            </div>
+          </div>
+        </div>    
+
+      </div>
+  </section>
+
+  <section >
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/b1.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/b2.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/b3.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/b4.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/b5.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+    </div>
+    <br>
+
+    <div class="text-center mb-5">
+        <a href="{% url 'inquires' %}" class="btn btn-inquire">
+          <i class="fas fa-envelope-open-text"></i> Inquire Now
+        </a>
+    </div>
+  </section>
+
+
+  <!--bridal traditional wear-->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="text-card p-4 text-center">
+            <h3 class="category-title mb-2">GOMESI</h3>
+            <p class="product-count">
+              Explore our elegant Gomesi collection — rich in cultural heritage, crafted with luxurious fabrics, and tailored for timeless beauty. Perfect for traditional ceremonies and graceful celebrations. 👗✨
+            </p>
+          </div>
+        </div>
 
         <!-- Category Card -->
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -1131,67 +1432,58 @@
             </div>
           </div>
         </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div class="text-card p-4 text-center">
-            <h3 class="category-title mb-2">GOMESI</h3>
-            <p class="product-count">
-              Explore our elegant Gomesi collection — rich in cultural heritage, crafted with luxurious fabrics, and tailored for timeless beauty. Perfect for traditional ceremonies and graceful celebrations. 👗✨
-            </p>
-          </div>
-        </div>  
-
       </div>
   </section>
-
 
   <section >
-      <div class="container py-4">
-          <div class="row">
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Item 1" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Item 4" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-            <div class="col-6 col-md-3 mb-4">
-              <div class="image-box">
-                  <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Item 3" class="img-fluid rounded hover-effect">
-              </div>
-            </div>
-          </div>
-      </div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item">
+            <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+    </div>
+    <br>
 
-      <div class="text-center mb-5">
-          <a href="{% url 'inquires' %}" class="btn btn-inquire">
-            <i class="fas fa-envelope-open-text"></i> Inquire Now
-          </a>
-      </div>
+    <div class="text-center mb-5">
+        <a href="{% url 'inquires' %}" class="btn btn-inquire">
+          <i class="fas fa-envelope-open-text"></i> Inquire Now
+        </a>
+    </div>
   </section>
+
+
+  
+
+    <!-- pop up notification -->
+    <div id="popup" class="btn btn-warning mt-3">
+        <p>💬 Looking for the perfect bridal gown? Chat with us on WhatsApp!</p>
+        <button onclick="openWhatsApp()">Chat Now</button>
+        <button onclick="closePopup()">Close</button>
+    </div>
 
   
 
@@ -1276,6 +1568,19 @@
 
 
   <script>
+
+    // == pop up notification ==
+            setTimeout(() => {
+            document.getElementById('popup').style.display = 'block';
+        }, 10000);
+
+        function openWhatsApp() {
+            window.open('https://wa.me/+256781963326', '_blank'); // Replace with your WhatsApp number
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
 
     // == rewiew stars ==
     document.addEventListener('DOMContentLoaded', function () {
