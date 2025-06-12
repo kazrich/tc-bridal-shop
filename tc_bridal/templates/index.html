@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore elegant bridal shoes and accessories at TC Bridal Shop. Step into style and comfort on your special day." />
-  <meta name="keywords" content="bridal shop, wedding shoes, bridal accessories, Kampala bridal wear, TC Bridal" />
+  <meta name="description" content="Explore elegant bridal gowns, shoes and accessories etc at Tc bridals. Step into style and comfort on your special day." />
+  <meta name="keywords" content="bridals shop, wedding shoes, bridal accessories, Kampala bridal wear, Tc Bridals" />
   <meta name="author" content="TC Bridal Shop" />
 
   <title>Home | Tc bridals</title>
@@ -224,7 +224,7 @@
             padding: 15px;
             border-radius: 15px;
             text-align: center;
-            max-width: 200px;
+            max-width: 300px;
             width: 80%;
             animation: fadeInBounce 0.8s ease-in-out;
         }
@@ -917,57 +917,60 @@
       </div>
   
       <!-- Header/Navbar -->
-      <header id="mainHeader" style="box-shadow: 0px 12px 4px rgba(0, 0, 0, 0.1);">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-          <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-              <img src="{% static 'tc_bridal/img/log.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
-              <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">TC BRIDALS</h2>
-            </a>
-  
-            <!-- Mobile Toggle -->
-            <button class="btn btn-outline-dark d-lg-none" id="openSidebar">
-              <i class="fas fa-bars"></i>
-            </button>
-  
-            <!-- Desktop Menu -->
-            <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ACCESSORIES</a>
-                  <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
-                    <li><a class="dropdown-item" href="{% url 'necklaces' %}">Necklaces</a></li>
-                    <li><a class="dropdown-item" href="{% url 'earring' %}">Earrings</a></li>
-                    <li><a class="dropdown-item" href="{% url 'bracelets' %}">Bracelets</a></li>
-                    <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
-                    <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
-                    <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
-                    <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ABOUT US</a>
-                  <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                    <li><a class="dropdown-item" href="{% url 'ceo' %}">TC BRIDAL CEO</a></li>
-                    <li><a class="dropdown-item" href="#location">Location</a></li>
-                    <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">EVENT</a></li>
-              </ul>
-  
-              <!-- Search -->
-              <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}" >
-                {% csrf_token %}
-                <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
-                <button class="btn btn-outline-dark" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </header>
+<header id="mainHeader" style="box-shadow: 0px 12px 4px rgba(0, 0, 0, 0.1);">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+        <img src="{% static 'tc_bridal/img/log.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
+        <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">
+          TC BRIDALS
+        </h2>
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button class="btn btn-outline-dark d-lg-none" id="openSidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Desktop Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ACCESSORIES</a>
+            <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
+              <li><a class="dropdown-item" href="{% url 'necklaces' %}">Necklaces</a></li>
+              <li><a class="dropdown-item" href="{% url 'earring' %}">Earrings</a></li>
+              <li><a class="dropdown-item" href="{% url 'bracelets' %}">Bracelets</a></li>
+              <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
+              <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
+              <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
+              <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ABOUT US</a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+              <li><a class="dropdown-item" href="{% url 'ceo' %}">TC BRIDAL CEO</a></li>
+              <li><a class="dropdown-item" href="#location">Location</a></li>
+              <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">EVENT</a></li>
+        </ul>
+
+        <!-- Search -->
+        <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}">
+          {% csrf_token %}
+          <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
   
       <!-- Mobile Menu Sidebar -->
       <div id="mobileMenu" class="d-lg-none">
