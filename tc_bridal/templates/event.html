@@ -184,13 +184,14 @@ body {
     object-fit: contain;
 }
 
+/* Smaller screen adjustment */
 @media (max-width: 600px) {
     .lightbox img {
-        max-width: 95%;
-        max-height: 80vh;
-        margin-top: 60px; /* ✅ Matches desktop spacing */
+        max-width: 80%;    /* Reduced from 95% to 80% */
+        max-height: 60vh;  /* Reduced from 80vh to 60vh */
+        margin-top: 60px;  /* spacing */
     }
-}
+  }
 
 
 /* ✅ Updated Close Button Position */
@@ -215,6 +216,16 @@ body {
     background: rgb(255, 0, 0);
     color: #ffffff;
     transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .close {
+        top: 180px; /* push down further on small screens */
+        right: 20px; /* optional: adjust right spacing */
+        width: 35px; /* optional: slightly smaller button */
+        height: 35px;
+        font-size: 26px;
+    }
 }
 
 /* ⏪ Lightbox Navigation */
