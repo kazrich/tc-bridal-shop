@@ -183,7 +183,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 999; /* Ensures lightbox stays above filters */
+    z-index: 999; /* Ensures lightbox stays above everything */
 }
 
 .lightbox img {
@@ -266,6 +266,7 @@ body {
     margin-top: 20px;
     padding: 10px;
     position: relative;
+    z-index: 1; /* Keeps filters behind the lightbox */
 }
 
 
