@@ -5,28 +5,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore elegant bridal gowns, shoes and accessories etc. Step into style and comfort on your special day." />
-  <meta name="keywords" content="bridal shop, wedding shoes, bridal accessories, Kampala bridal wear, TC Bridals" />
-  <meta name="author" content="Tc bridals" />
+  <meta name="description" content="Explore elegant bridal gowns, shoes and accessories etc at Tc bridals. Step into style and comfort on your special day." />
+  <meta name="keywords" content="bridals shop, wedding shoes, bridal accessories, Kampala bridal wear, Tc Bridals" />
+  <meta name="author" content="TC Bridal Shop" />
 
-  <title>Events | Tc bridals</title>
+  <title>Gallery | Tc bridals</title>
   <link rel="icon" href="{% static 'tc_bridal/img/log.jpg' %}" type="image/png" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
   <!-- Open Graph Meta -->
-  <meta property="og:title" content="Tc bridals - bridal gowns, shoes and accessories etc" />
-  <meta property="og:description" content="Step into elegance with our collection of bridal gowns, shoes and accessories etc. visit now at Tc bridals." />
+  <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
+  <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Visit now at TC Bridal Shop." />
   <meta property="og:image" content="https://yourdomain.com/img/log.jpg" />
   <meta property="og:url" content="https://yourdomain.com/ceo.html" />
   <meta property="og:type" content="website" />
 
-  <!-- Custom CSS -->
 <style>
 
+body {
+    padding-top: 70px; /* Makes space for navbar */
+}
 
+  /*booking css for small screen*/
 /* Center #topBanner contents on small screens only */
 @media (max-width: 576px) {
     #topBanner {
@@ -44,7 +55,7 @@
     }
     }
 
-     .dropdown-menu {
+    .dropdown-menu {
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.3s ease;
@@ -107,21 +118,203 @@
       transform: translateX(0);
     }
 
-   
+
+
+/* 🖼️ Improved Gallery Layout */
+/* 🖼️ Improved Gallery Layout - Reduce Space Above */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 10px; /* Reduce space above */
+    justify-content: center;
+}
+
+
+
+/* 📱 Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Two images per row */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* Three images per row on very small screens */
+        gap: 8px;
+    }
+}
+
+/* 🌸 Elegant Image Styling */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* 💖 Smooth Hover Glow */
+.gallery-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 7px 7px 25px rgba(255, 192, 203, 0.4);
+}
+
+/* ✨ Soft Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* 📱 Fix: Ensure Lightbox Stays Above Filters */
+.modal, .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999; /* Ensures lightbox stays above filters */
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+    margin-top: 100px; /* Pushes the image downward */
+}
+/* 📱 Center Image Only on Small Screens */
+@media (max-width: 600px) {
+    .lightbox img {
+        display: block;
+        margin: auto; /* Centers the image */
+        margin-top: 50px; /* Adjusted for smaller screens */
+    }
+}
+
+/* ❌ Close Button Refinement */
+.close {
+    position: absolute;
+    top: 130px; /* Moves the close button lower */
+    right: 30px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.close:hover {
+    background: rgb(255, 0, 0);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+
+  /* ⏪ Lightbox Navigation */
+.flex {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 12px 18px;
+    font-size: 22px;
+    color: #333;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flex:hover {
+    background: rgba(255, 192, 203, 0.9);
+    transform: scale(1.1);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+ /* 🌟 Category Filters */
+/* 🌟 Category Filters - Reduced Space */
+
+
+/* 🌟 Category Filters - Reduce Space Below */
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 3px;
+    margin-bottom: 5px; /* Reduce space below filters */
+    padding: 10px; /* Fix excessive padding */
+    margin-top: 10px; /* Push filters slightly below navbar */
+    position: relative;
+    z-index: 1; /* Keep filters behind the lightbox */
+}
+
+
+
+/* 🎭 Elegant Filter Buttons */
+.filters button {
+    background: linear-gradient(to right, #ffc3a0, #ffb6ad);
+    border: none;
+    padding: 6px 20px; /* Reduce button size */
+    font-size: 14px; /* Slightly smaller text */
+    cursor: pointer;
+    border-radius: 6px; /* More compact design */
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    white-space: nowrap; /* Keep buttons in a single line */
+    padding-top: 10px; /* Keeps buttons aligned properly */
+}
+
+/* 💖 Hover Effect */
+.filters button:hover {
+    background: #ff9a8b;
+    transform: scale(1.05);
+}
+
+.filters button:active {
+  background-color: #ffffff;
+  color: aqua;
+}
+
+/* 📱 Responsive Fix for Small Screens */
+@media (max-width: 600px) {
+    .filters {
+        flex-wrap: nowrap; /* Keep buttons in one row */
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .filters button {
+        padding: 5px 10px; /* Slightly smaller buttons */
+        font-size: 13px; /* Adjusted for readability */
+    }
+}
+
+
 </style>
-
 </head>
-
 <body>
-  <!-- NAVIGATION SECTION -->
+ <!-- NAVIGATION SECTION -->
     <!-- Top Banner -->
-<section class="fixed-top">
-{% if search_success and searched %}
-<div class="alert alert-success text-center mt-4">
-  <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
-</div>
-{% endif %}
-
+    <section class="fixed-top">
       <div id="topBanner" class="over d-flex justify-content-center align-items-center p-2 bg-light">
         <a href="{% url 'appoint'  %}" class="text-decoration-none d-flex align-items-center">
           <h3 class="mb-0 me-5" id="ban" style="font-family: 'Great Vibes', cursive; font-weight: lighter; color: #d63384; font-size: 22px;">
@@ -169,7 +362,7 @@
                     <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
                   </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">EVENT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">EVENT/GALLERY</a></li>
               </ul>
   
               <!-- Search -->
@@ -220,7 +413,7 @@
                 <li><a href="#working-hours" class="d-block py-2">Working Hours</a></li>
               </ul>
             </li>
-            <li><a href="#" class="d-block fw-bold py-2">Events</a></li>
+            <li><a href="#" class="d-block fw-bold py-2">Events/Gallery</a></li>
           </ul>
   
           <div class="text-center mt-5">
@@ -232,122 +425,154 @@
           </div>
         </div>
       </div>
-</section>
+    </section>
+
+  
 
 
-
-
-  <!-- ... Add events here ... -->
-
-<!-- Section with background and text -->
- 
-
-  <!-- Section with background and text -->
-  <div style="padding-top: 180px;">
-    {% if search_success and searched %}
-    <div class="alert alert-success text-center mt-4">
-      <strong>Your search is here:</strong> You can browse through "{{ searched }}" now.
-  </div>
-  {% endif %}
-
-  <!-- DEVELOPMENT NOTICE -->
-  <div class="alert alert-warning text-center mb-0" style="position: relative; padding: 80px;">
-    <div class="mb-2">
-      <strong><i class="fas fa-tools me-1"></i> Note:</strong>
-      Our website is currently under development. Some features or pages may not be fully functional yet. Thank you for your patience!
+    <!-- Filter Buttons -->
+    <div class="filters" style="padding: 180px;">
+        <button data-filter="all">All</button>
+        <button data-filter="bridal">Bridal</button>
+        <button data-filter="nature">Gomesi</button>
+        <button data-filter="events">Events</button>
+        <button data-filter="couples">Couples</button>
     </div>
-    <br>
-    <div class="mt-2 d-flex justify-content-center flex-wrap gap-2">
-      <a href="{% url 'home' %}" class="btn btn-sm btn-outline-secondary">
-        <i class="fas fa-home me-1"></i> Home Page
-      </a>
-      <a href="{% url 'appoint' %}" class="btn btn-sm btn-outline-primary">
-        <i class="fas fa-calendar-check me-1"></i> Booking
-      </a>
+
+    <!-- Gallery Section -->
+    <div class="gallery">
+        <!-- Bridal Category -->
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/b.jpg' %}" alt="Bridal"></div>
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/b1.jpg' %}" alt="Bridal"></div>
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/b2.jpg' %}" alt="Bridal"></div>
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/b3.jpg' %}" alt="Bridal"></div>
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/b4.jpg' %}" alt="Bridal"></div>
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/b5.jpg' %}" alt="Bridal"></div>
+
+        <!-- Nature Category -->
+        <div class="gallery-item" data-category="events"><img src="{% static 'tc_bridal/img/m2.jpg' %}" alt="Events"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g1.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Nature"></div>
+        <div class="gallery-item" data-category="nature"><img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Nature"></div>
+
+        <!-- Events Category -->
+        <div class="gallery-item" data-category="events"><img src="{% static 'tc_bridal/img/bads.jpg' %}" alt="Events"></div>
+        <div class="gallery-item" data-category="events"><img src="{% static 'tc_bridal/img/m1.jpg' %}" alt="Events"></div>
+        <div class="gallery-item" data-category="events"><img src="{% static 'tc_bridal/img/m2.jpg' %}" alt="Events"></div>
+        <div class="gallery-item" data-category="events"><img src="{% static 'tc_bridal/img/m3.jpg' %}" alt="Events"></div>
+        <div class="gallery-item" data-category="bridal"><img src="{% static 'tc_bridal/img/nt.jpg' %}" alt="Bridal"></div>
+
+        <!-- Couples Category -->
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp.jpg' %}" alt="Coupless"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp1.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp2.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp3.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp4.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp5.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp6.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp7.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp8.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp9.jpg' %}" alt="Couples"></div>
+        <div class="gallery-item" data-category="couples"><img src="{% static 'tc_bridal/img/pp10.jpg' %}" alt="Couples"></div>
     </div>
-  </div>
+
+    <!-- Lightbox Popup -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <span class="close">&times;</span>
+            <img src="" alt="" id="lightbox-img">
+            <button class="flex prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="flex next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
 
 
-   <!-- Footer -->
+
+
+<!-- Footer -->
 <footer class="bg-light text-black py-4 mt-5 px-3">
-    <div class="container">
+  <div class="container">
       <!-- Row 1: Info Sections in One Line -->
       <div class="row text-center text-md-start mb-4">
-        <!-- Working Hours -->
-        <div class="col-md-3" id="working-hours">
-          <h5 class="fw-bold"><i class="far fa-clock me-2"></i>Working Hours</h5>
-          <p><strong style="font-family: 'Myanmar Text';">Mon - sat:</strong> 8:30 AM - 7:30 PM</p>
-          <p><strong style="font-family: 'Myanmar Text';">Make your Booking in Time</strong></p>         
-        </div>
+      <!-- Working Hours -->
+      <div class="col-md-3" id="working-hours">
+        <h5 class="fw-bold"><i class="far fa-clock me-2"></i>Working Hours</h5>
+        <p><strong style="font-family: 'Myanmar Text';">Mon - sat:</strong> 8:30 AM - 7:30 PM</p>
+        <p><strong style="font-family: 'Myanmar Text';">Make your Booking in Time</strong></p>         
+      </div>
   
-       <!-- Gowns and Dresses -->
-        <div class="col-md-3">
-            <h5 class="fw-bold">
-            <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
-            </h5>
-            <ul class="list-unstyled" id="show">
-            <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
-            <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
-            <li><a href="{% url 'maid' %}">Maid Dresses</a></li>
-            </ul>
-        </div>
+      <!-- Gowns and Dresses -->
+      <div class="col-md-3">
+        <h5 class="fw-bold">
+        <i class="fas fa-person-dress me-2"></i>Gowns & Dresses
+        </h5>
+        <ul class="list-unstyled" id="show">
+        <li><a href="{% url 'evening' %}">Evening Gowns</a></li>
+        <li><a href="{% url 'kids' %}">Kids Gowns</a></li>
+        <li><a href="#">Maid Dresses</a></li>
+        </ul>
+    </div>
+
+
+    <!-- Accessories -->
+    <div class="col-md-3">
+      <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
+      <ul class="list-unstyled" id="show">
+        <li><a  href="{% url 'necklaces' %}">Necklaces</a></li>
+        <li><a  href="{% url 'earring' %}">Earrings</a></li>
+        <li><a  href="{% url 'bracelets' %}">Bracelets</a></li>
+        <li><a  href="{% url 'bags' %}">Bags</a></li>
+        <li><a  href="{% url 'shoes' %}">Shoes</a></li>
+        <li><a  href="{% url 'veils' %}">Veils & Headpieces</a></li>
+        <li><a  href="{% url 'makeup' %}">Makeup</a></li>
+      </ul>
+    </div>
   
-  
-        <!-- Accessories -->
-        <div class="col-md-3">
-          <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Accessories</h5>
-          <ul class="list-unstyled" id="show">
-            <li><a href="{% url 'necklaces' %}">Necklaces</a></li>
-            <li><a href="{% url 'earring' %}">Earrings</a></li>
-            <li><a href="{% url 'bracelets' %}">Bracelets</a></li>
-            <li><a href="{% url 'bags' %}">Bags</a></li>
-            <li><a href="{% url 'shoes' %}">Shoes</a></li>
-            <li><a href="{% url 'veils' %}">Veils & Headpieces</a></li>
-            <li><a href="{% url 'makeup' %}">Makeup</a></li>
-          </ul>
-        </div>
-  
-        <!-- Contact Info -->
-        <div class="col-md-3" id="location">
+      <!-- Contact Info -->
+      <div class="col-md-3" id="location">
           <h5 class="fw-bold"><i class="fas fa-envelope me-2"></i>Contact Us</h5>
           <p><strong style="font-family: 'Myanmar Text';">Email:</strong> tcbridals@gmail.com</p>
           <p><strong style="font-family: 'Myanmar Text';">Phone:</strong> +256 (0) 752 823545</p>
           <p><strong style="font-family: 'Myanmar Text';">Address:</strong> South Point Mall, Kabalagala<br>along Ggaba road<br>Kampala, Uganda</p>
-        </div>
+      </div>
       </div>
   
       <!-- Row 2: Social Media -->
       <div class="row text-center mb-3">
-        <div class="col">
+      <div class="col">
           <h5 class="fw-bold">Follow Us</h5>
           <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-tiktok me-1"></i>TikTok</a>
           <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-instagram me-1"></i>Instagram</a>
           <a href="#" class="text-black me-3" style="text-decoration: none;"><i class="fab fa-whatsapp me-1"></i>WhatsApp</a>
-        </div>
+      </div>
       </div>
   
       <!-- Row 3: Copyright -->
       <div class="row text-center">
-        <div class="col">
+      <div class="col">
           <p class="mb-0 fw-bold">&copy; 2025 Tc bridals. All rights reserved.</p>
-        </div>
       </div>
-    </div>
+      </div>
+  </div>
 </footer>
 
-
-
 <!--java script-->
-<script src="javascript/javascript.js"></script>
-  <!-- JS SECTION -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- JS to Trigger Animation on Scroll -->
+<script src="{% static 'tc_bridal/javascript/javascript.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
-
-<script>
-
-  // Dropdown hover animation
+ <script>
+    
+     // Dropdown hover animation
   document.querySelectorAll('.dropdown').forEach(drop => {
       drop.addEventListener('show.bs.dropdown', function () {
         this.querySelector('.dropdown-menu').classList.add('show-animation');
@@ -380,40 +605,79 @@
     });
 
 
-    const title = document.getElementById('collection-title');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          title.classList.add('visible');
-          observer.unobserve(title);
-        }
-      });
-    });
-    
 
-    document.addEventListener("DOMContentLoaded", function () {
-    const eveningCollection = document.getElementById("eveningCollection");
+     // 🎨 Handle Image Click for Modal Popup
+    document.querySelectorAll('.gallery-item img').forEach((img) => {
+        img.addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.classList.add('modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <img src="${img.src}" alt="">
+                    <span class="close">&times;</span>
+                </div>`;
+            document.body.appendChild(modal);
 
-    if (eveningCollection) {
-      const observer = new IntersectionObserver((entries, observerInstance) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Animate each child element (h2, h4, p, etc.)
-            eveningCollection.querySelectorAll('*').forEach(el => {
-              el.style.opacity = "1";
-              el.style.transform = "translateY(0)";
-            });
-
-            // Stop observing after animation triggers once
-            observerInstance.unobserve(entry.target);
-          }
+            document.querySelector('.close').addEventListener('click', () => modal.remove());
         });
-      }, { threshold: 0.3 });
+    });
 
-      observer.observe(eveningCollection);
-    }
+  const filterButtons = document.querySelectorAll('.filters button');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const images = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.querySelector('.lightbox');
+  const lightboxImg = document.querySelector('#lightbox-img');
+  const closeBtn = document.querySelector('.close');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let currentIndex = 0;
+  let filteredImages = [...images]; // Default: all images
+
+  // 🌟 Filter Gallery Items Based on Selected Category
+  filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+
+          galleryItems.forEach(item => {
+              item.style.display = (filter === "all" || item.getAttribute('data-category') === filter)
+                  ? "block" 
+                  : "none";
+          });
+
+          // 🏆 Update filtered images for lightbox navigation
+          filteredImages = (filter === "all") 
+              ? [...images] 
+              : [...document.querySelectorAll(`.gallery-item[data-category="${filter}"] img`)];
+      });
   });
-</script>
 
+  // 🖼️ Open Lightbox with Filtered Images
+  images.forEach((img) => {
+      img.addEventListener('click', () => {
+          currentIndex = filteredImages.indexOf(img); // Ensures only filtered images are navigated
+          if (currentIndex !== -1) { // Prevent errors when clicking an unfiltered image
+              lightboxImg.src = img.src;
+              lightbox.style.display = "flex";
+          }
+      });
+  });
+
+  // ❌ Close Lightbox
+  closeBtn.addEventListener('click', () => lightbox.style.display = "none");
+
+  // ⏪ Navigate Previous Image (Inside Selected Filter)
+  prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? filteredImages.length - 1 : currentIndex - 1;
+      lightboxImg.src = filteredImages[currentIndex].src;
+  });
+
+  // ⏩ Navigate Next Image (Inside Selected Filter)
+  nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === filteredImages.length - 1) ? 0 : currentIndex + 1;
+      lightboxImg.src = filteredImages[currentIndex].src;
+  });
+
+
+ </script>
 </body>
 </html>
