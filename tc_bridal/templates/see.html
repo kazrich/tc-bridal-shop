@@ -175,3 +175,286 @@
     </section>
 
   
+
+
+  <style>
+
+body {
+    padding-top: 70px; /* Makes space for navbar */
+}
+
+  /*booking css for small screen*/
+/* Center #topBanner contents on small screens only */
+@media (max-width: 576px) {
+    #topBanner {
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    #topBanner h3 {
+        margin-right: 0 !important;
+        font-size: 18px !important; /* Optional: make text a bit smaller on phones */
+    }
+
+    #topBanner a {
+        flex-direction: column;
+    }
+    }
+
+    .dropdown-menu {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    .dropdown-menu.show-animation {
+      opacity: 1 !important;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991px) {
+      #navbarNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        padding: 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 9999;
+      }
+      #navbarNav.active {
+        transform: translateX(0);
+      }
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      z-index: 1050;
+    }
+    #mobileMenu.show {
+      display: block;
+    }
+    .mobile-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+    }
+    .mobile-sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 80%;
+      max-width: 300px;
+      background: white;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    #mobileMenu.show .mobile-sidebar {
+      transform: translateX(0);
+    }
+
+
+
+/* 🖼️ Improved Gallery Layout */
+/* 🖼️ Improved Gallery Layout - Reduce Space Above */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 10px; /* Reduce space above */
+    justify-content: center;
+}
+
+
+
+/* 📱 Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Two images per row */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* Three images per row on very small screens */
+        gap: 8px;
+    }
+}
+
+/* 🌸 Elegant Image Styling */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* 💖 Smooth Hover Glow */
+.gallery-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 7px 7px 25px rgba(255, 192, 203, 0.4);
+}
+
+/* ✨ Soft Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* 📱 Fix: Ensure Lightbox Stays Above Filters */
+.modal, .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999; /* Ensures lightbox stays above everything */
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+    display: block;
+    margin: auto; /* Centers the image */
+}
+
+/* 📱 Center Image Only on Small Screens */
+@media (max-width: 600px) {
+    .lightbox img {
+        display: block;
+        margin: auto; /* Centers the image */
+        margin-top: 50px; /* Adjusted for smaller screens */
+    }
+}
+
+/* ❌ Close Button Refinement */
+.close {
+    position: absolute;
+    top: 130px; /* Moves the close button lower */
+    right: 30px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.close:hover {
+    background: rgb(255, 0, 0);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+
+  /* ⏪ Lightbox Navigation */
+.flex {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 12px 18px;
+    font-size: 22px;
+    color: #333;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flex:hover {
+    background: rgba(255, 192, 203, 0.9);
+    transform: scale(1.1);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+ /* 🌟 Category Filters */
+/* 🌟 Category Filters - Reduced Space */
+
+
+/* 🌟 Category Filters - Reduce Space Below */
+.filters {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Centers vertically */
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+    z-index: 1; /* Keeps filters behind the lightbox */
+}
+
+
+
+/* 🎭 Elegant Filter Buttons */
+.filters button {
+    background: linear-gradient(to right, #ffc3a0, #ffb6ad);
+    border: none;
+    padding: 6px 20px; /* Reduce button size */
+    font-size: 14px; /* Slightly smaller text */
+    cursor: pointer;
+    border-radius: 6px; /* More compact design */
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    white-space: nowrap; /* Keep buttons in a single line */
+    padding-top: 10px; /* Keeps buttons aligned properly */
+}
+
+/* 💖 Hover Effect */
+.filters button:hover {
+    background: #ff9a8b;
+    transform: scale(1.05);
+}
+
+.filters button:active {
+  background-color: #ffffff;
+  color: aqua;
+}
+
+/* 📱 Responsive Fix for Small Screens */
+@media (max-width: 600px) {
+    .filters {
+        flex-wrap: nowrap; /* Keep buttons in one row */
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .filters button {
+        padding: 5px 10px; /* Slightly smaller buttons */
+        font-size: 13px; /* Adjusted for readability */
+    }
+}
+
+
+</style>
