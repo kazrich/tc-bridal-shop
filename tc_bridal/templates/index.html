@@ -9,11 +9,10 @@
   <meta name="author" content="TC Bridal Shop" />
 
   <title>Home | Tc bridals</title>
-  <link rel="icon" href="{% static 'tc_bridal/img/log.jpg' %} " type="image/png" />
+  <link rel="icon" href="{% static 'tc_bridal/img/logo.jpg' %} " type="image/png" />
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,12 +25,431 @@
   <!-- Open Graph Meta -->
   <meta property="og:title" content="TC Bridal Shop - Bridal Shoes" />
   <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Visit now at TC Bridal Shop." />
-  <meta property="og:image" content="https://yourdomain.com/img/log.jpg" />
-  <meta property="og:url" content="https://yourdomain.com/ceo.html" />
+  <meta property="og:image" content="https://tcbridals.com/img/logo.jpg" />
+  <meta property="og:url" content="https://tcbridals.com/ceo.html" />
   <meta property="og:type" content="website" />
 
   <!-- Custom CSS -->
   <style>
+body {
+    padding-top: 120px; /* Makes space for navbar */
+    background-color: #ffffff;
+}    
+/* Carousel Layout */
+#fashionCarousel {
+  background-color: white;
+  padding: 60px 0;
+  margin-bottom: -10px;
+}
+
+/* Slide Layout: reduce gap and tighten padding */
+.fashion-slide {
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Text Section: shrink width and scale down */
+.fashion-text {
+  flex: 0 0 40%;
+  max-width: 40%;
+  margin-left: 60px; /* or try 80px, 100px */
+}
+
+.fashion-heading {
+  font-size: 60px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+    text-align: left;
+}
+
+.fashion-description {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 18px;
+    text-align: left;
+}
+
+.fashion-text .btn {
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 0;
+}
+
+
+/* Image Section: expand width */
+.fashion-image {
+  flex: 0 0 60%;
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fashion-image img {
+  width: 100%;
+  max-height: 600px; /* Adjust this value to your preferred height */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+/* Ensure text block allows absolute positioning */
+.fashion-text {
+  position: relative;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+   .fashion-text {
+    margin-left: 15px;
+  }
+
+  .fashion-heading{
+    font-size: 30px;
+  }
+  .fashion-text,
+  .fashion-image {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .fashion-slide {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fashion-image img {
+    margin-top: 20px;
+  }
+}
+
+/* Slide-in from right animation */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.carousel-item.slide-in-right {
+  animation: slideInRight 0.8s ease-in-out;
+}
+
+
+
+/* Container with borders */
+.marquee-container {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Track that scrolls */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 60s linear infinite;
+}
+
+/* Repeated content blocks */
+.marquee-content {
+  white-space: nowrap;
+  font-size: 16px;
+  color: #333;
+  font-family: Tahoma, sans-serif;
+  padding-right: 50px; /* spacing between repeats */
+}
+
+/* Animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+@media (max-width: 576px) {
+  .marquee-container {
+    padding: 6px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .marquee-content {
+    font-size: 13px;
+    padding-right: 30px;
+  }
+
+  .marquee-track {
+    animation-duration: 45s; /* slightly faster on mobile */
+  }
+}
+
+
+
+
+
+
+
+/* new top banner & navbar css */
+/* Mobile full-screen overlay for collapsed navbar */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1040; /* Above body but below modal */
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  body.nav-open {
+    overflow: hidden; /* Prevent background scroll */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    justify-content: flex-start !important;
+    text-align: left;
+    padding-left: 15px;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+
+/* Main nav links hover */
+.navbar-nav .nav-link{
+  color: #000000;
+  font-weight: bold;
+}
+
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #777 !important;
+  transition: color 0.3s ease;
+}
+
+/* Dropdown items hover */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: #777 !important;
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+
+/* Booking prompt hover */
+.booking-prompt {
+  color: #777;
+  font-size: 18px;
+  font-family: Tahoma, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.booking-prompt:hover {
+  color: #555;
+}
+
+/* Arrow animation on hover */
+.booking-prompt i.fa-arrow-right {
+  transition: transform 0.3s ease;
+}
+
+.booking-prompt:hover i.fa-arrow-right {
+  transform: translateX(4px);
+  color: #ff0059;
+}
+
+/* Fix spacing on top banner */
+#topHeader .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Inner content spacing */
+#topHeader .d-flex {
+  padding-left: 20px;
+  padding-right: 35px;
+}
+
+/* Wishlist icon visibility */
+#topHeader .position-relative {
+  min-width: 24px;
+}
+
+
+
+/* subscribe form css */
+/* Modal content base */
+.subscribe-form {
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: white;
+}
+
+/* Inner wrapper */
+.form-wrapper {
+  max-width: 500px;
+  margin: auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+/* Typography */
+.form-wrapper h4 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #777;
+  font-weight: bold;
+}
+
+.form-wrapper p {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.form-wrapper label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-wrapper input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Buttons */
+.form-wrapper button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #777;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.review-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #0d6efd;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* Footer notes */
+.form-wrapper h5 {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.form-wrapper p:last-of-type {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .form-wrapper {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .form-wrapper h4 {
+    font-size: 18px;
+  }
+
+  .form-wrapper p,
+  .form-wrapper label,
+  .form-wrapper h5 {
+    font-size: 14px;
+  }
+
+  .form-wrapper input,
+  .form-wrapper button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-wrapper h1 {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+
+  .form-wrapper p:last-of-type {
+    font-size: 12px;
+  }
+}
+
+
+
+/* Footer link cleanup */
+footer ul li a {
+  color: #000 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: #777 !important; /* Optional: add a soft pink hover */
+}
+
+
+
+
+
+
+
+
+
+
+
   .image-container {
       overflow: hidden;
       border-radius: 10px;
@@ -159,8 +577,8 @@
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 102, 153, 0.8);
-            color: white;
+            background: rgba(255, 255, 255, 0.8);
+            color: #777;
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 14px;
@@ -235,7 +653,7 @@
 
         #popup button {
             background-color: white;
-            color: #25D366;
+            color: #777;
             border: none;
             padding: 10px;
             margin-top: 10px;
@@ -271,455 +689,15 @@
         }
 
 
-    /*booking css for small screen*/
-        /* Center #topBanner contents on small screens only */
-    @media (max-width: 576px) {
-      #topBanner {
-        justify-content: center !important;
-        text-align: center;
-      }
-
-      #topBanner h3 {
-        margin-right: 0 !important;
-        font-size: 18px !important; /* Optional: make text a bit smaller on phones */
-      }
-
-      #topBanner a {
-        flex-direction: column;
-      }
-    }
 
 
-   /* Preloader animations */
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.05); }
-    }
-
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* About heading hover effect */
-    h1.about-heading {
-      display: inline-block;
-      position: relative;
-      transition: color 0.3s;
-      cursor: pointer;
-      font-size: larger;
-    }
-
-    h1.about-heading::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 3px;
-      background-color: red;
-      transition: width 0.3s ease;
-    }
-
-    h1.about-heading:hover::after {
-      width: 100%;
-    }
-
-    /* Default preloader background (for large screens) */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('static/tc_bridal/img/bgs.jpg') center center no-repeat;
-      background-size: cover;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: #d4af37;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-    }
-    
-
-    /* Background override for mobile devices */
-    @media (max-width: 767px) {
-      #preloader {
-        background: url('static/tc_bridal/img/bg.jpg') center center no-repeat;
-        background-size: cover;
-      }
-    }
-
-    /* preloader css end*/
 
 
-    .dropdown-menu {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
-    }
-    .dropdown-menu.show-animation {
-      opacity: 1 !important;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 991px) {
-      #navbarNav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100%;
-        background-color: #fff;
-        padding: 2rem;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 9999;
-      }
-      #navbarNav.active {
-        transform: translateX(0);
-      }
-    }
-
-    #mobileMenu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: none;
-      z-index: 1050;
-    }
-    #mobileMenu.show {
-      display: block;
-    }
-    .mobile-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.4);
-      width: 100%;
-      height: 100%;
-    }
-    .mobile-sidebar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 80%;
-      max-width: 300px;
-      background: white;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-    #mobileMenu.show .mobile-sidebar {
-      transform: translateX(0);
-    }
-
-    .fade-up-item {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
-  }
 
 
- 
-  .carousel{
-    width: 100vw;
-    height: 110vh;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .carousel .list .item{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-
-  .carousel .list .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: flex;
-    justify-content: space-between;
-    object-position: center;
-  }
-
-  .carousel .list .item .content {
-  padding-top: 100px;
-  padding-bottom: 200px; /* ← Add this to give room below the description text */
-  position: absolute;
-  top: 20%;
-  width: 1140px;
-  max-width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-right: 30%;
-  box-sizing: border-box;
-  color: #fff;
-  text-shadow: 0 5px 10px black;
-}
 
 
-  .carousel .list .item .content .author{
-    font-weight: bold;
-    letter-spacing: 10px;
-  }
-
-  .carousel .list .item .content .topic,
-  .carousel .list .item .content .title{
-    font-weight: bold;
-    font-size: 5em;
-    list-style: 1.3em;
-  }
-
-  .carousel .list .item .content .title{
-    color: rgb(255, 0, 149);
-  }
-  .carousel .list .item .content .button{
-    display: grid;
-    grid-template-columns: repeat(2, 130px);
-    grid-template-rows: 40px;
-    gap: 5px;
-    margin-top: 20px;
-  }
-  .carousel .list .item .content button{
-    bottom: none;
-    background-color: #fff;
-    letter-spacing: 3px;
-    font-family: Quicksand;
-    font-weight: 500;
-    border: none;
-  }
   
-  .carousel .list .item .content button:nth-child(2){
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid white;
-  }
-
-  /* thumbnail */
-
-  .thumbnail {
-  position: absolute;
-  bottom: 2px; /* ← reduce overlap by pushing it down further */
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  z-index: 100;
-  display: flex;
-  gap: 20px;
-}
-
-  .thumbnail .item{
-    width: 150px;
-    height: 220px;
-    flex-shrink: 0;
-    position: relative;
-  }
-
-  .thumbnail .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  .thumbnail .item .content{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-  }
-
-  .thumbnail .item .content .title{
-    font-weight: bold;
-  }
-  
-
-
-
-  .carousel .list .item:nth-child(1){
-    z-index: 1;
-  }
-
-/* Carousel animated content styles */
-.carousel .list .item:nth-child(1) .author,
-.carousel .list .item:nth-child(1) .title,
-.carousel .list .item:nth-child(1) .topic,
-.carousel .list .item:nth-child(1) .des,
-.carousel .list .item:nth-child(1) .button {
-  transform: translateX(50px);
-  filter: blur(20px);
-  opacity: 0;
-  animation: showContent 0.5s linear forwards;
-  animation-delay: 1s;
-}
-
-.carousel .list .item:nth-child(1) .title {
-  animation-delay: 1.2s;
-}
-
-.carousel .list .item:nth-child(1) .topic {
-  animation-delay: 1.4s;
-}
-
-.carousel .list .item:nth-child(1) .button {
-  animation-delay: 1.8s;
-}
-
-@keyframes showContent {
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-  }
-}
-
-/* Image animation for active carousel item */
-.carousel .item.active img {
-  width: 150px;
-  height: 220px;
-  position: absolute;
-  left: 50%;
-  bottom: 50px;
-  border-radius: 20px;
-  animation: showImage 0.1s linear 1 forwards;
-}
-
-@keyframes showImage {
-  to {
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    border-radius: 0;
-  }
-}
-
-/* Thumbnail animation for next item */
-.carousel.next .thumbnail .item:nth-last-child(1) {
-  width: 0;
-  overflow: hidden;
-  animation: showThumbnail 0.5s linear 1 forwards;
-}
-
-@keyframes showThumbnail {
-  to {
-    width: 150px;
-  }
-}
-
-/* Transform animation for thumbnail container */
-.carousel.next .thumbnail {
-  transform: translateX(150px);
-  animation: transformThumbnail 0.5s linear 1 forwards;
-}
-
-@keyframes transformThumbnail {
-  to {
-    transform: translateX(0);
-  }
-}
-
-
-/* Animation when moving to previous slide (image out transition) */
-.carousel.prev .list .item:nth-child(2) {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  animation: outImage 0.5s linear 1 forwards;
-}
-
-@keyframes outImage {
-  to {
-    width: 150px;
-    height: 220px;
-    border-radius: 20px;
-    left: 50%;
-    bottom: 50px;
-  }
-}
-
-/* Animation for thumbnail when going to previous slide */
-.carousel.prev .thumbnail .item:nth-child(1) {
-  width: 0;
-  overflow: hidden;
-  opacity: 0;
-  animation: showThumbnail 0.5s linear 1 forwards;
-}
-
-/* Fade-out animation for content when sliding to previous */
-.carousel.prev .list .item:nth-child(2) .author,
-.carousel.prev .list .item:nth-child(2) .title,
-.carousel.prev .list .item:nth-child(2) .topic,
-.carousel.prev .list .item:nth-child(2) .des,
-.carousel.prev .list .item:nth-child(2) .button {
-  animation: contentOut 1.5s linear 1 forwards;
-}
-
-@keyframes contentOut {
-  to {
-    transform: translateY(-150px);
-    filter: blur(2px);
-    opacity: 0;
-  }
-}
-
-/* Disable arrow buttons during animation */
-.carousel.next .arrows button,
-.carousel.prev .arrows button {
-  pointer-events: none;
-}
-
-
-/* Progress bar at the top of the carousel */
-.carousel-timer {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  z-index: 101;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: orangered;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-family: monospace;
-}
-
-
-/* Animate time bar on next or prev transition */
-.carousel.next .time,
-.carousel.prev .time {
-  width: 100%;
-  animation: timeRunning 2s linear forwards;
-}
-
-/* Shrink animation for the progress bar */
-@keyframes timeRunning {
-  to {
-    width: 0;
-  }
-}
-
-@media screen and (max-width: 678px){
-  .carousel .list .item ,.content{
-    padding-right: 0;
-  }
-  .carousel .list .item ,.content .title{
-    font-size: 10px;
-  }
-}
 
 .custom-btn {
   display: inline-block;
@@ -805,57 +783,6 @@
   }
 }
 
-/* Phone screen adjustments */
-@media (max-width: 480px) {
-  .carousel .list .item .content .author {
-    font-size: 10px;
-    letter-spacing: 5px;
-  }
-
-  .carousel .list .item .content .title {
-    font-size: 35px;
-  }
-
-  .carousel .list .item .content .topic {
-    font-size: 30px;
-  }
-
-  .carousel .list .item .content .des span {
-    font-size: 14px;
-    line-height: 1em;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .carousel .list .item .content {
-    padding-top: 70px;
-    padding-right: 5%;
-    text-align: left;
-  }
-}
-
-
-/* Adjust for very small screens  CAROUSEL */
-@media (max-width: 576px) {
-  .carousel .item img {
-    width: 3414px;
-    height: auto;
-    max-height: 100%;
-    object-fit: cover;
-  }
-}
-
-@media (max-width: 576px) {
-  .thumbnail .item img {
-    width: 90%;
-    height: 100%;
-    border-radius: 5px;
-    
-    padding-top: 20px; /* Pushes image content down inside the container */
-    /* or */
-    margin-top: 20px; /* Pushes the image itself downward in the layout */
-  }
-}
 
 /* Responsive banner height */
 .responsive-banner {
@@ -876,291 +803,252 @@
   }
 }
 
+.btn-inquire{
+  background-color: #000000;
+  border-radius: none;
+  color: #ffffff;
+}
 
+.btn-inquire:hover{
+  background-color: #ffffff;
+  color: #000000;
+}
   </style>
 </head>
 
 <body>
 
+<!-- navbar start -->
+<!-- Fixed Top Header -->
+<div id="topHeader" class="fixed-top bg-white border-bottom" style="z-index: 1050;">
+  <div class="container-fluid px-3 py-2">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
 
+      <!-- Mobile: Toggler -->
+      <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <i class="fas fa-bars fa-lg text-dark"></i>
+      </button>
 
-  <!-- Preloader -->
-  <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: #1a1a1a; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #ffffff; font-family: 'Segoe UI', sans-serif; text-align: center;">
-
-  <!-- Logo Image -->
-    <img src="static/tc_bridal/img/log.jpg" alt="Tc Bridals Logo" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; animation: fadein 1.5s ease-in-out;">
-
-    <h2 style="font-size: 48px; margin-bottom: 10px; animation: pulse 1.5s ease-in-out infinite;">Tc bridals</h2>
-    <p style="font-size: 16px; animation: fadein 2s ease-in-out;">...just a moment...</p>
-
-    <br>
-
-    <div style="margin-bottom: 20px;">
-      <div class="spinner" style="width: 40px; height: 40px; border: 4px solid #ffffff; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-    </div>
-    
-  </div>
-
-
-  <!-- Everything from the rest of your body goes here -->
-
-    <!-- NAVIGATION SECTION -->
-    <!-- Top Banner -->
-    <section class="fixed-top">
-      <div id="topBanner" class="over d-flex justify-content-center align-items-center p-2 bg-light">
-        <a href="{% url 'appoint'  %}" class="text-decoration-none d-flex align-items-center">
-          <h3 class="mb-0 me-5" id="ban" style="font-family: 'Great Vibes', cursive; font-weight: lighter; color: #d63384; font-size: 22px;">
-            <i class="fas fa-calendar-check me-2"></i>Click To Make Your Booking
+      <!-- Left: Booking Prompt (Desktop only) -->
+      <div class="d-none d-lg-block">
+        <a href="{% url 'appoint' %}" class="text-decoration-none d-flex align-items-center">
+            <small class="booking-prompt" style="color: #777; font-size: 15px; font-family: Tahoma, sans-serif;">
+              <i class="fas fa-calendar-check me-2"></i>PRESS YOUR BOOKING  <i class="fas fa-arrow-right ms-2"></i>
+            </small>
           </h3>
         </a>
       </div>
-  
-      <!-- Header/Navbar -->
-<header id="mainHeader" style="box-shadow: 0px 12px 4px rgba(0, 0, 0, 0.1);">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-        <img src="{% static 'tc_bridal/img/log.jpg' %}" alt="TC BRIDALS" width="80px" class="me-2" />
-        <h2 class="h5 mb-0" style="font-family: 'segoe print'; font-weight: lighter; font-size: 40px; color: #d63384;">
-          TC BRIDALS
-        </h2>
+
+      <!-- Center: logoo + Brand -->
+      <a class="navbar-brand mx-auto d-flex align-items-center gap-2" href="{% url 'home' %}">
+        <img src="{% static 'tc_bridal/img/logo.png' %}" alt="TC BRIDALS" width="100" />
+        <div class="text-center d-none d-lg-block">
+          <strong class="tc-title d-block" style="font-size: 30px; font-family: 'Lucida Sans', cursive; color: #777;">TC BRIDALS</strong>
+         
+        </div>
       </a>
 
-      <!-- Mobile Toggle -->
-      <button class="btn btn-outline-dark d-lg-none" id="openSidebar">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Desktop Menu -->
-      <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ACCESSORIES</a>
-            <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
-              <li><a class="dropdown-item" href="{% url 'necklaces' %}">Necklaces</a></li>
-              <li><a class="dropdown-item" href="{% url 'earring' %}">Earrings</a></li>
-              <li><a class="dropdown-item" href="{% url 'bracelets' %}">Bracelets</a></li>
-              <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
-              <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
-              <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
-              <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">ABOUT US</a>
-            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-              <li><a class="dropdown-item" href="{% url 'ceo' %}">TC BRIDAL CEO</a></li>
-              <li><a class="dropdown-item" href="#location">Location</a></li>
-              <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">EVENT/GALLERY</a></li>
-        </ul>
-
-        <!-- Search -->
-        <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}">
+      <!-- Right: Search + Wishlist (Desktop only) -->
+      <div class="d-none d-lg-flex align-items-center gap-3">
+        <form class="d-flex" method="POST" action="{% url 'search' %}">
           {% csrf_token %}
           <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
           <button class="btn btn-outline-dark" type="submit">Search</button>
         </form>
+        <a href="#" class="position-relative" aria-label="Wishlist">
+          <i class="fas fa-heart fa-lg text-dark"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+        </a>
+      </div>
+
+      <!-- Right: Wishlist (Mobile only) -->
+      <a href="#" class="d-lg-none position-relative" aria-label="Wishlist">
+        <i class="fas fa-heart fa-lg text-dark"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<header id="mainNav" class="fixed-top bg-white border-top border-bottom pt-2" style="margin-top: 110px;">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <div class="w-100">
+
+          <!-- Mobile Expanded Menu -->
+          <!-- Mobile Expanded Menu Logo Only -->
+          <div class="d-lg-none text-center mb-4">
+            <img src="{% static 'tc_bridal/img/logo.png' %}" alt="TC BRIDALS Logo" style="width: 100px; filter: grayscale(100%); opacity: 0.7;" />
+          </div>
+
+          <div class="d-lg-none" style="text-align: center; padding-bottom: 50px;">
+            <strong class="tc-title d-block" style="font-size: 30px; font-family: 'Lucida Sans'; color: #777;">TC BRIDALS</strong>
+           
+          </div>
+
+          <div class="d-lg-none text-center mb-3" style="padding-bottom: 30px;">
+            <a href="{% url 'appoint' %}" class="text-decoration-none">
+              <h3 class="mb-0" style="color: #c50c62; font-size: 16px; text-decoration: underline;">
+                <small><i class="fas fa-calendar-check me-2"></i>PRESS YOUR BOOKING</small>
+              </h3>
+            </a>
+          </div>
+
+          <!-- Nav Links -->
+          <ul class="navbar-nav d-flex flex-column flex-lg-row gap-lg-4 text-center text-lg-start justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gowns & Dresses 
+              </a>
+              <ul  class="dropdown-menu" aria-labelledby="accessoriesDropdown">
+                <li><a class="dropdown-item" href="{% url 'evening' %}" class="d-block py-2">Evening Dresses</a></li>
+                <li><a class="dropdown-item" href="{% url 'kids' %}" class="d-block py-2">Kids chamber</a></li>
+                <li><a class="dropdown-item" href="{% url 'maid' %}" class="d-block py-2">Maids chamber</a></li>
+              </ul>
+            </li>
+
+            <!-- Accessories Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="accessoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Accessories
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="accessoriesDropdown">
+                <li><a class="dropdown-item" href="{% url 'necklaces' %}">Necklaces</a></li>
+                <li><a class="dropdown-item" href="{% url 'earring' %}">Earrings</a></li>
+                <li><a class="dropdown-item" href="{% url 'bracelets' %}">Bracelets</a></li>
+                <li><a class="dropdown-item" href="{% url 'bags' %}">Bags</a></li>
+                <li><a class="dropdown-item" href="{% url 'shoes' %}">Shoes</a></li>
+                <li><a class="dropdown-item" href="{% url 'veils' %}">Veils & Headpieces</a></li>
+                <li><a class="dropdown-item" href="{% url 'makeup' %}">Makeup</a></li>
+              </ul>
+            </li>
+
+            <!-- About Us Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                About Us
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li><a class="dropdown-item" href="{% url 'ceo' %}">TC BRIDAL CEO</a></li>
+                <li><a class="dropdown-item" href="#location">Location</a></li>
+                <li><a class="dropdown-item" href="#working-hours">Working Hours & Days</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">Event/Gallery</a></li>
+          </ul>
+
+          <!-- Mobile: Search Box at Bottom -->
+          <div class="d-lg-none mt-4 text-center">
+            <form class="d-flex justify-content-center" method="POST" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input name="searched" class="form-control me-2" type="search" placeholder="Search here" style="max-width: 200px;" />
+              <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+          </div>
+
+        </div>
       </div>
     </div>
   </nav>
 </header>
 
-  
-      <!-- Mobile Menu Sidebar -->
-      <div id="mobileMenu" class="d-lg-none">
-        <div class="mobile-overlay" id="menuOverlay"></div>
-        <div class="mobile-sidebar bg-white p-4 shadow-lg">
-          <button class="btn-close float-end" id="closeSidebar"></button>
-          <ul class="list-unstyled mt-5">
-            <li><a href="#" class="d-block fw-bold py-2">Home</a></li>
+<!-- navbar end -->
 
-            <li class="has-submenu">
-              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Gowns & Dresses <i class="fas fa-chevron-down float-end"></i></a>
-              <ul class="submenu list-unstyled ps-3" style="display: none;">
-                <li><a href="{% url 'evening' %}" class="d-block py-2">Evening Dresses</a></li>
-                <li><a href="{% url 'kids' %}" class="d-block py-2">Kids chamber</a></li>
-                <li><a href="{% url 'maid' %}" class="d-block py-2">Maids chamber</a></li>
-              </ul>
-            </li>
-            
-            <li class="has-submenu">
-              <a href="#" class="d-block fw-bold py-2 submenu-toggle">Accessories <i class="fas fa-chevron-down float-end"></i></a>
-              <ul class="submenu list-unstyled ps-3" style="display: none;">
-                <li><a href="{% url 'necklaces' %}" class="d-block py-2">Necklaces</a></li>
-                <li><a href="{% url 'earring' %}" class="d-block py-2">Earrings</a></li>
-                <li><a href="{% url 'bracelets' %}" class="d-block py-2">Bracelets</a></li>
-                <li><a href="{% url 'bags' %}" class="d-block py-2">Bags</a></li>
-                <li><a href="{% url 'shoes' %}" class="d-block py-2">Shoes</a></li>
-                <li><a href="{% url 'veils' %}" class="d-block py-2">Veils & Headpieces</a></li>
-                <li><a href="{% url 'makeup' %}" class="d-block py-2">Makeup</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#" class="d-block fw-bold py-2 submenu-toggle">About Us<i class="fas fa-chevron-down float-end"></i></a>
-              <ul class="submenu list-unstyled ps-3" style="display: none;">
-                <li><a href="{% url 'ceo' %}" class="d-block py-2">TC BRIDAL CEO</a></li>
-                <li><a href="#location" class="d-block py-2">Location</a></li>
-                <li><a href="#working-hours" class="d-block py-2">Working Hours</a></li>
-              </ul>
-            </li>
-            <li><a href="{% url 'events' %}" class="d-block fw-bold py-2">Events/Gallery</a></li>
-          </ul>
-  
-          <div class="text-center mt-5">
-            <form class="d-flex ms-lg-3 mt-3 mt-lg-0" method="POST" action="{% url 'search' %}" >
-              {% csrf_token %}
-              <input name="searched" class="form-control me-2" type="search" placeholder="Search here" />
-              <button class="btn btn-outline-dark" type="submit">Search</button>
-            </form>
-          </div>
+
+
+
+<!-- Carousel start -->
+<section id="fashionCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active slide-in-right">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between fashion-slide">
+        <div class="fashion-text text-center text-md-start position-relative">
+          <h2 class="fashion-heading">Stylish Pose</h2>
+            <p class="fashion-description">
+              Gracefully captured in every frame, the bridal gown transforms each pose into a moment of timeless beauty. From soft glances to confident stances, every gesture tells a story of elegance, romance, and unforgettable style.
+            </p>
+          <a href="{% url 'appoint' %}" class="btn btn-dark">BOOK NOW <i class="fas fa-arrow-right ms-2"></i></a>
+          <br><br>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+            Subscribe Now
+          </button>
         </div>
-      </div>
-    </section>
-
-  <!-- ... KEEP YOUR FULL NAVIGATION SECTION HERE (NO CHANGE NEEDED) ... -->
-
-    <!--new carousel/slider-->
-  <div class="carousel" style="padding-top: 180px;">
-        <!--list of items-->
-        <div class="list">
-          <div class="item">
-            <img src="{% static 'tc_bridal/img/cpp2.jpg' %}" alt="">
-            <div class="content">
-              <div class="author">Harriet Taylor</div>
-              <div class="title">TC BRIDALS</div>
-              <div class="topic">special moments</div>
-              <div class="des">
-                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
-                <span>From the gowns that we wear with the help of the best Designers</span><br>
-                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
-              </div>
-              <div>
-                <button>
-                  <a href="{% url 'appoint' %}" class="custom-btn">
-                    Booking
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'tc_bridal/img/cpp.jpg' %}" alt="">
-            <div class="content">
-              <div class="author">Harriet Taylor</div>
-              <div class="title">TC BRIDALS</div>
-              <div class="topic">special moments</div>
-              <div class="des">
-                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
-                <span>From the gowns that we wear with the help of the best Designers</span><br>
-                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
-              </div>
-              <div>
-                <button>
-                  <a href="{% url 'appoint' %}" class="custom-btn">
-                     Booking
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'tc_bridal/img/cpp3.jpg' %}" alt="">
-            <div class="content">
-              <div class="author">Harriet Taylor</div>
-              <div class="title">TC BRIDALS</div>
-              <div class="topic">special moments</div>
-              <div class="des">
-                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
-                <span>From the gowns that we wear with the help of the best Designers</span><br>
-                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
-              </div>
-              <div>
-                <button>
-                  <a href="{% url 'appoint' %}" class="custom-btn">
-                    Booking
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'tc_bridal/img/cpp1.jpg' %}" alt="">
-            <div class="content">
-              <div class="author">Harriet Taylor</div>
-              <div class="title">TC BRIDALS</div>
-              <div class="topic">special moments</div>
-              <div class="des">
-                <span>Where <strong><em>FASHION</em></strong> and <strong><em>BEAUTY</em></strong> meet</span><br>
-                <span>From the gowns that we wear with the help of the best Designers</span><br>
-                <span>That makes our photo galleries so colorful and awesome thus forever Beauty</span><br>
-              </div>
-              <div>
-                <button>
-                  <a href="{% url 'appoint' %}" class="custom-btn">
-                    Booking
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-            <!-- Thumbnail -->
-    <div class="thumbnail">
-      <div class="item">
-        <img src="{% static 'tc_bridal/img/pp.jpg' %}" alt="">
-        <div class="content">
-          <div class="title"></div>
-          <div class="des"></div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="{% static 'tc_bridal/img/pp1.jpg' %}" alt="">
-        <div class="content">
-          <div class="title"></div>
-          <div class="des"></div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="{% static 'tc_bridal/img/pp2.jpg' %}" alt="">
-        <div class="content">
-          <div class="title"></div>
-          <div class="des"></div>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="{% static 'tc_bridal/img/pp3.jpg' %}" alt="">
-        <div class="content">
-          <div class="title"></div>
-          <div class="des"></div>
+        <div class="fashion-image">
+          <img src="{% static 'tc_bridal/img/pp1.jpg' %}" alt="Summer Look 1" class="img-fluid" />
         </div>
       </div>
     </div>
-    <div class="arrows">
-      <button class="prevBtn"></button>
-      <button class="nextBtn"></button>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item slide-in-right">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between fashion-slide">
+        <div class="fashion-text text-center text-md-start position-relative">
+          <h2 class="fashion-heading">Dance Forever</h2>
+          <p class="fashion-description">
+            Crafted for motion and made to mesmerize, bold prints bring rhythm to every step and elegance to every spin. Whether you're gliding across the floor in a slow waltz or twirling with joy in a lively celebration, these vibrant patterns respond to movement with grace and flair. Each fabric flows effortlessly, catching the light and echoing the energy of the dance. From the first sway to the final pose, bold prints turn every bridal moment into a performance — expressive, unforgettable, and beautifully choreographed.
+          </p>
+          <a href="{% url 'appoint' %}" class="btn btn-dark">BOOK NOW <i class="fas fa-arrow-right ms-2"></i></a>
+          <br><br>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+            Subscribe Now
+          </button>
+        </div>
+        <div class="fashion-image">
+          <img src="{% static 'tc_bridal/img/pp4.jpg' %}" alt="Summer Look 2" class="img-fluid" />
+        </div>
+      </div>
     </div>
 
-    <div class="carousel-timer">
-      <span id="carouselCountdown">00:02</span>
+    <!-- Slide 3 -->
+    <div class="carousel-item slide-in-right">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between fashion-slide">
+        <div class="fashion-text text-center text-md-start position-relative">
+          <h2 class="fashion-heading">Effortless Style</h2>
+          <p class="fashion-description">
+            With every step and sway, effortless style reveals itself in motion. Lightweight layers drift like rhythm in the air, while clean lines follow the body’s natural choreography. Whether you're gliding across the floor or caught mid-spin in a moment of joy, each piece is designed to move with you — fluid, breathable, and beautifully composed. It's fashion that doesn’t just dress the dance, it becomes part of it — whispering elegance with every turn.
+          </p>
+          <a href="{% url 'appoint' %}" class="btn btn-dark">BOOK NOW <i class="fas fa-arrow-right ms-2"></i></a>
+          <br><br>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+            Subscribe Now
+          </button>
+        </div>
+        <div class="fashion-image">
+          <img src="{% static 'tc_bridal/img/pp3.jpg' %}" alt="Summer Look 3" class="img-fluid" />
+        </div>
+      </div>
     </div>
-    <div class="time"></div>
-    
+
   </div>
+</section>
+<!-- Carousel end -->
+
+
+<!-- marquee start -->
+<section>
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <div  class="marquee-content">
+        24/7 ONLINE SUPPORT FOR ANY INQURY OR BOOKING  ·  WE ARE FRIENDLY AND ALWAYS READY TO LISTEN    ·  WE DON'T DO ANY SORT OF ONLINE SALES/PAYMENT TRANSACTIONS BUT EVERYTHING IS DONE AT THE SHOP  .  WE ARE FOUND: SOUTH POINT MALL, KABALAGALA, ON GGABA ROAD   ·  CALL US: +256 (0) 752 823545  OR EMAIL US: tcbridals@gmail.com·
+      </div>
+      <div  class="marquee-content">
+        24/7 ONLINE SUPPORT FOR ANY INQURY OR BOOKING  ·  WE ARE FRIENDLY AND ALWAYS READY TO LISTEN    ·  WE DON'T DO ANY SORT OF ONLINE SALES/PAYMENT TRANSACTIONS BUT EVERYTHING IS DONE AT THE SHOP  .  WE ARE FOUND: SOUTH POINT MALL, KABALAGALA, ON GGABA ROAD   ·  CALL US: +256 (0) 752 823545  OR EMAIL US: tcbridals@gmail.com·
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
   {% if full_name %}
-    <div style="margin: 100px auto; padding: 40px; background-color: #fff0f5; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding-top: 180px;">
+    <div style="margin: 100px auto; padding: 40px; background-color: #ffffff; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding-top: 180px;">
       <i class="fa-solid fa-circle-check fa-3x" style="color: #d63384;"></i>
       <h2 class="mt-3" style="color: #d63384; font-weight: bold;"></h2>
       
@@ -1170,57 +1058,55 @@
     </div>
   {% else %}       
   <!-- Main body Section with Background Image     -->
-  <div style="position: relative;">
-    <!-- Content Section (Text, Form, etc.) -->
-    <div style="width: 100%; padding: 30px 10px; display: flex; justify-content: center; background-color: #f8f9fa;">
-      <div style="max-width: 500px; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
-        
-        <h4 style="margin-bottom: 20px; text-align: center; color: #d63384; font-weight: bold;">Subscribe with Your Email</h4>
-        <p style="font-weight: bold; text-align: center; margin-bottom: 25px;">For our latest product Updates and News</p>
-        
-        <form action="{% url 'home' %}" method="post">
-          {% csrf_token %}
-    
-          <div style="margin-bottom: 15px;">
-            <label for="fname" style="display: block; font-weight: 500; margin-bottom: 5px;">Full names</label>
-            <input name="full-name" type="text" id="fname" placeholder="Enter your full names"
-                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
-          </div>
-    
-          <div style="margin-bottom: 20px;">
-            <label for="email" style="display: block; font-weight: 500; margin-bottom: 5px;">Email address</label>
-            <input name="email" type="email" id="email" placeholder="Enter your email"
-                  style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
-          </div>
-    
-          <button type="submit"
-                  style="width: 100%; padding: 12px; background-color: #d63384; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
-            Subscribe
-          </button>
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content subscribe-form">
 
-          <h1 style="text-align: center;">OR</h1>
-    
-          <!-- Add spacing between buttons -->
-          <div style="margin-top: 15px;">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#reviewModal"
-                    style="width: 100%; padding: 12px; background-color: #0d6efd; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">
+      <!-- Close Button -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              style="position: absolute; top: 15px; right: 15px; z-index: 10;"></button>
+
+      <div class="modal-body">
+        <div class="form-wrapper">
+          <h4>Subscribe with Your Email</h4>
+          <p>For our latest product Updates and News</p>
+
+          <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+
+            <div>
+              <label for="fname">Full names</label>
+              <input name="full-name" type="text" id="fname" placeholder="Enter your full names" required>
+            </div>
+
+            <div>
+              <label for="email">Email address</label>
+              <input name="email" type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <button type="submit">Subscribe</button>
+
+            <h1 style="text-align: center; color: #000;">OR</h1>
+
+            <button type="button"
+                    class="btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewModal"
+                    data-bs-dismiss="modal"
+                    style="width: 100%; padding: 10px; background-color: #0d6efd; border: none; border-radius: 5px; color: white; font-weight: bold; font-size: 14px; cursor: pointer;">
               Leave a Review
             </button>
-          </div>
-    
-          <h5 style="text-align: center; padding-top: 20px; font-size: 14px; color: #555;">
-            If you have already subscribed, DON'T subscribe again!!
-          </h5>
-    
-          <p style="margin-top: 20px; text-align: center; font-size: 13px; color: #999;">
-            "Customer data is highly valued and protected"
-          </p>
-        </form>
+
+            <h5>If you have already subscribed, DON'T subscribe again!!</h5>
+            <p>"Customer data is highly valued and protected"</p>
+          </form>
+        </div>
       </div>
     </div>
-    
-    
   </div>
+</div>
   {% endif %}
 
 
@@ -1230,8 +1116,7 @@
   <!-- Example Section that will animate -->
   <!--COLLECTIONS-->
 <!-- Premier Designers Section -->
-<!-- Premier Designers Section -->
-<section id="bridal-collection" style="background-color: #fef6f8; padding: 40px 20px;">
+<section id="bridal-collection" style="background-color: white; padding: 40px 20px;">
   <div class="container">
     <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
       Gowns & Dresses<br>
@@ -1288,66 +1173,67 @@
 
 
 
-  <!-- Review Modal -->
-  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-3">
-        <div class="modal-header border-0">
-          <h5 class="modal-title w-100" id="reviewModalLabel">How was your experience?</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100" id="reviewModalLabel">How was your experience?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Your answer is anonymous. Help us improve our service.</p>
+
+        <!-- Star Rating -->
+        <div class="rating mb-3">
+          <i class="fas fa-star fa-2x text-muted star" data-value="1"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="2"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="3"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="4"></i>
+          <i class="fas fa-star fa-2x text-muted star" data-value="5"></i>
         </div>
-        <div class="modal-body">
-          <p>Your answer is anonymous. Help us improve our service.</p>
 
-          <!-- Star Rating -->
-          <div class="rating mb-3">
-            <i class="fas fa-star fa-2x text-muted star" data-value="1"></i>
-            <i class="fas fa-star fa-2x text-muted star" data-value="2"></i>
-            <i class="fas fa-star fa-2x text-muted star" data-value="3"></i>
-            <i class="fas fa-star fa-2x text-muted star" data-value="4"></i>
-            <i class="fas fa-star fa-2x text-muted star" data-value="5"></i>
-          </div>
+        <p id="rating-label" class="fw-semibold">Select a rating</p>
 
-          <p id="rating-label" class="fw-semibold">Select a rating</p>
-
-          <!-- Action Buttons -->
-          <div class="d-flex justify-content-between flex-wrap gap-2">
-            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Not Now</button>
-            <button type="button" class="btn btn-success" id="submit-rating-btn">Submit</button>
-          </div>
-
-          <!-- Google Review Button -->
-          <p class="text-center mt-3" style="color: #000000; font-weight: bolder;">
-            Your star rating helps us, but when you <span class="btn btn-warning mt-3">Write a Google Review</span> makes us shine! 🌟 tap on the button below and we get to know your thoughts.
-          </p>
-          
-          <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning mt-3">
-            <i class="fab fa-google me-1"></i> Write a Google Review
-          </a>
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between flex-wrap gap-2">
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Not Now</button>
+          <button type="button" class="btn btn-success" id="submit-rating-btn">Submit</button>
         </div>
+
+        <!-- Google Review Button -->
+        <p class="text-center mt-3" style="color: #000000; font-weight: bolder;">
+          Your star rating helps us, but when you <span class="btn btn-warning mt-3">Write a Google Review</span> makes us shine! 🌟 tap on the button below and we get to know your thoughts.
+        </p>
+        
+        <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning mt-3">
+          <i class="fab fa-google me-1"></i> Write a Google Review
+        </a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Custom Thank You Modal -->
-  <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-4" style="border-radius: 15px;">
-        <div class="modal-body">
-          <i class="fas fa-heart fa-3x mb-3 text-danger"></i>
-          <h5 class="mb-3" style="color: #d63384;">Thank You, Gorgeous! 💕</h5>
-          <p class="mb-4">Tc bridals appreciate your feedback. Now let’s shine together — leave us a Google review!</p>
-          <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning w-100">
-            <i class="fab fa-google me-1"></i> Write a Google Review
-          </a>
-        </div>
+<!-- Custom Thank You Modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4" style="border-radius: 15px;">
+      <div class="modal-body">
+        <i class="fas fa-heart fa-3x mb-3 text-danger"></i>
+        <h5 class="mb-3" style="color: #d63384;">Thank You, Gorgeous! 💕</h5>
+        <p class="mb-4">Tc bridals appreciate your feedback. Now let’s shine together — leave us a Google review!</p>
+        <a href="https://g.page/r/CSaI9Hkl83vVEAI/review" target="_blank" class="btn btn-warning w-100">
+          <i class="fab fa-google me-1"></i> Write a Google Review
+        </a>
       </div>
     </div>
   </div>
+</div>
+
 
 
     <!-- bridal gowns -->
-  <section class="py-5">
+  <section class="py-5" style="background-color: white;">
     <div class="container">
       <div class="row justify-content-center">
 
@@ -1376,7 +1262,7 @@
       </div>
   </section>
 
-  <section >
+  <section style="background-color: white;" >
     <div class="gallery">
         <div class="gallery-item">
             <img src="{% static 'tc_bridal/img/b1.jpg' %}" alt="Gomesi">
@@ -1410,16 +1296,17 @@
     </div>
     <br>
 
-    <div class="text-center mb-5">
-        <a href="{% url 'inquires' %}" class="btn btn-inquire">
-          <i class="fas fa-envelope-open-text"></i> Inquire Now
-        </a>
+    <div class="text-center" style="margin-bottom: 0; padding-bottom: 0; background: none; border: none;">
+      <a href="{% url 'inquires' %}" class="btn btn-inquire" style="margin-bottom: 0;">
+        <i class="fas fa-envelope-open-text"></i> Inquire Now
+      </a>
     </div>
+
   </section>
 
 
   <!--bridal traditional wear-->
-  <section class="py-5">
+  <section class="py-5" style="background-color: white; margin-bottom: -50px; margin-bottom: 0; padding-bottom: 0;">
     <div class="container">
       <div class="row justify-content-center">
 
@@ -1447,7 +1334,7 @@
       </div>
   </section>
 
-  <section >
+  <section style="background-color: white;">
     <div class="gallery">
         <div class="gallery-item">
             <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Gomesi">
@@ -1480,28 +1367,29 @@
     </div>
     <br>
 
-    <div class="text-center mb-5">
-        <a href="{% url 'inquires' %}" class="btn btn-inquire">
-          <i class="fas fa-envelope-open-text"></i> Inquire Now
-        </a>
-    </div>
+<div class="text-center" style="margin-bottom: 0; padding-bottom: 0; background: none; border: none;">
+  <a href="{% url 'inquires' %}" class="btn btn-inquire" style="margin-bottom: 0;">
+    <i class="fas fa-envelope-open-text"></i> Inquire Now
+  </a>
+</div>
+
   </section>
 
 
   
 
     <!-- pop up notification -->
-    <div id="popup" class="btn btn-warning mt-3">
+    <div id="popup" class="btn btn-warning mt-3" style="background-color: #ffffff; border: 2px solid black;">
         <p>💬 Looking for the perfect bridal gown? Chat with us on WhatsApp!</p>
-        <button onclick="openWhatsApp()">Chat Now</button>
-        <button onclick="closePopup()">Close</button>
+        <button onclick="openWhatsApp()" style="border: 1px solid black;">Chat Now</button>
+        <button onclick="closePopup()" style="border: 1px solid black;">Close</button>
     </div>
 
   
 
 
   <!-- Footer -->
-  <footer class="bg-light text-black py-4 mt-5 px-3">
+  <footer class="bg-light text-black py-4 mt-5 px-3" style="background-color: #fdf0f5;">
       <div class="container">
           <!-- Row 1: Info Sections in One Line -->
           <div class="row text-center text-md-start mb-4">
@@ -1634,7 +1522,7 @@
 
 
 
-    // === Preloader Logic ===
+    // === Preloader logoic ===
     const MIN_PRELOADER_TIME = 5500;
     const start = Date.now();
 
