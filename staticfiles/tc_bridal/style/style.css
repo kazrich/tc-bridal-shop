@@ -64,7 +64,6 @@
 
 
 .dropdown-item:hover {
-    background-color: #f8f9fa; /* Light grey background */
     color: #000; /* Change text color */
     font-weight: bold; /* Make text bold */
     transition: 0.3s ease-in-out;
@@ -104,7 +103,6 @@ h5{
     top: 5px;
     left: 870px;
     margin-top: 80px;
-    background-color: rgb(206, 62, 62);
     padding: 25px;
     border-radius: 10px;
 }
@@ -121,32 +119,9 @@ h5{
 }
 
 
-:root {
-    --primary-color: #EFB7D4; /* blush pink */
-    --accent-color: #F8E1F4; /* light pastel */
-    --text-color: #333;
-    --gold: #ff0090;
-}
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    background: linear-gradient(to bottom right, #fffafc, #ffeef4);
-}
 
-#son {
-    position: relative;
-    margin-top: 150px;
-    background-image: url('412_StyledbyTC_2020_min__1_.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    overflow: hidden;
-}
+
 
 /* Blur Overlay */
 #son::before {
@@ -174,7 +149,7 @@ body {
 }
 
 .form-box {
-    background-color: #fff0f5;
+
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0px 4px 12px rgba(239, 183, 212, 0.4);
@@ -295,7 +270,7 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fdf0f5; /* soft feminine tone */
+    background-color: transparent;
     padding: 40px;
     gap: 30px;
     border-radius: 20px;
@@ -327,30 +302,6 @@ footer p {
     line-height: 1.6;
     color: #444;
   }
-  
-
-/* inqury button*/
-
-.btn-inquire {
-    background-color: #b03060; /* soft bridal pink/maroon */
-    color: white;
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .btn-inquire i {
-    margin-right: 10px;
-  }
-  
-  .btn-inquire:hover {
-    background-color: #ffffff;
-    transform: translateY(-2px);
-  }
-
   
 
 
@@ -439,7 +390,7 @@ footer p {
     aspect-ratio: 1/1; /* Makes all images square */
     overflow: hidden;
     border-radius: 15px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,7 +413,7 @@ footer p {
 
 /* about footer and header*/
 .highlight {
-    background-color: #fbe3e8; /* soft pink glow for visual feedback */
+    background-color: #ffffff; /* soft pink glow for visual feedback */
     transition: background-color 0.5s ease-in-out;
     border-radius: 10px;
 }
@@ -472,7 +423,7 @@ footer p {
 #image-box {
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -499,7 +450,6 @@ footer p {
 
 /* Highlight the form when it's in view */
 .highlight {
-    background-color: #fbe3e8;  /* Light pink background for emphasis */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -533,7 +483,7 @@ html {
     height: 3px;
     left: 10PX;
     bottom: -5px;
-    background: hotpink;
+
     transition: width 0.4s ease, left 0.4s ease;
 }
 
@@ -596,64 +546,11 @@ html {
       transform: translateY(0);
     }
 
-    @media (max-width: 991px) {
-      #navbarNav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100%;
-        background-color: #fff;
-        padding: 2rem;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 9999;
-      }
-      #navbarNav.active {
-        transform: translateX(0);
-      }
-    }
 
-    #mobileMenu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: none;
-      z-index: 1050;
-    }
-    #mobileMenu.show {
-      display: block;
-    }
-    .mobile-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.4);
-      width: 100%;
-      height: 100%;
-    }
-    .mobile-sidebar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 80%;
-      max-width: 300px;
-      background: white;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-    #mobileMenu.show .mobile-sidebar {
-      transform: translateX(0);
-    }
-    
 
 
   
     #highlight {
-        background-color: yellow;
         color: black;
         font-weight: bold;
         padding: 2px 4px;

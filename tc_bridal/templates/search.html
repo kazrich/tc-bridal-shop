@@ -14,7 +14,7 @@
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
+
 
   <!-- Open Graph Meta -->
   <meta property="og:title" content="Tc bridals - bridal gowns, shoes and accessories etc" />
@@ -25,6 +25,141 @@
 
   <!-- Custom CSS -->
   <style>
+/* content banner */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 40px;
+    gap: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* mobile responsive */
+  }
+  
+  .banner-image img {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .banner-text {
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .banner-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #b03060; /* bridal pink/maroon */
+  }
+  
+  .banner-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+  }
+  
+
+
+
+  .hover-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-image img.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+  }
+
+  .hover-image:hover img.hover-img {
+    opacity: 1;
+  }
+
+  .hover-image img:first-child {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hover-image img {
+    width: 100%;
+    display: block;
+  }
+
+
+/* image sizing*/
+.image-box {
+    width: 100%;
+    aspect-ratio: 1/1; /* Makes all images square */
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop without stretching */
+    border-radius: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.image-box img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(214, 51, 132, 0.3);
+}
+
+
+.btn-inquire {
+  background-color: #f9afd4;
+  color: #ffffff;
+  border-radius: 0px; /* Soft corners for elegance */
+  padding: 12px 24px; /* Controls height and width */
+  font-size: 16px; /* Slightly larger text for luxury feel */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Adds interactivity */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+
+.btn-inquire:hover{
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Main nav links hover */
+.navbar-nav .nav-link{
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Footer link cleanup */
+footer ul li a {
+  color: #000 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: #777 !important; /* Optional: add a soft pink hover */
+}        
+ 
+
+
 
 /* new top banner & navbar css */
 /* Mobile full-screen overlay for collapsed navbar */

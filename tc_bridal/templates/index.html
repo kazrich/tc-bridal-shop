@@ -31,6 +31,184 @@
 
   <!-- Custom CSS -->
   <style>
+.remove-wishlist {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+.wishlist-body img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.wishlist-body {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px); /* Adjust based on header height */
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+/* Optional: hide scrollbar on WebKit browsers */
+.wishlist-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wishlist-body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+
+.wishlist-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  display: none;
+  z-index: 9999;
+  animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+
+.wishlist-panel {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #eee;
+}
+
+.wishlist-panel.show {
+  right: 0;
+}
+
+.wishlist-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wishlist-header h5 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wishlist-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.wishlist-body {
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+}
+
+    
+.wishlist-target {
+  position: relative;
+  display: inline-block;
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.8);
+}
+
+/* Optional: heart icon styling */
+.wishlist-icon::before {
+  content: '♥';
+  font-size: 16px;
+  color: #000000;
+}
+
+
+.wishlist-popup {
+  position: fixed;
+  top: 20%;
+  right: -300px; /* Hidden off-screen */
+  width: 260px;
+  background-color: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 0 0 8px;
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 9999;
+}
+
+.wishlist-popup.show {
+  right: 20px; /* Slide into view */
+}
+
+.wishlist-content h5 {
+  margin: 0;
+  font-size: 16px;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
 body {
     padding-top: 120px; /* Makes space for navbar */
     background-color: #ffffff;
@@ -441,6 +619,118 @@ footer ul li a:hover {
 }
 
 
+/* this for the Browers/quick seacrh */
+/* Desktop banners */
+.collection-banner {
+  position: relative;
+  width: 33.3333%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.collection-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile carousel */
+/* Mobile carousel container */
+#bridal-mobile-carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Unique track class */
+.bridal-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+/* Unique slide class */
+.bridal-carousel-slide {
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  height: 280px; /* Shrunk height for mobile */
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.bridal-carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Shrink and center image */
+.bridal-carousel-slide img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border-radius: 0px;
+}
+
+/* Overlay styling (shared) */
+
+
+.banner-overlay h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+/* Shared overlay styles */
+.banner-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  max-width: 80%;
+  font-weight: bold;
+}
+
+.banner-overlay h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-shop {
+  background-color: black;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-shop:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+
+
+
+
+
 
 
 
@@ -638,9 +928,9 @@ footer ul li a:hover {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
             padding: 15px;
-            border-radius: 15px;
+            border-radius: 0px;
             text-align: center;
             max-width: 300px;
             width: 80%;
@@ -659,7 +949,7 @@ footer ul li a:hover {
             margin-top: 10px;
             cursor: pointer;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 0px;
         }
 
         #popup button:hover {
@@ -761,27 +1051,7 @@ footer ul li a:hover {
   }
 }
 
-/* content */
-/* Tablet screen adjustments */
-@media (max-width: 768px) {
-  .carousel .list .item .content .author {
-    font-size: 10px;
-    letter-spacing: 5px;
-  }
 
-  .carousel .list .item .content .title {
-    font-size: 4em;
-  }
-
-  .carousel .list .item .content .topic {
-    font-size: 4em;
-  }
-
-  .carousel .list .item .content .des span {
-    font-size: 14px;
-    line-height: 1.4em;
-  }
-}
 
 
 /* Responsive banner height */
@@ -803,11 +1073,17 @@ footer ul li a:hover {
   }
 }
 
-.btn-inquire{
-  background-color: #000000;
-  border-radius: none;
+.btn-inquire {
+  background-color: #f9afd4;
   color: #ffffff;
+  border-radius: 0px; /* Soft corners for elegance */
+  padding: 12px 24px; /* Controls height and width */
+  font-size: 16px; /* Slightly larger text for luxury feel */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Adds interactivity */
+  transition: all 0.3s ease; /* Smooth hover effect */
 }
+
 
 .btn-inquire:hover{
   background-color: #ffffff;
@@ -857,7 +1133,7 @@ footer ul li a:hover {
         </form>
         <a href="#" class="position-relative" aria-label="Wishlist">
           <i class="fas fa-heart fa-lg text-dark"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+          <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
         </a>
       </div>
 
@@ -1115,59 +1391,73 @@ footer ul li a:hover {
 
   <!-- Example Section that will animate -->
   <!--COLLECTIONS-->
-<!-- Premier Designers Section -->
-<section id="bridal-collection" style="background-color: white; padding: 40px 20px;">
-  <div class="container">
-    <h2 class="text-center mb-5" style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #222;">
-      Gowns & Dresses<br>
-      <span style="font-size: 42px; font-weight: 500;">quick search</span>
-    </h2>
-
-    <div class="row justify-content-center align-items-stretch gy-5">
-      <!-- Collection 1 -->
-      <div class="col-md-6 col-lg-4 collection-item">
-        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-          <div class="image-container">
-            <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses"
-                class="gallery-image" />
-          </div>
-          <div class="text-container">
-            <h4 class="gallery-title">Evening Dresses</h4>
-            <a href="{% url 'evening' %}" class="gallery-link">Browse</a>
-          </div>
-        </div>
+<!-- Desktop Layout -->
+<section id="bridal-collection" class="d-none d-md-block" style="background-color: #fff; padding: 0; margin: 0;">
+  <div class="d-flex flex-wrap">
+    <!-- Banner 1 -->
+    <div class="collection-banner flex-fill">
+      <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses">
+      <div class="banner-overlay">
+        <h3>NEW Evening Dresses</h3>
+        <a href="{% url 'evening' %}" class="btn-shop">BROWSER</a>
       </div>
+    </div>
 
-      <!-- Collection 2 -->
-      <div class="col-md-6 col-lg-4 collection-item">
-        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-          <div class="image-container">
-            <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Kids Dresses"
-                class="gallery-image" />
-          </div>
-          <div class="text-container">
-            <h4 class="gallery-title">Kids Dresses</h4>
-            <a href="{% url 'kids' %}" class="gallery-link">Browse</a>
-          </div>
-        </div>
+    <!-- Banner 2 -->
+    <div class="collection-banner flex-fill">
+      <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Kids Dresses">
+      <div class="banner-overlay">
+        <h3>COLLECTION Kids Dresses</h3>
+        <a href="{% url 'kids' %}" class="btn-shop">BROWSER</a>
       </div>
+    </div>
 
-      <!-- Collection 3 -->
-      <div class="col-md-6 col-lg-4 collection-item">
-        <div class="card border-0 h-100 mx-auto" style="max-width: 90%; background-color: transparent;">
-          <div class="image-container">
-            <img src="{% static 'tc_bridal/img/bads.jpg' %}" alt="Maids Gowns"
-                class="gallery-image" />
-          </div>
-          <div class="text-container">
-            <h4 class="gallery-title">Maids Gowns</h4>
-            <a href="{% url 'maid' %}" class="gallery-link">Browse</a>
-          </div>
-        </div>
+    <!-- Banner 3 -->
+    <div class="collection-banner flex-fill">
+      <img src="{% static 'tc_bridal/img/bads.jpg' %}" alt="Maids Gowns">
+      <div class="banner-overlay">
+        <h3>COLLECTION Maids Gowns</h3>
+        <a href="{% url 'maid' %}" class="btn-shop">BROWSER</a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Mobile Carousel -->
+<section id="bridal-mobile-carousel" class="d-block d-md-none">
+  <div class="bridal-carousel-track">
+    <!-- Slide 1 -->
+    <div class="bridal-carousel-slide">
+      <img src="{% static 'tc_bridal/img/dd1.jpg' %}" alt="Evening Dresses">
+      <div class="banner-overlay">
+        <h3>NEW Evening Dresses</h3>
+        <a href="{% url 'evening' %}" class="btn-shop">BROWSER</a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="bridal-carousel-slide">
+      <img src="{% static 'tc_bridal/img/dd.jpg' %}" alt="Kids Dresses">
+      <div class="banner-overlay">
+        <h3>COLLECTION Kids Dresses</h3>
+        <a href="{% url 'kids' %}" class="btn-shop">BROWSER</a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="bridal-carousel-slide">
+      <img src="{% static 'tc_bridal/img/bads.jpg' %}" alt="Maids Gowns">
+      <div class="banner-overlay">
+        <h3>COLLECTION Maids Gowns</h3>
+        <a href="{% url 'maid' %}" class="btn-shop">BROWSER</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 
 
 
@@ -1264,31 +1554,31 @@ footer ul li a:hover {
 
   <section style="background-color: white;" >
     <div class="gallery">
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b1.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b2.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b3.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b4.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b5.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b6.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-                <div class="gallery-item">
+                <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b7.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
@@ -1336,31 +1626,31 @@ footer ul li a:hover {
 
   <section style="background-color: white;">
     <div class="gallery">
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g2.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g4.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g5.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g6.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g7.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g8.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/g3.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
@@ -1379,13 +1669,28 @@ footer ul li a:hover {
   
 
     <!-- pop up notification -->
-    <div id="popup" class="btn btn-warning mt-3" style="background-color: #ffffff; border: 2px solid black;">
+    <div id="popup" class="btn btn-warning mt-3" style="background-color: rgb(0, 0, 0); border: none;">
         <p>💬 Looking for the perfect bridal gown? Chat with us on WhatsApp!</p>
         <button onclick="openWhatsApp()" style="border: 1px solid black;">Chat Now</button>
         <button onclick="closePopup()" style="border: 1px solid black;">Close</button>
     </div>
 
   
+<!-- Wishlist Panel -->
+<div id="wishlist-panel" class="wishlist-panel">
+  <div class="wishlist-header">
+    <h5>Your Wishlist</h5>
+    <button class="wishlist-close" onclick="toggleWishlist()">×</button>
+  </div>
+  <div class="wishlist-body">
+    <p id="wishlist-empty-text">Your wishlist is empty.</p>
+  </div>
+</div>
+
+
+<!-- Alert Box -->
+<div id="wishlist-alert" class="wishlist-alert"></div>
+
 
 
   <!-- Footer -->
@@ -1468,6 +1773,148 @@ footer ul li a:hover {
 
 
   <script>
+// Initialize wishlist from localStorage
+const wishlist = new Set(JSON.parse(localStorage.getItem('wishlist')) || []);
+
+// Save wishlist to localStorage
+function saveWishlist() {
+  localStorage.setItem('wishlist', JSON.stringify([...wishlist]));
+}
+
+// Show alert in bottom-right corner
+function showWishlistAlert(message) {
+  const alertBox = document.getElementById('wishlist-alert');
+  alertBox.textContent = message;
+  alertBox.style.display = 'block';
+  alertBox.classList.remove('fade');
+  void alertBox.offsetWidth;
+  alertBox.classList.add('fade');
+  setTimeout(() => {
+    alertBox.style.display = 'none';
+  }, 3000);
+}
+
+// Update "Your wishlist is empty" text visibility
+function updateEmptyMessage() {
+  const emptyText = document.getElementById('wishlist-empty-text');
+  emptyText.style.display = wishlist.size > 0 ? 'none' : 'block';
+}
+
+// Update wishlist count badge
+function updateWishlistCount() {
+  const countBadge = document.getElementById('wishlist-count');
+  if (countBadge) {
+    countBadge.textContent = wishlist.size;
+  }
+}
+
+// Add image to wishlist panel
+function addToWishlistPanel(src, isReload = false) {
+  const panel = document.querySelector('.wishlist-body');
+
+  // If not reload, update wishlist set and storage
+  if (!isReload) {
+    if (wishlist.has(src)) return;
+    wishlist.add(src);
+    saveWishlist();
+  }
+
+  // Create wishlist item
+  const item = document.createElement('div');
+  item.classList.add('wishlist-item');
+  item.innerHTML = `
+    <div style="position: relative; margin-bottom: 12px;">
+      <img src="${src}" style="width: 100%; max-height: 120px; object-fit: cover; border-radius: 6px;" />
+      <button class="remove-wishlist" data-src="${src}" style="
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background-color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      ">×</button>
+    </div>
+  `;
+  panel.appendChild(item);
+
+  updateEmptyMessage();
+  updateWishlistCount();
+}
+
+// Load wishlist items on page load
+window.addEventListener('DOMContentLoaded', () => {
+  wishlist.forEach(src => addToWishlistPanel(src, true));
+  updateEmptyMessage();
+  updateWishlistCount();
+});
+
+// Remove item from wishlist
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('remove-wishlist')) {
+    const src = e.target.getAttribute('data-src');
+    wishlist.delete(src);
+    saveWishlist();
+    e.target.closest('.wishlist-item').remove();
+    updateEmptyMessage();
+    updateWishlistCount();
+  }
+});
+
+// Toggle wishlist panel visibility
+function toggleWishlist() {
+  document.getElementById('wishlist-panel').classList.toggle('show');
+}
+
+// Trigger panel from wishlist icon
+document.querySelector('[aria-label="Wishlist"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  toggleWishlist();
+});
+
+// Inject wishlist icons and handle clicks
+document.querySelectorAll('.wishlist-target').forEach(container => {
+  const icon = document.createElement('div');
+  icon.classList.add('wishlist-icon');
+  container.appendChild(icon);
+
+  icon.addEventListener('click', () => {
+    const img = container.querySelector('img');
+    const src = img?.getAttribute('src');
+    if (!src) return;
+
+    if (wishlist.has(src)) {
+      showWishlistAlert("This image has already been added to your wishlist.");
+    } else {
+      addToWishlistPanel(src);
+    }
+  });
+});
+
+
+
+
+
+
+
+
+      // == Quick search Collections ==
+        let bridalIndex = 0;
+        const bridalTrack = document.querySelector('.bridal-carousel-track');
+        const bridalSlides = document.querySelectorAll('.bridal-carousel-slide');
+
+        function moveBridalSlide() {
+          bridalIndex = (bridalIndex + 1) % bridalSlides.length;
+          bridalTrack.style.transform = `translateX(-${bridalIndex * 100}%)`;
+        }
+
+        setInterval(moveBridalSlide, 2000);
+
 
     // == pop up notification ==
             setTimeout(() => {
