@@ -1,32 +1,21 @@
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ─────────────────────────────────────────────────────────────
+# BASE DIRECTORY
+# ─────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ─────────────────────────────────────────────────────────────
+# SECURITY SETTINGS
+# ─────────────────────────────────────────────────────────────
+SECRET_KEY = 'django-insecure-h2eus7w^sdufy2r4k=jun2b6m_i&w^*ajc08mxb_w!&=c78mm+'  # 🔒 Replace in production
+DEBUG = True  # 🔧 Set to False in production
+ALLOWED_HOSTS = ['*']  # 🌍 Replace with your domain in production
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h2eus7w^sdufy2r4k=jun2b6m_i&w^*ajc08mxb_w!&=c78mm+'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-
-ALLOWED_HOSTS = ['*']
-
-#'tc-bridal-shop-4.onrender.com'
-
-MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # add this near the top
-    ...
-]
-
-
-# Application definition
-
+# ─────────────────────────────────────────────────────────────
+# APPLICATION DEFINITION
+# ─────────────────────────────────────────────────────────────
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,11 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tc_bridal',
+    'tc_bridal',  # Your custom app
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Enables static file serving
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,7 +42,7 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],  # Add custom template directories here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,10 +56,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# ─────────────────────────────────────────────────────────────
+# DATABASE CONFIGURATION
+# ─────────────────────────────────────────────────────────────
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -77,57 +66,45 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
+# ─────────────────────────────────────────────────────────────
+# PASSWORD VALIDATION
+# ─────────────────────────────────────────────────────────────
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
+# ─────────────────────────────────────────────────────────────
+# INTERNATIONALIZATION
+# ─────────────────────────────────────────────────────────────
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
+# ─────────────────────────────────────────────────────────────
+# STATIC & MEDIA FILES
+# ─────────────────────────────────────────────────────────────
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # only define once
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # for collectstatic
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # For custom static assets
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For collectstatic
 
-# Media files (uploaded images, user content)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Our EMAIL settings
+# ─────────────────────────────────────────────────────────────
+# EMAIL CONFIGURATION
+# ─────────────────────────────────────────────────────────────
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'tcbridals@gmail.com'  # replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'goom ppho nkcd ozpn'  # use an App Password, not your Gmail password
+EMAIL_HOST_USER = 'tcbridals@gmail.com'
+EMAIL_HOST_PASSWORD = 'goom ppho nkcd ozpn'  # 🔐 Use environment variable in production
 EMAIL_USE_TLS = True
 
-
+# ─────────────────────────────────────────────────────────────
+# DEFAULT FIELD TYPE
+# ─────────────────────────────────────────────────────────────
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
