@@ -384,31 +384,6 @@ footer p {
 }
 
 
-/* image sizing*/
-.image-box {
-    width: 100%;
-    aspect-ratio: 1/1; /* Makes all images square */
-    overflow: hidden;
-    border-radius: 15px;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crop without stretching */
-    border-radius: 15px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-}
-
-.image-box img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 20px rgba(214, 51, 132, 0.3);
-}
 
 
 /* about footer and header*/
