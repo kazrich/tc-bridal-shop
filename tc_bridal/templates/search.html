@@ -25,6 +25,251 @@
 
   <!-- Custom CSS -->
   <style>
+@media (max-width: 768px) {
+  .navbar-nav {
+    justify-content: flex-start !important;
+    text-align: left;
+    padding-left: 15px;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.wishlist-trigger {
+  position: relative;
+  display: inline-block;
+  padding: 8px;
+  z-index: 1000;
+}
+
+/* Heart icon */
+.wishlist-trigger i {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Badge styling */
+#wishlist-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  transform: translate(50%, -50%);
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .wishlist-trigger {
+    padding: 6px;
+  }
+
+  .wishlist-trigger i {
+    font-size: 18px;
+  }
+
+  #wishlist-count {
+    font-size: 11px;
+    padding: 2px 5px;
+    min-width: 18px;
+  }
+}
+
+
+
+.remove-wishlist {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+.wishlist-body img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.wishlist-body {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px); /* Adjust based on header height */
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+/* Optional: hide scrollbar on WebKit browsers */
+.wishlist-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wishlist-body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+
+.wishlist-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  display: none;
+  z-index: 9999;
+  animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+
+.wishlist-panel {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #eee;
+}
+
+.wishlist-panel.show {
+  right: 0;
+}
+
+.wishlist-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wishlist-header h5 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wishlist-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.wishlist-body {
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+}
+
+    
+.wishlist-target {
+  position: relative;
+  display: inline-block;
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.8);
+}
+
+/* Optional: heart icon styling */
+.wishlist-icon::before {
+  content: '♥';
+  font-size: 16px;
+  color: #000000;
+}
+
+
+.wishlist-popup {
+  position: fixed;
+  top: 20%;
+  right: -300px; /* Hidden off-screen */
+  width: 260px;
+  background-color: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 0 0 8px;
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 9999;
+}
+
+.wishlist-popup.show {
+  right: 20px; /* Slide into view */
+}
+
+.wishlist-content h5 {
+  margin: 0;
+  font-size: 16px;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
 /* content banner */
 .banner {
     display: flex;
@@ -573,6 +818,135 @@ footer ul li a:hover {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- JS to Trigger Animation on Scroll -->
 <script>
+// Initialize wishlist from localStorage
+const wishlist = new Set(JSON.parse(localStorage.getItem('wishlist')) || []);
+
+// Save wishlist to localStorage
+function saveWishlist() {
+  localStorage.setItem('wishlist', JSON.stringify([...wishlist]));
+}
+
+// Show alert in bottom-right corner
+function showWishlistAlert(message) {
+  const alertBox = document.getElementById('wishlist-alert');
+  alertBox.textContent = message;
+  alertBox.style.display = 'block';
+  alertBox.classList.remove('fade');
+  void alertBox.offsetWidth;
+  alertBox.classList.add('fade');
+  setTimeout(() => {
+    alertBox.style.display = 'none';
+  }, 3000);
+}
+
+// Update "Your wishlist is empty" text visibility
+function updateEmptyMessage() {
+  const emptyText = document.getElementById('wishlist-empty-text');
+  emptyText.style.display = wishlist.size > 0 ? 'none' : 'block';
+}
+
+// Update wishlist count badge(s)
+function updateWishlistCount() {
+  document.querySelectorAll('#wishlist-count').forEach(countBadge => {
+    countBadge.textContent = wishlist.size;
+  });
+}
+
+// Add image to wishlist panel
+function addToWishlistPanel(src, isReload = false) {
+  const panel = document.querySelector('.wishlist-body');
+
+  // If not reload, update wishlist set and storage
+  if (!isReload) {
+    if (wishlist.has(src)) return;
+    wishlist.add(src);
+    saveWishlist();
+  }
+
+  // Create wishlist item
+  const item = document.createElement('div');
+  item.classList.add('wishlist-item');
+  item.innerHTML = `
+    <div style="position: relative; margin-bottom: 12px;">
+      <img src="${src}" style="width: 100%; max-height: 120px; object-fit: cover; border-radius: 6px;" />
+      <button class="remove-wishlist" data-src="${src}" style="
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background-color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      ">×</button>
+    </div>
+  `;
+  panel.appendChild(item);
+
+  updateEmptyMessage();
+  updateWishlistCount();
+}
+
+// Load wishlist items on page load
+window.addEventListener('DOMContentLoaded', () => {
+  wishlist.forEach(src => addToWishlistPanel(src, true));
+  updateEmptyMessage();
+  updateWishlistCount();
+});
+
+// Remove item from wishlist
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('remove-wishlist')) {
+    const src = e.target.getAttribute('data-src');
+    wishlist.delete(src);
+    saveWishlist();
+    e.target.closest('.wishlist-item').remove();
+    updateEmptyMessage();
+    updateWishlistCount();
+  }
+});
+
+// Toggle wishlist panel visibility
+function toggleWishlist() {
+  document.getElementById('wishlist-panel').classList.toggle('show');
+}
+
+// Trigger panel from all wishlist icons (desktop + mobile)
+document.querySelectorAll('[aria-label="Wishlist"]').forEach(icon => {
+  icon.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleWishlist();
+  });
+});
+
+// Inject wishlist icons and handle image clicks
+document.querySelectorAll('.wishlist-target').forEach(container => {
+  const icon = document.createElement('div');
+  icon.classList.add('wishlist-icon');
+  container.appendChild(icon);
+
+  icon.addEventListener('click', () => {
+    const img = container.querySelector('img');
+    const src = img?.getAttribute('src');
+    if (!src) return;
+
+    if (wishlist.has(src)) {
+      showWishlistAlert("This image has already been added to your wishlist.");
+    } else {
+      addToWishlistPanel(src);
+    }
+  });
+});
+
+
+
+
+
+
     document.addEventListener("DOMContentLoaded", function () {
     const kidsCollection = document.getElementById("kidsCollection");
 

@@ -25,6 +25,76 @@
 
   <!-- Custom CSS -->
   <style>
+@media (max-width: 768px) {
+  .navbar-nav {
+    justify-content: flex-start !important;
+    text-align: left;
+    padding-left: 15px;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+.wishlist-trigger {
+  position: relative;
+  display: inline-block;
+  padding: 8px;
+  z-index: 1000;
+}
+
+/* Heart icon */
+.wishlist-trigger i {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Badge styling */
+#wishlist-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  transform: translate(50%, -50%);
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .wishlist-trigger {
+    padding: 6px;
+  }
+
+  .wishlist-trigger i {
+    font-size: 18px;
+  }
+
+  #wishlist-count {
+    font-size: 11px;
+    padding: 2px 5px;
+    min-width: 18px;
+  }
+}
+
+
+
+
+
 .remove-wishlist {
   position: absolute;
   top: 6px;
@@ -598,7 +668,7 @@ footer ul li a:hover {
       <!-- Right: Wishlist (Mobile only) -->
       <a href="#" class="d-lg-none position-relative" aria-label="Wishlist">
         <i class="fas fa-heart fa-lg text-dark"></i>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+        <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
       </a>
     </div>
   </div>
@@ -884,12 +954,11 @@ function updateEmptyMessage() {
   emptyText.style.display = wishlist.size > 0 ? 'none' : 'block';
 }
 
-// Update wishlist count badge
+// Update wishlist count badge(s)
 function updateWishlistCount() {
-  const countBadge = document.getElementById('wishlist-count');
-  if (countBadge) {
+  document.querySelectorAll('#wishlist-count').forEach(countBadge => {
     countBadge.textContent = wishlist.size;
-  }
+  });
 }
 
 // Add image to wishlist panel
@@ -955,13 +1024,15 @@ function toggleWishlist() {
   document.getElementById('wishlist-panel').classList.toggle('show');
 }
 
-// Trigger panel from wishlist icon
-document.querySelector('[aria-label="Wishlist"]').addEventListener('click', function(e) {
-  e.preventDefault();
-  toggleWishlist();
+// Trigger panel from all wishlist icons (desktop + mobile)
+document.querySelectorAll('[aria-label="Wishlist"]').forEach(icon => {
+  icon.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleWishlist();
+  });
 });
 
-// Inject wishlist icons and handle clicks
+// Inject wishlist icons and handle image clicks
 document.querySelectorAll('.wishlist-target').forEach(container => {
   const icon = document.createElement('div');
   icon.classList.add('wishlist-icon');
@@ -979,6 +1050,7 @@ document.querySelectorAll('.wishlist-target').forEach(container => {
     }
   });
 });
+
 
 
 
