@@ -17,10 +17,10 @@
   <link rel="stylesheet" href="{% static 'tc_bridal/style/style.css' %}" />
 
   <!-- Open Graph Meta -->
-  <meta property="og:title" content="Tc bridals - Bridal Shoes" />
-  <meta property="og:description" content="Step into elegance with our collection of bridal gowns, shoes and etc. visit now at Tc bridals." />
-  <meta property="og:image" content="https://https://tcbridals.com//img/logo.png" />
-  <meta property="og:url" content="https://https://tcbridals.com//ceo.html" />
+  <meta property="og:title" content="Tc Bridals" />
+  <meta property="og:description" content="Step into elegance with our collection of bridal shoes. Visit Tc Bridals now." />
+  <meta property="og:image" content="https://tcbridals.com/static/tc_bridal/img/logo.png" />
+  <meta property="og:url" content="https://tcbridals.com/index.html" />
   <meta property="og:type" content="website" />
 
   <!-- Custom CSS -->
@@ -618,14 +618,14 @@ footer ul li a:hover {
         </form>
         <a href="#" class="position-relative" aria-label="Wishlist">
           <i class="fas fa-heart fa-lg text-dark"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+          <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
         </a>
       </div>
 
       <!-- Right: Wishlist (Mobile only) -->
       <a href="#" class="d-lg-none position-relative" aria-label="Wishlist">
         <i class="fas fa-heart fa-lg text-dark"></i>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+        <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
       </a>
     </div>
   </div>
@@ -846,6 +846,22 @@ footer ul li a:hover {
 </section>
 
 {% endif %}
+
+
+<!-- Wishlist Panel -->
+<div id="wishlist-panel" class="wishlist-panel">
+  <div class="wishlist-header">
+    <h5>Your Wishlist</h5>
+    <button class="wishlist-close" onclick="toggleWishlist()">×</button>
+  </div>
+  <div class="wishlist-body">
+    <p id="wishlist-empty-text">Your wishlist is empty.</p>
+  </div>
+</div>
+
+
+<!-- Alert Box -->
+<div id="wishlist-alert" class="wishlist-alert"></div>
 
 
   <!-- FOOTER SECTION -->
