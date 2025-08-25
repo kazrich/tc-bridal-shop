@@ -24,6 +24,23 @@
 
   <!-- Custom CSS -->
   <style>
+.color-swatches .swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease;
+}
+
+.color-swatches .swatch:hover {
+  transform: scale(1.1);
+  border-color: #999;
+}
+
+
+
 @media (max-width: 768px) {
   .navbar-nav {
     justify-content: flex-start !important;
@@ -278,15 +295,14 @@
     background-color: transparent;
     padding: 40px;
     gap: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
     flex-wrap: wrap; /* mobile responsive */
   }
   
   .banner-image img {
     width: 250px;
     height: auto;
-    border-radius: 15px;
+    border-radius: 0px;
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
@@ -345,7 +361,7 @@
     width: 100%;
     aspect-ratio: 1/1; /* Makes all images square */
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 0px;
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -356,7 +372,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Crop without stretching */
-    border-radius: 15px;
+    border-radius: 0px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
 }
@@ -757,44 +773,246 @@ footer ul li a:hover {
 <section >
   <div class="container py-4">
     <div class="row">
-        <div class="col-6 col-md-3 mb-4">
-            <div class="image-box wishlist-target">
-                <img src="{% static 'tc_bridal/img/bag2.jpg' %}" alt="Item 1" class="img-fluid hover-effect">
-            </div>
-        </div>
-
-        <div class="col-6 col-md-3 mb-4">
-            <div class="image-box wishlist-target">
-                <img src="{% static 'tc_bridal/img/bag3.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
-            </div>
-        </div>
-
-
-        <div class="col-6 col-md-3 mb-4">
-            <div class="image-box wishlist-target">
-                <img src="{% static 'tc_bridal/img/bag4.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
-            </div>
-        </div>
-        <div class="col-6 col-md-3 mb-4">
+      <div class="col-6 col-md-3 mb-4">
+        <div class="bag2-section">
           <div class="image-box wishlist-target">
-              <img src="{% static 'tc_bridal/img/bag5.jpeg' %}" alt="Item 4" class="img-fluid hover-effect">
+            <!-- Active image: bags2.jpg (assumed black) -->
+            <img src="{% static 'tc_bridal/img/bags2.jpg' %}" alt="Bag 2 - Black" class="img-fluid hover-effect bag2-img active d-block" data-color="black">
+            <!-- Hidden variants -->
+            <img src="{% static 'tc_bridal/img/bag2-black.jpg' %}" alt="Bag 2 - Navy" class="img-fluid hover-effect bag2-img d-none" data-color="navy">
+            <img src="{% static 'tc_bridal/img/bag2-red.jpg' %}" alt="Bag 2 - Red" class="img-fluid hover-effect bag2-img d-none" data-color="red">
+            <img src="{% static 'tc_bridal/img/bag2-cream.jpg' %}" alt="Bag 2 - Cream" class="img-fluid hover-effect bag2-img d-none" data-color="cream">
           </div>
+
+          <!-- Color swatches -->
+          <div class="color-swatches mt-2 d-flex justify-content-center">
+            <div class="swatch" data-color="black" style="background-color: rgb(106, 106, 235);"></div>
+            <div class="swatch" data-color="navy" style="background-color: rgb(0, 20, 49);"></div>
+            <div class="swatch" data-color="red" style="background-color: red;"></div>
+            <div class="swatch" data-color="cream" style="background-color: #f7f7ce;"></div>
+          </div>
+
+          <!-- Scoped JS just for Bag 2 -->
+          <script>
+            (function() {
+              const section = document.currentScript.closest('.bag2-section');
+              const swatches = section.querySelectorAll('.swatch');
+              const images = section.querySelectorAll('.bag2-img');
+
+              swatches.forEach(swatch => {
+                swatch.addEventListener('click', () => {
+                  const selectedColor = swatch.getAttribute('data-color');
+
+                  // Hide all images
+                  images.forEach(img => img.classList.add('d-none'));
+
+                  // Show the selected image
+                  const targetImage = section.querySelector(`.bag2-img[data-color="${selectedColor}"]`);
+                  if (targetImage) {
+                    targetImage.classList.remove('d-none');
+                  }
+                });
+              });
+            })();
+          </script>
         </div>
-        <div class="col-6 col-md-3 mb-4">
+      </div>
+
+
+
+      <div class="col-6 col-md-3 mb-4">
           <div class="image-box wishlist-target">
-              <img src="{% static 'tc_bridal/img/bag6.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+              <img src="{% static 'tc_bridal/img/bag3.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
           </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+          <div class="image-box wishlist-target">
+              <img src="{% static 'tc_bridal/img/bag21.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
+          </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+          <div class="image-box wishlist-target">
+              <img src="{% static 'tc_bridal/img/bag22.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
+          </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+          <div class="image-box wishlist-target">
+              <img src="{% static 'tc_bridal/img/bag23.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
+          </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+          <div class="image-box wishlist-target">
+              <img src="{% static 'tc_bridal/img/bag24.jpg' %}" alt="Item 2" class="img-fluid hover-effect">
+          </div>
+      </div>
+
+
+      <div class="col-6 col-md-3 mb-4">
+          <div class="image-box wishlist-target">
+              <img src="{% static 'tc_bridal/img/bag20.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+          </div>
+      </div>
+
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="bag9-section">
+          <div class="image-box wishlist-target">
+            <!-- Active image: Black -->
+            <img src="{% static 'tc_bridal/img/bag9-black.jpg' %}" alt="Bag 9 - Black" class="img-fluid hover-effect bag9-img active d-block" data-color="black">
+
+            <!-- Hidden variants -->
+            <img src="{% static 'tc_bridal/img/bag9-blue.jpg' %}" alt="Bag 9 - Blue" class="img-fluid hover-effect bag9-img d-none" data-color="blue">
+            <img src="{% static 'tc_bridal/img/bag9-brown.jpg' %}" alt="Bag 9 - Brown" class="img-fluid hover-effect bag9-img d-none" data-color="brown">
+            <img src="{% static 'tc_bridal/img/bag9-green.jpg' %}" alt="Bag 9 - Green" class="img-fluid hover-effect bag9-img d-none" data-color="green">
+          </div>
+
+          <!-- Color swatches -->
+          <div class="color-swatches mt-2 d-flex justify-content-center">
+            <div class="swatch" data-color="black" style="background-color: black;"></div>
+            <div class="swatch" data-color="blue" style="background-color: rgb(111, 111, 230);"></div>
+            <div class="swatch" data-color="brown" style="background-color: rgba(159, 110, 46, 0.725);"></div>
+            <div class="swatch" data-color="green" style="background-color: rgb(5, 116, 5);"></div>
+          </div>
+
+          <!-- Scoped JS just for Bag 9 -->
+          <script>
+            (function() {
+              const section = document.currentScript.closest('.bag9-section');
+              const swatches = section.querySelectorAll('.swatch');
+              const images = section.querySelectorAll('.bag9-img');
+
+              swatches.forEach(swatch => {
+                swatch.addEventListener('click', () => {
+                  const selectedColor = swatch.getAttribute('data-color');
+
+                  // Hide all images
+                  images.forEach(img => img.classList.add('d-none'));
+
+                  // Show the selected image
+                  const targetImage = section.querySelector(`.bag9-img[data-color="${selectedColor}"]`);
+                  if (targetImage) {
+                    targetImage.classList.remove('d-none');
+                  }
+                });
+              });
+            })();
+          </script>
         </div>
+      </div>
+
+
+
+        
       <div class="col-6 col-md-3 mb-4">
         <div class="image-box wishlist-target">
-            <img src="{% static 'tc_bridal/img/bag7.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+            <img src="{% static 'tc_bridal/img/bag10.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
         </div>
       </div>
       <div class="col-6 col-md-3 mb-4">
         <div class="image-box wishlist-target">
-            <img src="{% static 'tc_bridal/img/bag8.png' %}" alt="Item 4" class="img-fluid hover-effect">
+            <img src="{% static 'tc_bridal/img/bag11.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
         </div>
       </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag12.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag13.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag14.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag15.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag16.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag17.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag18.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="image-box wishlist-target">
+            <img src="{% static 'tc_bridal/img/bag19.jpg' %}" alt="Item 4" class="img-fluid hover-effect">
+        </div>
+      </div>
+
+<div class="col-6 col-md-3 mb-4">
+  <div class="bag26-section">
+    <div class="image-box wishlist-target">
+      <!-- Active image: Green -->
+      <img src="{% static 'tc_bridal/img/bag26-green.jpg' %}" alt="Bag 26 - Green"
+           class="img-fluid hover-effect bag26-img active d-block wishlist-target"
+           data-color="green">
+
+      <!-- Hidden variants -->
+      <img src="{% static 'tc_bridal/img/bag26-blue.jpg' %}" alt="Bag 26 - Blue"
+           class="img-fluid hover-effect bag26-img d-none wishlist-target"
+           data-color="blue">
+
+      <img src="{% static 'tc_bridal/img/bag26-purple.jpg' %}" alt="Bag 26 - Purple"
+           class="img-fluid hover-effect bag26-img d-none wishlist-target"
+           data-color="purple">
+    </div>
+
+    <!-- Color swatches -->
+    <div class="color-swatches mt-2 d-flex justify-content-center">
+      <div class="swatch" data-color="green" style="background-color: rgb(5, 116, 5);"></div>
+      <div class="swatch" data-color="blue" style="background-color: rgb(111, 111, 230);"></div>
+      <div class="swatch" data-color="purple" style="background-color: purple;"></div>
+    </div>
+
+    <!-- Scoped JS just for Bag 26 -->
+    <script>
+      (function() {
+        const section = document.currentScript.closest('.bag26-section');
+        const swatches = section.querySelectorAll('.swatch');
+        const images = section.querySelectorAll('.bag26-img');
+
+        swatches.forEach(swatch => {
+          swatch.addEventListener('click', () => {
+            const selectedColor = swatch.getAttribute('data-color');
+
+            // Hide all images and remove 'active' class
+            images.forEach(img => {
+              img.classList.add('d-none');
+              img.classList.remove('active');
+            });
+
+            // Show and mark the selected image as active
+            const targetImage = section.querySelector(`.bag26-img[data-color="${selectedColor}"]`);
+            if (targetImage) {
+              targetImage.classList.remove('d-none');
+              targetImage.classList.add('active');
+            }
+          });
+        });
+      })();
+    </script>
+  </div>
+</div>
+      
     </div>
   </div>
 

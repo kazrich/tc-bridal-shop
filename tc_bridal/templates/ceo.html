@@ -522,14 +522,14 @@ footer ul li a:hover {
         </form>
         <a href="#" class="position-relative" aria-label="Wishlist">
           <i class="fas fa-heart fa-lg text-dark"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+          <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
         </a>
       </div>
 
       <!-- Right: Wishlist (Mobile only) -->
       <a href="#" class="d-lg-none position-relative" aria-label="Wishlist">
         <i class="fas fa-heart fa-lg text-dark"></i>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+        <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
       </a>
     </div>
   </div>
@@ -718,7 +718,23 @@ footer ul li a:hover {
     </div>
 </section>
 
-        
+
+<!-- Wishlist Panel -->
+<div id="wishlist-panel" class="wishlist-panel">
+  <div class="wishlist-header">
+    <h5>Your Wishlist</h5>
+    <button class="wishlist-close" onclick="toggleWishlist()">×</button>
+  </div>
+  <div class="wishlist-body">
+    <p id="wishlist-empty-text">Your wishlist is empty.</p>
+  </div>
+</div>
+
+
+<!-- Alert Box -->
+<div id="wishlist-alert" class="wishlist-alert"></div>
+
+
             
 <!-- Footer -->
 <footer class="bg-light text-black py-4 mt-5 px-3">
