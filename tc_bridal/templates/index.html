@@ -31,6 +31,155 @@
 
   <!-- Custom CSS -->
   <style>
+.promo-intro {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 60px 40px;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+}
+
+.promo-intro h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #000000;
+  letter-spacing: 1px;
+  font-weight: bolder;
+}
+
+.promo-intro p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-template-rows: 300px 300px;    /* Two equal rows */
+  gap: 20px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+/* Shared block styling */
+.promo-block {
+  position: relative;
+  border-radius: 0px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.promo-block:hover {
+  transform: scale(1.02);
+}
+
+.promo-block:hover .text {
+  filter: blur(6px);
+  opacity: 0.6;
+  transform: scale(1.1); /* Zoom-in effect */
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Text styling */
+.text h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.text p {
+  font-size: 1rem;
+  margin-top: 6px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Individual block placement */
+.wood {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3; /* Tall block spanning both rows */
+  background-color: #c50c62;
+  background-image: url("{% static 'tc_bridal/img/piece.jpg' %}");
+}
+
+.gifts {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2; /* Wide block across top right */
+  background-color: #0d6efd;
+  background-image: url("{% static 'tc_bridal/img/piece2.jpg' %}");
+}
+
+.watches {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background-color: #000000;
+  background-image: url("{% static 'tc_bridal/img/piece4.jpg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.weddings {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3; /* Bottom right square */
+  background-image: url("{% static 'tc_bridal/img/piece1.jpg' %}");
+}
+
+
+@media screen and (max-width: 768px) {
+  .promo-intro {
+    padding: 40px 20px;
+  }
+
+  .promo-intro h1 {
+    font-size: 2rem;
+  }
+
+  .promo-intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+
+  .promo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .promo-block {
+    height: 250px;
+    padding: 15px;
+  }
+
+  .text h2 {
+    font-size: 1.2rem;
+  }
+
+  .text p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+
+
 .wishlist-trigger {
   position: relative;
   display: inline-block;
@@ -1568,6 +1717,48 @@ footer ul li a:hover {
 </div>
 
 
+<!-- Special Moments for our clients -->
+<div class="promo-intro">
+  <h1>Special Moments Begin Here</h1>
+  <p>
+    At TC Bridals, we don’t just dress your day—we celebrate it with you.  
+    Every sparkle, every clasp, every detail is a reflection of the trust you’ve given us  
+    to be part of your most cherished moments.
+    Here are the special moments of the family of <span style="font-weight: bold; color: #000; font-size: 30px;">Mr & Mrs R</span>
+  </p>
+</div>
+
+<div class="promo-grid">
+  <div class="promo-block wood">
+     <div class="image-layer"></div>
+    <div class="text">
+      <h2>When those prayers are finally answered by GOD</h2>
+      <p>why cant you set the rythem of your day with a smile and dance to infinity</p>
+    </div>
+  </div>
+  <div class="promo-block gifts">
+    <div class="image-layer"></div>
+    <div class="text">
+      <h2>Team up and let the beauty and fashion speak for you</h2>
+      <p>look at the poze</p>
+    </div>
+  </div>
+  <div class="promo-block watches">
+    <div class="image-layer"></div>
+    <div class="text">
+      <h2>Look at this moment, bonded with love and respect</h2>
+    </div>
+  </div>
+  <div class="promo-block weddings">
+    <div class="image-layer"></div>
+    <div class="text">
+        <h2>God has sealed the moment with a sign of love, commitment & honor</h2>
+    </div>
+  </div>
+</div>
+
+
+
 
     <!-- bridal gowns -->
   <section class="py-5" style="background-color: white;">
@@ -1587,7 +1778,7 @@ footer ul li a:hover {
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
           <div class="category-card text-center">
             <div class="image-wrapper">
-              <img src="{% static 'tc_bridal/img/b.jpg' %}" class="img-fluid rounded" alt="Earrings">
+              <img src="{% static 'tc_bridal/img/piece7.jpg' %}" class="img-fluid rounded" alt="Earrings">
               <div class="overlay-text">
                 <h3 class="category-title">BRIDAL GOWNS</h3>
                 <p class="product-count">see beauty for her</p>
@@ -1625,8 +1816,12 @@ footer ul li a:hover {
             <img src="{% static 'tc_bridal/img/b6.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
-                <div class="gallery-item wishlist-target">
+        <div class="gallery-item wishlist-target">
             <img src="{% static 'tc_bridal/img/b7.jpg' %}" alt="Gomesi">
+            <div class="caption">By Taylor</div>
+        </div>
+        <div class="gallery-item wishlist-target">
+            <img src="{% static 'tc_bridal/img/piece0.jpg' %}" alt="Gomesi">
             <div class="caption">By Taylor</div>
         </div>
 
