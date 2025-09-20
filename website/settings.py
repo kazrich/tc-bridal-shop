@@ -108,3 +108,6 @@ EMAIL_USE_TLS = True
 # DEFAULT FIELD TYPE
 # ─────────────────────────────────────────────────────────────
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
