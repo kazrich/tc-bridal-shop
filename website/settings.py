@@ -11,18 +11,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ─────────────────────────────────────────────────────────────
 SECRET_KEY = 'django-insecure-h2eus7w^sdufy2r4k=jun2b6m_i&w^*ajc08mxb_w!&=c78mm+'  # 🔒 Replace in production
 DEBUG = True  # 🔧 Set to False in production
-ALLOWED_HOSTS = ['*']  # 🌍 Replace with your domain in production
+ALLOWED_HOSTS = ['tcbridals.com', 'www.tcbridals.com']  # 🌍 Replace with your domain in production
 
 # ─────────────────────────────────────────────────────────────
 # APPLICATION DEFINITION
 # ─────────────────────────────────────────────────────────────
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.admin',
+# 'django.contrib.messages',
+# 'django.contrib.staticfiles',
+,
     'tc_bridal',  # Your custom app
 ]
 
