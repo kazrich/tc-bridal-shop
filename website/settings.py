@@ -17,13 +17,12 @@ ALLOWED_HOSTS = ['tcbridals.com', 'www.tcbridals.com']  # 🌍 Replace with your
 # APPLICATION DEFINITION
 # ─────────────────────────────────────────────────────────────
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    # 'django.contrib.admin',
-# 'django.contrib.messages',
-# 'django.contrib.staticfiles',
-,
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
     'tc_bridal',  # Your custom app
 ]
 
