@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ─────────────────────────────────────────────────────────────
 SECRET_KEY = 'django-insecure-h2eus7w^sdufy2r4k=jun2b6m_i&w^*ajc08mxb_w!&=c78mm+'  # 🔒 Replace in production
 DEBUG = True  # 🔧 Set to False in production
-ALLOWED_HOSTS = ['tcbridals.com', 'www.tcbridals.com']  # 🌍 Replace with your domain in production
+ALLOWED_HOSTS = ['tcbridals.com', 'www.tcbridals.com'] # 🌍 Replace with your domain in production
 
 # ─────────────────────────────────────────────────────────────
 # APPLICATION DEFINITION
@@ -42,7 +42,9 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Add custom template directories here
+        'DIRS': [
+            os.path.join(BASE_DIR, 'tc_bridal', 'templates'),  # ← Add this line
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -53,6 +55,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
