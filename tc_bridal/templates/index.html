@@ -1290,6 +1290,129 @@ footer ul li a:hover {
   background-color: #ffffff;
   color: #000000;
 }
+
+
+
+
+.guest-room-promo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;       /* Keeps layout centered and elegant */
+  margin: 0 auto;           /* Equal left and right spacing */
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.promo-content {
+  flex: 1;
+  max-width: 500px;
+  padding-right: 2rem;
+}
+
+.promo-content h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.promo-content p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.shop-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #d4a017; /* Mustard tone */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: #b88c0f;
+}
+
+.promo-image {
+  flex: 1;
+  text-align: center;
+}
+
+.promo-image img {
+  width: 400px;             /* Reduced image size for desktop */
+  height: auto;
+  border-radius: 0px;
+  margin: 0 auto;
+}
+
+/* 📱 Mobile Styles */
+@media (max-width: 768px) {
+  .guest-room-promo {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .promo-content {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .promo-content h2 {
+    font-size: 2rem;
+  }
+
+  .promo-content p {
+    font-size: 1rem;
+  }
+
+  .shop-btn {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .promo-image {
+    margin-top: 2rem;
+
+  }
+
+  .promo-image img{
+    max-width: 100%;
+  }
+}
+
+
+.typing-container {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  line-height: 1.6;
+  border-left: 4px solid #d4a017;
+  background-color: #fffbe6;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+#typing-text {
+  white-space: pre-wrap;
+  overflow: hidden;
+  border-right: 2px solid #d4a017;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Optional blinking caret effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #d4a017; }
+}
+
+
   </style>
 </head>
 
@@ -1658,7 +1781,23 @@ footer ul li a:hover {
 
 
 
-
+<!--Calender Celebrations-->
+<section class="guest-room-promo">
+  <div class="promo-content">
+    <h2>Calendar Celebrations</h2>
+    <div class="typing-container">
+      <p id="typing-text">
+        Today and the rest of 2025, we celebrate Uganda’s 63rd Independence Day—a moment of pride, reflection, and unity. 
+        As we honor the resilience and spirit of Ugandan citizens, TC Bridals joins the nation in wishing 
+        everyone a peaceful and joyful celebration. May this day remind us of the beauty of freedom, 
+        the strength of community, and the promise of a brighter tomorrow.
+      </p>
+    </div>
+  </div>
+  <div class="promo-image">
+    <img src="{% static 'tc_bridal/img/indep.jpg' %}" alt="Mustard yellow armchair and ottoman" />
+  </div>
+</section>
 
 
 
@@ -2019,6 +2158,41 @@ footer ul li a:hover {
 
 
   <script>
+ // Calender Celebrations   
+  document.addEventListener("DOMContentLoaded", function () {
+    const target = document.getElementById("typing-text");
+    const fullText = target.textContent;
+    target.textContent = "";
+
+    let index = 0;
+    let hasStarted = false;
+
+    function typeText() {
+      if (index < fullText.length) {
+        target.textContent += fullText.charAt(index);
+        index++;
+        setTimeout(typeText, 30); // Typing speed
+      }
+    }
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom >= 0;
+    }
+
+    function handleScroll() {
+      if (!hasStarted && isInViewport(target)) {
+        hasStarted = true;
+        typeText();
+        window.removeEventListener("scroll", handleScroll);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on load
+  });
+
+
 // Initialize wishlist from localStorage
 const wishlist = new Set(JSON.parse(localStorage.getItem('wishlist')) || []);
 
